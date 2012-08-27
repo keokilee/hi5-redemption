@@ -16,10 +16,9 @@ app.configure ->
   app.use express.logger('dev')
   app.use express.bodyParser()
   app.use express.methodOverride()
-  app.use express.cookieParser('redemption-ftw')
+  app.use express.cookieParser(settings.config.get('SECRET_KEY'))
   app.use express.session()
   app.use app.router
-  app.use require('less-middleware')({ src: __dirname + '/public' })
   app.use express.static(path.join(__dirname, 'public'))
 
 

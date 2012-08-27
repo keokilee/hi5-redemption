@@ -1,14 +1,13 @@
 {
-  "name": "application-name",
+  "name": "hi5-redemption",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "coffee app.coffee"
   },
   "dependencies": {
     "express": "3.0.0rc3",
     "jade": "*",
-    "less-middleware": "*"
     "coffee-scirpt": "1.3.x",
     "nconf": "0.6.x"
   }
