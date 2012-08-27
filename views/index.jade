@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(data-role='page')
+    div(data-role="header")
+        h1 HI-5 Redemption
+
+    div#searchView(data-role="content")
+        h2 Find a redemption center
+        input#searchField(type='text', placeholder="Enter a location")

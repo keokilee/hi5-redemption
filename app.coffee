@@ -16,10 +16,9 @@ app.configure ->
   app.use express.logger('dev')
   app.use express.bodyParser()
   app.use express.methodOverride()
-  app.use express.cookieParser(settings.config.get('SECRET_KEY'))
-  app.use express.session()
   app.use app.router
   app.use express.static(path.join(__dirname, 'public'))
+  app.use require('connect-assets')()
 
 
 app.configure 'development', ->
@@ -28,4 +27,4 @@ app.configure 'development', ->
 app.get '/', routes.index
 
 http.createServer(app).listen app.get('port'), ->
-  console.log("Express server listening on port " + app.get('port'));
+  console.log "Express server listening on port " + app.get('port')
