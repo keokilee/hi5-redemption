@@ -4,11 +4,12 @@ express = require 'express'
 routes = require './routes'
 http = require 'http'
 path = require 'path'
+settings = require './settings'
 
 app = express()
 
 app.configure ->
-  app.set 'port', (process.env.PORT || 3000)
+  app.set 'port', settings.config.get('PORT')
   app.set 'views', (__dirname + '/views')
   app.set 'view engine', 'jade'
   app.use express.favicon()
