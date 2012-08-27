@@ -10,7 +10,7 @@ settings.argv().env()
 settings.set 'NODE_ENV', 'development'
 
 # Then load the environment's settings.
-settings.file { file: 'config/#{settings.get("NODE_ENV")}.json' }
+settings.file { file: 'settings/#{settings.get("NODE_ENV")}.json' }
 
 # Provide default values for settings not provided above.
 settings.defaults
