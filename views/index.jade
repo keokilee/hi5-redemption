@@ -6,5 +6,10 @@ block content
         h1 HI-5 Redemption
 
     div#searchView(data-role="content")
-        h2 Find a redemption center
-        input#searchField(type='text', placeholder="Enter a location")
+        h2 Find a nearby redemption center
+        fieldset(data-role="controlgroup")
+            input(type='text', placeholder="Enter a location")
+            input#use-location(type="checkbox", name="use-location")
+            label(for="use-location") Use current location
+            input(type='hidden', name='latitude', value='')
+            input(type='hidden', name='longitude', value='')
