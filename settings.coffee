@@ -17,6 +17,6 @@ settings.file { file: 'settings/#{settings.get("NODE_ENV")}.json' }
 settings.defaults
     'PORT': 3000
     'SECRET_KEY': ''
-    'QUERY_URL': 'http://services.arcgis.com/tNJpAOha4mODLkXz/ArcGIS/rest/services/Refuse_HI5_Redem/FeatureServer/0/query?where=1%3D1&objectIds=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&f=pjson&token='
+    'QUERY_URL': 'http://services.arcgis.com/tNJpAOha4mODLkXz/ArcGIS/rest/services/Refuse_HI5_Redem/FeatureServer/0/query?where=1%3D1&objectIds=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=4001&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&f=pjson&token='
 
 exports.config = settings
