@@ -1,15 +1,16 @@
 extends layout
 
 block content
-  div(data-role='page')
+  div#searchView(data-role='page')
     div(data-role="header")
         h1 HI-5 Redemption
 
-    div#searchView(data-role="content")
+    div(data-role="content")
         h2 Find a nearby redemption center
         fieldset(data-role="controlgroup")
             input(type='text', placeholder="Enter a location")
             input#use-location(type="checkbox", name="use-location")
-            label(for="use-location") Use current location
+            label(for="use-location") Or, use current location
             input(type='hidden', name='latitude', value='')
             input(type='hidden', name='longitude', value='')
+            input(type='submit', value='Find locations')
