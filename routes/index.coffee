@@ -2,7 +2,7 @@
 locations = require('../locations')
 
 exports.index = (req, res) ->
-    res.render 'index', { title: 'Hi5 Redemption' }
+    res.render 'index'
 
 exports.api =
     locations: (req, res) ->
