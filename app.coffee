@@ -9,7 +9,7 @@ settings = require './settings'
 app = express()
 
 app.configure ->
-  app.set 'port', settings.config.get('PORT')
+  app.set 'port', settings.get('PORT')
   app.set 'views', (__dirname + '/views')
   app.set 'view engine', 'jade'
   app.use express.favicon()

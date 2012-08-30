@@ -28,18 +28,12 @@ SearchView = Backbone.View.extend
                 this.$("input[type='checkbox']").attr("checked", false).checkboxradio("refresh");
 
     events:
-        'change input[type=checkbox]': 'requestLocation'
+        'click .ui-btn-right': 'requestLocation'
 
     requestLocation: (event) ->
-        $checkbox = $(event.currentTarget)
-        if $checkbox.is(':checked')
-            navigator.geolocation.getCurrentPosition(
-                (position) =>
-                    this.setLocation position.coords.latitude, position.coords.longitude
-            )
-
-        else
-            this.setLocation '', ''
+        navigator.geolocation.getCurrentPosition (position) =>
+            this.$('input[type=text]').prop 'placeholder', 'Current Location'
+            this.setLocation position.coords.latitude, position.coords.longitude
 
     setLocation: (latitude, longitude) ->
         $("input[name=latitude]").val latitude
