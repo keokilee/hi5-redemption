@@ -1,3 +1,10 @@
 script#locationTemplate(type="text/template")
-        a(href!="/locations/<%= OBJECTID %>/")
+        a(href!="#locations/<%= OBJECTID %>")
             label <%= NAME %>
+
+script#detailTemplate(type="text/template")
+    div(data-role="header")
+        h1 Hi
+
+    div(data-role="content")
+        p Hello world

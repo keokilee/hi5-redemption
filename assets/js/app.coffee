@@ -1,44 +1,63 @@
-Location = Backbone.Model
+########## Event handler #########################
 
-LocationView = Backbone.View.extend
-    tagName: 'li'
-    template: _.template($('#locationTemplate').html())
-    render: ->
-        this.$el.html(this.template(this.model.toJSON()))
-        return this
+handler = {}
+_.extend(handler, Backbone.Events)
+
+########## Models and Collections ################
+
+Location = Backbone.Model
 
 LocationCollection = Backbone.Collection.extend
     model: Location
     url: "/locations/"
     search: (options, queryObj) ->
         baseUrl = "/locations/"
-        if queryObj?
-            this.url = this.url + "?" + $.param(queryObj)
+        @url = @url + "?" + $.param(queryObj) if queryObj?
 
-        this.fetch(options)
+        @fetch(options)
 
 Locations = new LocationCollection
+
+########### Views ################
+
+LocationItemView = Backbone.View.extend
+    el: $('#locationView')
+    template: _.template($('#detailTemplate').html())
+    render: ->
+        @$el.html @template()
+        return this
+
+LocationRowView = Backbone.View.extend
+    tagName: 'li'
+    template: _.template($('#locationTemplate').html())
+
+    render: ->
+        @$el.html @template(@model.toJSON())
+        return this
 
 ResultView = Backbone.View.extend
     el: $('#resultView')
     initialize: ->
+        # Clear the list of results
+        @$el.empty()
+
         Locations.search {
             success: (collection, response) =>
-                this.collection = collection
-                this.render()
+                @collection = collection
+                @render()
         },
-        {lat: this.options.lat, long: this.options.long}
+        {lat: @options.lat, long: @options.long}
 
     render: ->
-        this.collection.each (location) =>
-            view = new LocationView {model: location}
-            this.$el.append view.render().el
-            this.$el.listview('refresh')
+        @collection.each (location) =>
+            view = new LocationRowView {model: location}
+            @$el.append view.render().el
+            @$el.listview 'refresh'
 
 SearchView = Backbone.View.extend
     el: $('#searchView')
     initialize: ->
-        this.initializeSearchBox this.$('input[type=text]')
+        @initializeSearchBox @$('input[type=text]')
 
     initializeSearchBox: (searchBox) ->
         # Default bounds for Honolulu
@@ -56,20 +75,49 @@ SearchView = Backbone.View.extend
         # Set up a place changed listener for the box.
         google.maps.event.addListener autocomplete, 'place_changed', =>
             place = autocomplete.getPlace()
-            this.getResults place.geometry.location.Xa, place.geometry.location.Ya
+            @getResults place.geometry.location.Xa, place.geometry.location.Ya
 
     events:
         'click .ui-btn-right': 'requestLocation'
 
     requestLocation: (event) ->
         navigator.geolocation.getCurrentPosition (position) =>
-            this.$('input[type=text]').prop 'placeholder', 'Current Location'
-            this.getResults position.coords.latitude, position.coords.longitude
+            @$('input[type=text]').prop 'placeholder', 'Current Location'
+            @getResults position.coords.latitude, position.coords.longitude
 
     getResults: (latitude, longitude) ->
         resultView = new ResultView {lat: latitude, long: longitude}
 
+########## Router ##############
+AppRouter = Backbone.Router.extend
+    routes:
+        "": "search"
+        "locations/:id": "showLocation"
 
-$ ->
-    App = new SearchView
+    initialize: ->
+        $("a[data-rel=back]").live 'click', (event) ->
+            window.history.back()
+            false
 
+        @firstPage = true
+
+    changePage: (page) ->
+        transition = $.mobile.defaultPageTransition
+        if @firstPage
+            transition = 'none'
+            @firstPage = false
+
+        $.mobile.changePage $(page.render().el), {changeHash: false, transition: transition}
+        # Needed to rerender page.
+        $(page.render().el).trigger('pagecreate')
+
+    search: ->
+        @changePage(new SearchView())
+
+    showLocation: (id) ->
+        @changePage(new LocationItemView(id))
+
+
+$(document).ready ->
+    router = new AppRouter()
+    Backbone.history.start()
