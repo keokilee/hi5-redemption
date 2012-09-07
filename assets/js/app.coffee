@@ -1,6 +1,10 @@
 ########## Models and Collections ################
 
 Location = Backbone.Model.extend
+    initialize: ->
+        if @attributes? and @attributes.OBJECTID?
+            @id = @attributes.OBJECTID
+
     url: ->
         return "/locations/" + @id
 
@@ -10,7 +14,6 @@ LocationCollection = Backbone.Collection.extend
     search: (options, queryObj) ->
         @url = @baseUrl
         @url = @url + "?" + $.param(queryObj) if queryObj?
-
         @fetch(options)
 
 Locations = new LocationCollection
@@ -19,7 +22,7 @@ Locations = new LocationCollection
 
 LocationItemView = Backbone.View.extend
     el: $('#locationView')
-    template: _.template($('#detailTemplate').html())
+    template: _.template $('#detailTemplate').html()
     initialize: ->
         @model = @options.model
 
@@ -29,7 +32,7 @@ LocationItemView = Backbone.View.extend
 
 LocationRowView = Backbone.View.extend
     tagName: 'li'
-    template: _.template($('#locationTemplate').html())
+    template: _.template $('#locationTemplate').html()
 
     render: ->
         @$el.html @template(@model.toJSON())
@@ -50,6 +53,7 @@ ResultView = Backbone.View.extend
 
     render: ->
         @collection.each (location) =>
+            console.log location
             view = new LocationRowView {model: location}
             @$el.append view.render().el
             # Rerender the list view to get the jQuery Mobile stylings.
@@ -83,7 +87,7 @@ SearchView = Backbone.View.extend
 
     requestLocation: (event) ->
         navigator.geolocation.getCurrentPosition (position) =>
-            @$('input[type=text]').prop 'placeholder', 'Current Location'
+            @$('input[type=text]').val "Current Location"
             @getResults position.coords.latitude, position.coords.longitude
 
     getResults: (latitude, longitude) ->
@@ -123,7 +127,8 @@ AppRouter = Backbone.Router.extend
                 @changePage(new LocationItemView({model: model}))
         }
 
-
+######### Entry point #########
 $(document).ready ->
     router = new AppRouter()
     Backbone.history.start()
+
