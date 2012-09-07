@@ -1,11 +1,8 @@
-########## Event handler #########################
-
-handler = {}
-_.extend(handler, Backbone.Events)
-
 ########## Models and Collections ################
 
-Location = Backbone.Model
+Location = Backbone.Model.extend
+    url: ->
+        return "/locations/" + @id
 
 LocationCollection = Backbone.Collection.extend
     model: Location
@@ -23,8 +20,11 @@ Locations = new LocationCollection
 LocationItemView = Backbone.View.extend
     el: $('#locationView')
     template: _.template($('#detailTemplate').html())
+    initialize: ->
+        @model = @options.model
+
     render: ->
-        @$el.html @template()
+        @$el.html @template(@model.attributes)
         return this
 
 LocationRowView = Backbone.View.extend
@@ -52,6 +52,7 @@ ResultView = Backbone.View.extend
         @collection.each (location) =>
             view = new LocationRowView {model: location}
             @$el.append view.render().el
+            # Rerender the list view to get the jQuery Mobile stylings.
             @$el.listview 'refresh'
 
 SearchView = Backbone.View.extend
@@ -95,6 +96,7 @@ AppRouter = Backbone.Router.extend
         "locations/:id": "showLocation"
 
     initialize: ->
+        # Handle click in back button.
         $("a[data-rel=back]").live 'click', (event) ->
             window.history.back()
             false
@@ -108,14 +110,18 @@ AppRouter = Backbone.Router.extend
             @firstPage = false
 
         $.mobile.changePage $(page.render().el), {changeHash: false, transition: transition}
-        # Needed to rerender page.
+        # Needed to rerender page. Page doesn't rerender the second time it is clicked.
         $(page.render().el).trigger('pagecreate')
 
     search: ->
         @changePage(new SearchView())
 
     showLocation: (id) ->
-        @changePage(new LocationItemView(id))
+        location = new Location {id: id}
+        location.fetch {
+            success: (model, response) =>
+                @changePage(new LocationItemView({model: model}))
+        }
 
 
 $(document).ready ->

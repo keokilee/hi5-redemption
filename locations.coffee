@@ -13,7 +13,6 @@ getLocations = (latitude, longitude, callback) ->
         db.collection 'locations', (err, collection) ->
             collection.find (err, cursor) ->
                 cursor.toArray (err, items) ->
-                    console.log items
                     callback items
                     db.close()
 
@@ -41,12 +40,12 @@ _remoteCallback = (response) ->
     response.on 'end', ->
         db.open (err, db) ->
             db.collection 'locations', (err, collection) ->
-                # Erase all records from the collection, if any
                 data = JSON.parse(body)
                 _reloadLocations(data, collection, db)
 
 _reloadLocations = (data, collection, db) ->
     console.log('Reloading locations')
+    # Erase all records from the collection, if any
     collection.remove {}, (err, result) ->
         _processAttributes(collection, location.attributes, location.geometry) for location in data.features
         collection.count (err, count) ->
