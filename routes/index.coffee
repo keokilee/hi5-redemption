@@ -6,7 +6,7 @@ exports.index = (req, res) ->
 
 exports.api =
     locations: (req, res) ->
-        locations.get req.params.lat, req.params.long, (result) ->
+        locations.get req.query.lat, req.query.long, (result) ->
             res.send result
 
     location: (req, res) ->

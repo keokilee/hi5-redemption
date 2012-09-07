@@ -6,9 +6,9 @@ Location = Backbone.Model.extend
 
 LocationCollection = Backbone.Collection.extend
     model: Location
-    url: "/locations/"
+    baseUrl: "/locations/"
     search: (options, queryObj) ->
-        baseUrl = "/locations/"
+        @url = @baseUrl
         @url = @url + "?" + $.param(queryObj) if queryObj?
 
         @fetch(options)

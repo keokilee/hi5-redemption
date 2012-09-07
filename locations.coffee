@@ -11,7 +11,7 @@ db = new Db('hi5-redemption', server, {})
 getLocations = (latitude, longitude, callback) ->
     db.open (err, db) ->
         db.collection 'locations', (err, collection) ->
-            collection.find (err, cursor) ->
+            collection.find {geometry: {$near: [parseFloat(longitude), parseFloat(latitude)]}}, {}, (err, cursor) ->
                 cursor.toArray (err, items) ->
                     callback items
                     db.close()
@@ -23,10 +23,6 @@ location = (locId, callback) ->
                 cursor.toArray (err, items) ->
                     callback items[0]
                     db.close()
-
-
-exports.loadData = ->
-    http.request(settings.get('QUERY_URL'), _remoteCallback).end()
 
 exports.get = getLocations
 exports.location = location
@@ -48,10 +44,23 @@ _reloadLocations = (data, collection, db) ->
     # Erase all records from the collection, if any
     collection.remove {}, (err, result) ->
         _processAttributes(collection, location.attributes, location.geometry) for location in data.features
-        collection.count (err, count) ->
-            console.log("Loaded " + count + " locations.");
-            db.close()
+        # Create index.
+        console.log "Establishing index."
+        collection.dropIndexes (err) ->
+            collection.ensureIndex {geometry: "2d"}, (err) ->
+                console.log(err) if err?
+                collection.count (err, count) ->
+                    console.log("Loaded " + count + " locations.");
+                    db.close()
 
 _processAttributes = (mongo, attributes, geometry) ->
-    attributes.geometry = geometry
+    attributes.geometry = [geometry.x, geometry.y]
+    console.log attributes
     mongo.insert(attributes)
+
+# Main method for loading data.
+main = ->
+    http.request(settings.get('QUERY_URL'), _remoteCallback).end()
+
+if require.main == module
+    main()
