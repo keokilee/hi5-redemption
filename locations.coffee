@@ -6,10 +6,10 @@ Db = mongodb.Db
 Server = mongodb.Server
 
 server = new Server settings.get('MONGO_NODE_DRIVER_HOST'), settings.get('MONGO_NODE_DRIVER_PORT'), {}
-db = new Db('hi5-redemption', server, {})
+db = new Db settings.get('MONGO_NODE_DATABASE'), server, {}
 
 getLocations = (latitude, longitude, callback) ->
-    db.open (err, db) ->
+    _authenticate (err, replies) ->
         db.collection 'locations', (err, collection) ->
             collection.find {geometry: {$near: [parseFloat(longitude), parseFloat(latitude)]}}, {}, (err, cursor) ->
                 cursor.toArray (err, items) ->
@@ -17,7 +17,7 @@ getLocations = (latitude, longitude, callback) ->
                     db.close()
 
 location = (locId, callback) ->
-    db.open (err, db) ->
+    _authenticate (err, replies) ->
         db.collection 'locations', (err, collection) ->
             collection.find {'OBJECTID': locId}, (err, cursor) ->
                 cursor.toArray (err, items) ->
@@ -57,6 +57,11 @@ _processAttributes = (mongo, attributes, geometry) ->
     attributes.geometry = [geometry.x, geometry.y]
     console.log attributes
     mongo.insert(attributes)
+
+_authenticate = (callback) ->
+    db.open (err, db) ->
+        db.authenticate settings.get('MONGO_NODE_USERNAME'), settings.get('MONGO_NODE_PASSWORD'), (err, replies) ->
+            callback(err, replies)
 
 # Main method for loading data.
 main = ->
