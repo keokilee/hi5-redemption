@@ -1,31 +1,9 @@
 settings = require('./settings')
 http = require('http')
-
 mongodb = require('mongodb')
-Db = mongodb.Db
-Server = mongodb.Server
 
-server = new Server settings.get('MONGO_NODE_DRIVER_HOST'), settings.get('MONGO_NODE_DRIVER_PORT'), {}
-db = new Db settings.get('MONGO_NODE_DATABASE'), server, {}
-
-getLocations = (latitude, longitude, callback) ->
-    _authenticate (err, replies) ->
-        db.collection 'locations', (err, collection) ->
-            collection.find {geometry: {$near: [parseFloat(longitude), parseFloat(latitude)]}}, {}, (err, cursor) ->
-                cursor.toArray (err, items) ->
-                    callback items
-                    db.close()
-
-location = (locId, callback) ->
-    _authenticate (err, replies) ->
-        db.collection 'locations', (err, collection) ->
-            collection.find {'OBJECTID': locId}, (err, cursor) ->
-                cursor.toArray (err, items) ->
-                    callback items[0]
-                    db.close()
-
-exports.get = getLocations
-exports.location = location
+server = new mongodb.Server settings.get('MONGO_NODE_DRIVER_HOST'), settings.get('MONGO_NODE_DRIVER_PORT'), {}
+db = new mongodb.Db settings.get('MONGO_NODE_DATABASE'), server, {}
 
 # Private methods for loading data.
 _remoteCallback = (response) ->
@@ -34,7 +12,8 @@ _remoteCallback = (response) ->
         body += chunk
 
     response.on 'end', ->
-        db.open (err, db) ->
+        console.log "Authenticating to server at #{settings.get('MONGO_NODE_DRIVER_HOST')}:#{settings.get('MONGO_NODE_DRIVER_PORT')}"
+        _authenticate (err, replies) ->
             db.collection 'locations', (err, collection) ->
                 data = JSON.parse(body)
                 _reloadLocations(data, collection, db)
@@ -59,7 +38,7 @@ _processAttributes = (mongo, attributes, geometry) ->
     mongo.insert(attributes)
 
 _authenticate = (callback) ->
-    db.open (err, db) ->
+    db.open (err, db2) ->
         db.authenticate settings.get('MONGO_NODE_USERNAME'), settings.get('MONGO_NODE_PASSWORD'), (err, replies) ->
             callback(err, replies)
 

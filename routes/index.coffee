@@ -1,14 +1,17 @@
 # GET home page.
-locations = require('../locations')
+location_service = require('../location_service')
+settings = require('../settings')
+
+service = new location_service.LocationService()
 
 exports.index = (req, res) ->
-    res.render 'index'
+    res.render 'index', {key: settings.get('API_KEY')}
 
 exports.api =
     locations: (req, res) ->
-        locations.get req.query.lat, req.query.long, (result) ->
+        service.search req.query.lat, req.query.long, (result) ->
             res.send result
 
     location: (req, res) ->
-        locations.location parseInt(req.params.id), (result) ->
+        service.location req.params.id, (result) ->
             res.send result

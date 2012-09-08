@@ -5,14 +5,7 @@ settings = require 'nconf'
 Connection = require('mongodb').Connection
 
 # First consider commandline arguments and environment variables, respectively.
-settings.argv().env()
-
-# Set environment to development if it is not set.
-settings.defaults
-    'NODE_ENV': 'development'
-
-# Then load the environment's settings.
-settings.file { file: 'settings/#{settings.get("NODE_ENV")}.json' }
+settings.argv().env().file { file: "settings/production.json" }
 
 # Provide default values for settings not provided above.
 settings.defaults
