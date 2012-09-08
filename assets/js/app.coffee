@@ -12,9 +12,10 @@ LocationCollection = Backbone.Collection.extend
     model: Location
     baseUrl: "/locations/"
     search: (options, queryObj) ->
+        # fetch uses @url, so we build url from the base url.
         @url = @baseUrl
         @url = @url + "?" + $.param(queryObj) if queryObj?
-        @fetch(options)
+        @fetch options
 
 Locations = new LocationCollection
 
