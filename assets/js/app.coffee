@@ -10,12 +10,7 @@ Location = Backbone.Model.extend
 
 LocationCollection = Backbone.Collection.extend
     model: Location
-    baseUrl: "/locations/"
-    search: (options, queryObj) ->
-        # fetch uses @url, so we build url from the base url.
-        @url = @baseUrl
-        @url = @url + "?" + $.param(queryObj) if queryObj?
-        @fetch options
+    url: "/locations/"
 
 Locations = new LocationCollection
 
@@ -45,20 +40,32 @@ ResultView = Backbone.View.extend
         # Clear the list of results
         @$el.empty()
 
-        Locations.search {
+        Locations.fetch {
+            data: {
+                lat: @options.lat
+                long: @options.long
+            }
+
             success: (collection, response) =>
                 @collection = collection
                 @render()
-        },
-        {lat: @options.lat, long: @options.long}
+        }
+
+        @render()
 
     render: ->
-        @collection.each (location) =>
-            console.log location
-            view = new LocationRowView {model: location}
-            @$el.append view.render().el
-            # Rerender the list view to get the jQuery Mobile stylings.
-            @$el.listview 'refresh'
+        if @collection?
+            @$el.empty()
+
+            @collection.each (location) =>
+                # console.log location
+                view = new LocationRowView {model: location}
+                @$el.append view.render().el
+        else
+            @$el.append '<li>Loading</li>'
+
+        # Rerender the list view to get the jQuery Mobile stylings.
+        @$el.listview 'refresh'
 
 SearchView = Backbone.View.extend
     el: $('#searchView')
