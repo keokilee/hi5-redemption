@@ -1,6 +1,6 @@
 {
   "name": "hi5-redemption",
-  "version": "0.1.0",
+  "version": "0.1.2-3",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee"
@@ -15,6 +15,10 @@
     "mongodb": "1.1.x"
   },
   "subdomain": "hi5-redemption",
+  "domains": [
+    "www.redeemhi5.com",
+    "redeemhi5.com"
+  ],
   "engines": {
     "node": "0.8.x"
   }
