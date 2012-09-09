@@ -139,7 +139,7 @@ SearchView = Backbone.View.extend
             @getResults place.geometry.location.Xa, place.geometry.location.Ya
 
     events:
-        'click .ui-btn-right': 'requestLocation'
+        'click #location-button': 'requestLocation'
 
     requestLocation: (event) ->
         navigator.geolocation.getCurrentPosition (position) =>
