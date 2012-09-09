@@ -1,5 +1,5 @@
 ###
-Do not edit. Settings are loaded from config directory.
+Do not edit. Settings are loaded from settings directory.
 ###
 settings = require 'nconf'
 Connection = require('mongodb').Connection
