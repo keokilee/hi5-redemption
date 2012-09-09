@@ -39,27 +39,32 @@ LocationItemView = Backbone.View.extend
                 map: @map
             }
 
+    renderModel: ->
+        # console.log @model
+        attrs = @model.attributes
+        @$('h1').html attrs.NAME
+        details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
+        details += ", #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
+        details += "</p>"
+        if attrs.DESCRIPTIO != " "
+            details += "<p>#{attrs.DESCRIPTIO}</p>"
+
+        details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en' data-role='button'>Get directions</a></p>"
+        @$('#details').html details
+        @renderMap()
+
+        # Need to do this to render the button.
+        @$el.trigger('pagecreate')
+
+        return this
+
     render: ->
-        if @model
-            attrs = @model.attributes
-            @$('h1').html attrs.NAME
-            details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
-            details += " and #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
-            details += "</p>"
-            if attrs.DESCRIPTIO != " "
-                details += "<p>#{attrs.DESCRIPTIO}</p>"
-
-            details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en'>Get directions</a></p>"
-            @$('#details').html details
-            @renderMap()
-
-        else
-            location = new Location {id: @id}
-            location.fetch {
-                success: (model, response) =>
-                    @model = model
-                    @render()
-            }
+        location = new Location {id: @id}
+        location.fetch {
+            success: (model, response) =>
+                @model = model
+                @renderModel()
+        }
 
         return this
 
@@ -68,11 +73,15 @@ LocationRowView = Backbone.View.extend
     template: _.template $('#locationTemplate').html()
 
     render: ->
-        @$el.html @template(@model.toJSON())
+        attrs = @model.toJSON()
+        attrs.NAME += " (#{attrs.COMPANY})" if attrs.COMPANY != " "
+
+        @$el.html @template(attrs)
         return this
 
 ResultView = Backbone.View.extend
     el: $('#resultView')
+
     initialize: ->
         # Clear the list of results
         @$el.empty()
