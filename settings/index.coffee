@@ -4,7 +4,7 @@ Do not edit. Settings are loaded from config directory.
 settings = require 'nconf'
 Connection = require('mongodb').Connection
 
-# First consider commandline arguments and environment variables, respectively.
+# Get settings in order.
 env = process.env.NODE_ENV ? 'development'
 settings.argv().env().file { file: "settings/#{env}.json" }
 

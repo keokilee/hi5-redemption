@@ -44,7 +44,7 @@ LocationItemView = Backbone.View.extend
             attrs = @model.attributes
             @$('h1').html attrs.NAME
             details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
-            details += "and #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
+            details += " and #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
             details += "</p>"
             if attrs.DESCRIPTIO != " "
                 details += "<p>#{attrs.DESCRIPTIO}</p>"
