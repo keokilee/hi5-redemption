@@ -3,7 +3,7 @@ mongodb = require('mongodb')
 
 class LocationService
     constructor: ->
-        console.log "Accessing server #{settings.get('MONGO_NODE_DRIVER_HOST')}:#{settings.get('MONGO_NODE_DRIVER_PORT')}"
+        console.log "Accessing MongoDB at #{settings.get('MONGO_NODE_DRIVER_HOST')}:#{settings.get('MONGO_NODE_DRIVER_PORT')}"
         server = new mongodb.Server settings.get('MONGO_NODE_DRIVER_HOST'), parseInt(settings.get('MONGO_NODE_DRIVER_PORT')), {}
         @db = new mongodb.Db settings.get('MONGO_NODE_DATABASE'), server, {}
         @db.open (err, db2) =>

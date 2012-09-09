@@ -18,12 +18,32 @@ Locations = new LocationCollection
 
 LocationItemView = Backbone.View.extend
     el: $('#locationView')
-    template: _.template $('#detailTemplate').html()
+
     initialize: ->
-        @model = @options.model
+        @map = new google.maps.Map document.getElementById('map'), {
+            center: new google.maps.LatLng(21.2711981, -157.8005013)
+            zoom: 17
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+
+    setModel: (model) ->
+        @model = model
+
+    renderMap: ->
+        @map.setCenter new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+        marker = new google.maps.Marker {
+              position: new google.maps.LatLng @model.attributes.geometry[1], @model.attributes.geometry[0]
+              map: @map
+        }
+
 
     render: ->
-        @$el.html @template(@model.attributes)
+        @$('h1').html @model.attributes.NAME
+        @$('#details').html "<p>Open #{@model.attributes.DAYS} from #{@model.attributes.HOURS}</p>"
+        if @model.attributes.DESCRIPTIO? and @model.attributes.DESCRIPTIO != ' '
+            @$('#details').html @$('#details').html() + "<p>Notes: #{@model.attributes.DESCRIPTIO}</p>"
+        console.log @model.attributes
+        @renderMap()
         return this
 
 LocationRowView = Backbone.View.extend
@@ -114,6 +134,8 @@ AppRouter = Backbone.Router.extend
             false
 
         @firstPage = true
+        @searchView = new SearchView()
+        @locationView = new LocationItemView()
 
     changePage: (page) ->
         transition = $.mobile.defaultPageTransition
@@ -121,22 +143,23 @@ AppRouter = Backbone.Router.extend
             transition = 'none'
             @firstPage = false
 
-        $.mobile.changePage $(page.render().el), {changeHash: false, transition: transition}
+        $rendered = $(page.render().el)
+        $.mobile.changePage $rendered, {changeHash: false, transition: transition}
         # Needed to rerender page. Page doesn't rerender the second time it is clicked.
-        $(page.render().el).trigger('pagecreate')
+        $rendered.trigger('pagecreate')
 
     search: ->
-        @changePage(new SearchView())
+        @changePage(@searchView)
 
     showLocation: (id) ->
         location = new Location {id: id}
         location.fetch {
             success: (model, response) =>
-                @changePage(new LocationItemView({model: model}))
+                @locationView.setModel model
+                @changePage(@locationView)
         }
 
 ######### Entry point #########
 $(document).ready ->
     router = new AppRouter()
     Backbone.history.start()
-
