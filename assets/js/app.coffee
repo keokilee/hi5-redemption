@@ -25,18 +25,19 @@ LocationItemView = Backbone.View.extend
 
     renderMap: ->
         # If the map is already available, we recenter and move the marker.
+        coords = new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
         if @map?
-            @map.setCenter new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
-            @marker.setPosition new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+            @map.setCenter coords
+            @marker.setPosition coords
 
         else
             @map = new google.maps.Map document.getElementById('map'), {
-                center: new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+                center: coords
                 zoom: 17
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
             @marker = new google.maps.Marker {
-                position: new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+                position: coords
                 map: @map
             }
 

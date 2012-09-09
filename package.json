@@ -1,6 +1,6 @@
 {
   "name": "hi5-redemption",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee"
