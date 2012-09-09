@@ -140,6 +140,10 @@ SearchView = Backbone.View.extend
 
     events:
         'click #location-button': 'requestLocation'
+        'click input[type=text]': 'clearBox'
+
+    clearBox: (event) ->
+        @$('input[type=text]').val ""
 
     requestLocation: (event) ->
         navigator.geolocation.getCurrentPosition (position) =>
