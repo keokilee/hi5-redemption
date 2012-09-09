@@ -19,31 +19,48 @@ Locations = new LocationCollection
 LocationItemView = Backbone.View.extend
     el: $('#locationView')
 
-    initialize: ->
-        @map = new google.maps.Map document.getElementById('map'), {
-            center: new google.maps.LatLng(21.2711981, -157.8005013)
-            zoom: 17
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-
-    setModel: (model) ->
-        @model = model
+    setId: (id) ->
+        @model = null
+        @id = id
 
     renderMap: ->
-        @map.setCenter new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
-        marker = new google.maps.Marker {
-              position: new google.maps.LatLng @model.attributes.geometry[1], @model.attributes.geometry[0]
-              map: @map
-        }
+        if @map?
+            @map.setCenter new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+            @marker.setPosition new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
 
+        else
+            @map = new google.maps.Map document.getElementById('map'), {
+                center: new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+                zoom: 17
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            @marker = new google.maps.Marker {
+                position: new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+                map: @map
+            }
 
     render: ->
-        @$('h1').html @model.attributes.NAME
-        @$('#details').html "<p>Open #{@model.attributes.DAYS} from #{@model.attributes.HOURS}</p>"
-        if @model.attributes.DESCRIPTIO? and @model.attributes.DESCRIPTIO != ' '
-            @$('#details').html @$('#details').html() + "<p>Notes: #{@model.attributes.DESCRIPTIO}</p>"
-        console.log @model.attributes
-        @renderMap()
+        if @model
+            attrs = @model.attributes
+            @$('h1').html attrs.NAME
+            details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
+            details += "and #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
+            details += "</p>"
+            if attrs.DESCRIPTIO != " "
+                details += "<p>#{attrs.DESCRIPTIO}</p>"
+
+            details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en'>Get directions</a></p>"
+            @$('#details').html details
+            @renderMap()
+
+        else
+            location = new Location {id: @id}
+            location.fetch {
+                success: (model, response) =>
+                    @model = model
+                    @render()
+            }
+
         return this
 
 LocationRowView = Backbone.View.extend
@@ -95,11 +112,13 @@ SearchView = Backbone.View.extend
     initializeSearchBox: (searchBox) ->
         # Default bounds for Honolulu
         defaultBounds = new google.maps.LatLngBounds(
-            new google.maps.LatLng(21.3111981, -157.8405013),
-            new google.maps.LatLng(21.2711981, -157.8005013)
+            new google.maps.LatLng(20.3111981, -158.8405013),
+            new google.maps.LatLng(22.2711981, -156.8005013)
         )
+
         options =
             bounds: defaultBounds
+            radius: 200
             types: ['geocode']
             componentRestrictions: {country: 'us'}
 
@@ -119,6 +138,7 @@ SearchView = Backbone.View.extend
             @getResults position.coords.latitude, position.coords.longitude
 
     getResults: (latitude, longitude) ->
+        @$('#welcome').hide()
         resultView = new ResultView {lat: latitude, long: longitude}
 
 ########## Router ##############
@@ -134,6 +154,8 @@ AppRouter = Backbone.Router.extend
             false
 
         @firstPage = true
+
+        # Save these so that we don't keep rendering them.
         @searchView = new SearchView()
         @locationView = new LocationItemView()
 
@@ -145,6 +167,7 @@ AppRouter = Backbone.Router.extend
 
         $rendered = $(page.render().el)
         $.mobile.changePage $rendered, {changeHash: false, transition: transition}
+
         # Needed to rerender page. Page doesn't rerender the second time it is clicked.
         $rendered.trigger('pagecreate')
 
@@ -152,12 +175,8 @@ AppRouter = Backbone.Router.extend
         @changePage(@searchView)
 
     showLocation: (id) ->
-        location = new Location {id: id}
-        location.fetch {
-            success: (model, response) =>
-                @locationView.setModel model
-                @changePage(@locationView)
-        }
+        @locationView.setId id
+        @changePage(@locationView)
 
 ######### Entry point #########
 $(document).ready ->
