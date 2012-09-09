@@ -136,7 +136,6 @@ SearchView = Backbone.View.extend
         options =
             bounds: defaultBounds
             radius: 200
-            types: ['geocode']
             componentRestrictions: {country: 'us'}
 
         autocomplete = new google.maps.places.Autocomplete searchBox.get(0), options
