@@ -24,6 +24,7 @@ LocationItemView = Backbone.View.extend
         @id = id
 
     renderMap: ->
+        # If the map is already available, we recenter and move the marker.
         if @map?
             @map.setCenter new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
             @marker.setPosition new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
@@ -43,12 +44,15 @@ LocationItemView = Backbone.View.extend
         # console.log @model
         attrs = @model.attributes
         @$('h1').html attrs.NAME
+
+        # Create a description of the hours.
         details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
         details += ", #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
         details += "</p>"
         if attrs.DESCRIPTIO != " "
             details += "<p>#{attrs.DESCRIPTIO}</p>"
 
+        # Generate the link to get directions.
         details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en' data-role='button'>Get directions</a></p>"
         @$('#details').html details
         @renderMap()
@@ -74,6 +78,7 @@ LocationRowView = Backbone.View.extend
 
     render: ->
         attrs = @model.toJSON()
+        # Show the company's name if available.
         attrs.NAME += " (#{attrs.COMPANY})" if attrs.COMPANY != " "
 
         @$el.html @template(attrs)
@@ -101,6 +106,7 @@ ResultView = Backbone.View.extend
 
     render: ->
         if @collection?
+            # Clear loading text.
             @$el.empty()
 
             @collection.each (location) =>
@@ -112,6 +118,7 @@ ResultView = Backbone.View.extend
 
         # Rerender the list view to get the jQuery Mobile stylings.
         @$el.listview 'refresh'
+        return this
 
 SearchView = Backbone.View.extend
     el: $('#searchView')
@@ -140,10 +147,13 @@ SearchView = Backbone.View.extend
 
     events:
         'click #location-button': 'requestLocation'
-        'click input[type=text]': 'clearBox'
+        'click #about': 'aboutPopup'
 
-    clearBox: (event) ->
-        @$('input[type=text]').val ""
+    aboutPopup: (event) ->
+        @$("#about-popup").popup "open", {
+            transition: 'pop'
+            positionTo: 'window'
+        }
 
     requestLocation: (event) ->
         navigator.geolocation.getCurrentPosition (position) =>
@@ -195,3 +205,5 @@ AppRouter = Backbone.Router.extend
 $(document).ready ->
     router = new AppRouter()
     Backbone.history.start()
+
+    $("#about-popup").popup()

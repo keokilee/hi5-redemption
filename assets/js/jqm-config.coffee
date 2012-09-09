@@ -5,4 +5,4 @@ $(document).bind "mobileinit", ->
     $.mobile.linkBindingEnabled = false
     $.mobile.hashListeningEnabled = false
     $.mobile.pushStateEnabled = false
-    $.mobile.defaultPageTransition = "slide"
+    $.mobile.defaultPageTransition = "pop"
