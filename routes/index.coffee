@@ -5,7 +5,11 @@ settings = require('../settings')
 service = new location_service.LocationService()
 
 exports.index = (req, res) ->
-    res.render 'index', {key: settings.get('API_KEY')}
+    res.render 'index', {
+        maps_key: "key=#{settings.get('API_KEY')}"
+        fb_app_id: settings.get('FB_APP_ID')
+        analytics_key: settings.get('ANALYTICS_KEY')
+    }
 
 exports.api =
     locations: (req, res) ->
