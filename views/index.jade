@@ -4,9 +4,14 @@ block content
     div#searchView(data-role='page')
         div#about-popup(data-role='popup', data-theme="a", data-tolerance="0,0")
             a(data-rel="back", data-role="button", data-theme="a", data-icon="delete", data-iconpos="notext", class="ui-btn-right") Close
-            p Created by <a href="http://github.com/keokilee">@keokilee</a>. Will be open sourced soon.
+            p Created by <a href="http://twitter.com/keokilee">@keokilee</a>. This app is built on
+              <a href="http://backbonejs.org">Backbone.js</a>, <a href="http://nodejs.org">Node.js</a>,
+              <a href="http://jquerymobile.com">jQuery Mobile</a>, <a href="http://mongodb.org">MongoDB</a>, and
+              <a href="http://coffeescript.org">Coffeescript</a>.
 
-        div(data-role="header")
+            p The source code is available on <a href="http://github.com/keokilee/hi5-redemption/">Github</a>.
+
+        div(data-role="header", data-theme='b')
             a#about(class="ui-btn-left", data-transition) About
             h1 Search
             a#location-button(class="ui-btn-right") Current Location
@@ -14,7 +19,7 @@ block content
         div(data-role="content")
             ul(data-role="listview")
                 li
-                    input(type="search")
+                    input(type="search", data-theme='b')
 
             ul#resultView(data-role="listview")
 
@@ -23,7 +28,7 @@ block content
                 h4 Start by typing in an address or by using your current location.
 
     div#locationView(data-role='page', data-add-back-btn="true")
-        div(data-role="header")
+        div(data-role="header", data-theme="b")
             h1 Loading
 
         div(data-role="content")
