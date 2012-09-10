@@ -148,6 +148,22 @@ SearchView = Backbone.View.extend
     events:
         'click #location-button': 'requestLocation'
         'click #about': 'aboutPopup'
+        'keypress input[type=text]': 'handleEnterKey'
+
+    handleEnterKey: (event) ->
+        if event.which == 13
+            @$('input[type=text]').blur()
+            @selectFirstResult()
+
+    # Select first place. Thanks Mubix.
+    # http://stackoverflow.com/questions/10772282/google-maps-places-api-v3-autocomplete-select-first-option-on-enter-and-have?lq=1
+    selectFirstResult: ->
+        firstResult = $('.pac-container .pac-item:first').text()
+        @$('input[type=text]').val firstResult
+        geocoder = new google.maps.Geocoder()
+        geocoder.geocode {"address": firstResult}, (results, status) =>
+            if status == google.maps.GeocoderStatus.OK
+                @getResults results[0].geometry.location.lat(), results[0].geometry.location.lng()
 
     aboutPopup: (event) ->
         @$("#about-popup").popup "open", {
