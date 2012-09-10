@@ -1,9 +1,8 @@
 script#locationTemplate(type="text/template")
         a(href!="#locations/<%= OBJECTID %>")
             h2 <%= NAME %>
-            p <%= DISTANCE %>
             p <%= LOCATION %>
-            p <%= ADDRESS %>
+            p <%= ADDRESS %> (<%= DISTANCE %>)
 
 script#aboutTemplate(type="text/template")
     p Created by <a href="http://www.georgelee.org">George Lee</a> and will be open sourced soon.
