@@ -30,9 +30,9 @@ reloadLocations = (data, collection, db) ->
                     console.log("Loaded " + count + " locations.");
                     db.close()
 
-processAttributes = (mongo, attributes, geometry) ->
+processAttributes = (collection, attributes, geometry) ->
     attributes.geometry = [geometry.x, geometry.y]
-    mongo.insert attributes, (err, res) ->
+    collection.insert attributes, (err, res) ->
         # Don't need to do anything here
 
 # Main method for loading data.
