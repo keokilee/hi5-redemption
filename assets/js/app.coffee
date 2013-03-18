@@ -42,7 +42,6 @@ LocationItemView = Backbone.View.extend
             }
 
     renderModel: ->
-        # console.log @model
         attrs = @model.attributes
         @$('h1').html attrs.NAME
 
@@ -111,7 +110,6 @@ ResultView = Backbone.View.extend
             @$el.empty()
 
             @collection.each (location) =>
-                # console.log location
                 view = new LocationRowView {model: location}
                 @$el.append view.render().el
         else
@@ -143,17 +141,14 @@ SearchView = Backbone.View.extend
         # Set up a place changed listener for the box.
         google.maps.event.addListener autocomplete, 'place_changed', =>
             place = autocomplete.getPlace()
-            @getResults place.geometry.location.Xa, place.geometry.location.Ya
+            if place.geometry
+                @getResults place.geometry.location.mb, place.geometry.location.nb
+            else
+                @selectFirstResult()
 
     events:
         'click #location-button': 'requestLocation'
         'click #about': 'aboutPopup'
-        'keypress input[type=text]': 'handleEnterKey'
-
-    handleEnterKey: (event) ->
-        if event.which == 13
-            @$('input[type=text]').blur()
-            @selectFirstResult()
 
     # Select first place. Thanks Mubix.
     # http://stackoverflow.com/questions/10772282/google-maps-places-api-v3-autocomplete-select-first-option-on-enter-and-have?lq=1
