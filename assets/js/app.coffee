@@ -183,7 +183,8 @@ AppRouter = Backbone.Router.extend
 
     initialize: ->
         # Handle click in back button.
-        $("a[data-rel=back]").live 'click', (event) ->
+        # Delegated event handler because the button does not exist when called.
+        $("div[data-role=header]").on 'click', "a[data-rel=back]", (event) ->
             window.history.back()
             false
 
