@@ -8,6 +8,20 @@ Location = Backbone.Model.extend
     url: ->
         return "/locations/" + @id
 
+    name: ->
+        @attributes.NAME
+
+    description: ->
+        attrs = @attributes
+        details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
+        details += ", #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
+        details += "</p>"
+        if attrs.DESCRIPTIO != " "
+            details += "<p>#{attrs.DESCRIPTIO}</p>"
+
+        # Generate the link to get directions.
+        details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en' data-role='button'>Get directions</a></p>"
+
 LocationCollection = Backbone.Collection.extend
     model: Location
     url: "/locations/"
@@ -23,9 +37,9 @@ LocationItemView = Backbone.View.extend
         @model = null
         @id = id
 
-    renderMap: ->
+    renderMap: (model) ->
         # If the map is already available, we recenter and move the marker.
-        coords = new google.maps.LatLng(@model.attributes.geometry[1], @model.attributes.geometry[0])
+        coords = new google.maps.LatLng(model.attributes.geometry[1], model.attributes.geometry[0])
         if @map?
             @map.setCenter coords
             @marker.setPosition coords
@@ -41,21 +55,10 @@ LocationItemView = Backbone.View.extend
                 map: @map
             }
 
-    renderModel: ->
-        attrs = @model.attributes
-        @$('h1').html attrs.NAME
-
-        # Create a description of the hours.
-        details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
-        details += ", #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
-        details += "</p>"
-        if attrs.DESCRIPTIO != " "
-            details += "<p>#{attrs.DESCRIPTIO}</p>"
-
-        # Generate the link to get directions.
-        details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en' data-role='button'>Get directions</a></p>"
-        @$('#details').html details
-        @renderMap()
+    renderModel: (model) ->
+        @$('h1').html model.name()
+        @$('#details').html model.description()
+        @renderMap model
 
         # Need to do this to render the button.
         @$el.trigger('pagecreate')
@@ -67,7 +70,7 @@ LocationItemView = Backbone.View.extend
         location.fetch {
             success: (model, response) =>
                 @model = model
-                @renderModel()
+                @renderModel(model)
         }
 
         return this
@@ -121,6 +124,7 @@ ResultView = Backbone.View.extend
 
 SearchView = Backbone.View.extend
     el: $('#searchView')
+
     initialize: ->
         @initializeSearchBox @$('input[type=text]')
 
@@ -202,7 +206,6 @@ AppRouter = Backbone.Router.extend
 
         $rendered = $(page.render().el)
         $.mobile.changePage $rendered, {changeHash: false, transition: transition}
-
         # Needed to rerender page. Page doesn't rerender the second time it is clicked.
         $rendered.trigger('pagecreate')
 
