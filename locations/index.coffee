@@ -1,4 +1,3 @@
-require('source-map-support').install()
 Client = require('mongodb').MongoClient
 
 # Private functions
@@ -12,13 +11,14 @@ processResult = (result) ->
     return item
 
 authenticateDb = (connectionUrl, callback) ->
-    Client.connect connectionUrl, (err, db) ->
+    Client.connect connectionUrl, (err, db) =>
         callback err, db
 
 class LocationService
     # Constructor for the class.
     constructor: (connectionUrl) ->
         @connectionUrl = connectionUrl
+        
 
     search: (latitude, longitude, callback) ->
         locationParams =
@@ -29,6 +29,7 @@ class LocationService
             db.executeDbCommand locationParams, (err, response) ->
                 items = (processResult(result) for result in response.documents[0].results)
                 callback items
+                db.close()
         
 
     location: (locId, callback) ->
@@ -37,5 +38,6 @@ class LocationService
                 collection.find {'OBJECTID': parseInt(locId)}, (err, cursor) ->
                     cursor.toArray (err, items) ->
                         callback items[0]
+                        db.close()
 
 exports.LocationService = LocationService
