@@ -26,6 +26,7 @@
   "devDependencies": {
     "mocha": "~1.8.2",
     "should": "~1.2.2",
-    "source-map-support": "~0.1.2"
+    "source-map-support": "~0.1.2",
+    "grunt": "~0.4.1"
   }
 }
