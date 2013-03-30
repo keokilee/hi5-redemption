@@ -142,7 +142,6 @@ SearchView = Backbone.View.extend
         google.maps.event.addListener autocomplete, 'place_changed', =>
             place = autocomplete.getPlace()
             if place.geometry
-                console.log place.geometry
                 @getResults place.geometry.location.lat(), place.geometry.location.lng()
             else
                 @selectFirstResult()
@@ -159,7 +158,6 @@ SearchView = Backbone.View.extend
         geocoder = new google.maps.Geocoder()
         geocoder.geocode {"address": firstResult}, (results, status) =>
             if status == google.maps.GeocoderStatus.OK
-                console.log results[0].geometry
                 @getResults results[0].geometry.location.lat(), results[0].geometry.location.lng()
 
     aboutPopup: (event) ->

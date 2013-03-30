@@ -1,5 +1,4 @@
 # Module dependencies.
-require('source-map-support').install()
 express = require 'express'
 routes = require './routes'
 http = require 'http'

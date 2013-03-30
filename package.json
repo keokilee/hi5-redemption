@@ -1,6 +1,6 @@
 {
   "name": "hi5-redemption",
-  "version": "0.4.3",
+  "version": "0.5.1",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee"
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "mocha": "~1.8.2",
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "source-map-support": "~0.1.2"
   }
 }
