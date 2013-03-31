@@ -20,12 +20,12 @@ exports.api =
         lat = req.query.lat
         long = req.query.long
 
-        if lat < -180.0 or lat > 180.0
-            res.send {"error": "Invalid latitude value."}
+        if long < -180.0 or long > 180.0
+            res.send {"error": "Invalid longitude value."}
             return
 
-        else if long < -90.0 or long > 90.0
-            res.send {"error": "Invalid longitude value."}
+        else if lat < -90.0 or lat > 90.0
+            res.send {"error": "Invalid latitude value."}
             return
 
         service.search lat, long, (result) ->
