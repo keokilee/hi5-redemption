@@ -13,8 +13,12 @@ exports.index = (req, res) ->
 
 exports.api =
     locations: (req, res) ->
-        service.search req.query.lat, req.query.long, (result) ->
-            res.send result
+        if not req.query.lat? or not req.query.long?
+            res.send "Not found", 404
+
+        else
+            service.search req.query.lat, req.query.long, (result) ->
+                res.send result
 
     location: (req, res) ->
         service.location req.params.id, (result) ->
