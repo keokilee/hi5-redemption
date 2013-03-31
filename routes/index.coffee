@@ -14,12 +14,26 @@ exports.index = (req, res) ->
 exports.api =
     locations: (req, res) ->
         if not req.query.lat? or not req.query.long?
-            res.send "Not found", 404
+            res.send {"error": "Latitude and longitude are required."}
+            return
 
-        else
-            service.search req.query.lat, req.query.long, (result) ->
-                res.send result
+        lat = req.query.lat
+        long = req.query.long
+
+        if lat < -180.0 or lat > 180.0
+            res.send {"error": "Invalid latitude value."}
+            return
+
+        else if long < -90.0 or long > 90.0
+            res.send {"error": "Invalid longitude value."}
+            return
+
+        service.search lat, long, (result) ->
+            res.send result
 
     location: (req, res) ->
         service.location req.params.id, (result) ->
-            res.send result
+            if not result?
+                res.send "Not found", 404
+            else
+                res.send result
