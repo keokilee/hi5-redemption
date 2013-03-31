@@ -1,4 +1,3 @@
-should = require 'should'
 request = require 'supertest'
 express = require 'express'
 api = require('../routes').api
