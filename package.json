@@ -1,6 +1,6 @@
 {
   "name": "hi5-redemption",
-  "version": "0.5.1",
+  "version": "0.6.0-2",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee",
@@ -13,8 +13,7 @@
     "mongodb": "~1.2.14",
     "express": "~3.1.0",
     "nconf": "~0.6.7",
-    "connect-assets": "~2.4.0",
-    "source-map-support": "~0.1.2"
+    "connect-assets": "~2.4.0"
   },
   "subdomain": "hi5-redemption",
   "domains": [
