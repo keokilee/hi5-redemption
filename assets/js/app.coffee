@@ -33,6 +33,12 @@ Locations = new LocationCollection
 LocationItemView = Backbone.View.extend
     el: $('#locationView')
 
+    events:
+        'pageshow': 'refreshMap'
+
+    refreshMap: ->
+        google.maps.event.trigger @map, 'resize'
+
     setId: (id) ->
         @model = null
         @id = id
