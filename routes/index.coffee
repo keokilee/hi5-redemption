@@ -6,10 +6,17 @@ service = new LocationService(settings.get('MONGO_URL'))
 
 exports.index = (req, res) ->
     res.render 'index', {
+        pageTitle: "HI-5 Redemption Centers"
         maps_key: "key=#{settings.get('API_KEY')}"
         fb_app_id: settings.get 'FB_APP_ID'
         analytics_key: settings.get 'ANALYTICS_KEY'
     }
+
+if not process.env.NODE_ENV? or process.env.NODE_ENV is "development"
+    exports.tests = (req, res) ->
+        res.render 'tests', {
+            pageTitle: "Tests"
+        }
 
 exports.api =
     locations: (req, res) ->

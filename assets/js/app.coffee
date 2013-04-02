@@ -88,7 +88,7 @@ LocationRowView = Backbone.View.extend
     render: ->
         attrs = @model.toJSON()
         # Show the company's name if available.
-        attrs.NAME += " (#{attrs.COMPANY})" if attrs.COMPANY != " "
+        attrs.NAME += " (#{attrs.COMPANY})" unless attrs.COMPANY == " "
 
         @$el.html @template(attrs)
         return this

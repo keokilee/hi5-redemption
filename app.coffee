@@ -19,9 +19,14 @@ app.configure ->
   app.use express.static(path.join(__dirname, 'public'))
   app.use require('connect-assets')()
 
+app.configure 'production', ->
+  app.use express.logger('dev')
 
 app.configure 'development', ->
   app.use express.errorHandler()
+  app.use '/mocha/', express.static(path.join(__dirname, 'node_modules', 'mocha'))
+  app.use '/chai/', express.static(path.join(__dirname, 'node_modules', 'chai'))
+  app.get '/tests', routes.tests
 
 app.get '/', routes.index
 app.get '/locations', routes.api.locations

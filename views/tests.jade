@@ -1,0 +1,23 @@
+doctype 5
+html
+  head
+    title Mocha Tests
+    link(rel="stylesheet", href="/mocha/mocha.css")
+
+  body
+    div#mocha
+
+    script(src="http://code.jquery.com/jquery-1.9.1.min.js")
+    != js('jqm-config')
+    script(src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js")
+    script(src="/javascripts/json2.min.js")
+    script(src="/javascripts/underscore-1.4.4.js")
+    script(src="/javascripts/backbone-0.9.10.js")
+    script(type="text/javascript", src!="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true")
+    != js('app')
+
+    script(src="/chai/chai.js")
+    script(src="mocha/mocha.js")
+    script
+      mocha.setup('bdd');
+      mocha.run()

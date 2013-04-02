@@ -1,2 +1,4 @@
 settings/*.json
 node_modules
+builtAssets
+*.log
