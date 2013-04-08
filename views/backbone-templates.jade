@@ -1,5 +1,5 @@
 script#locationTemplate(type="text/template")
-    a(href!="#locations/<%= attributes.OBJECTID %>")
+    a(href!="#locations/<%= id %>")
         h2 <%= fullName() %>
         p <%= attributes.LOCATION %>
         p <%= attributes.ADDRESS %> (<%= attributes.DISTANCE %>)
