@@ -1,5 +1,11 @@
 script#locationTemplate(type="text/template")
-    a(href!="#locations/<%= OBJECTID %>")
-        h2 <%= NAME %>
-        p <%= LOCATION %>
-        p <%= ADDRESS %> (<%= DISTANCE %>)
+    a(href!="#locations/<%= attributes.OBJECTID %>")
+        h2 <%= fullName() %>
+        p <%= attributes.LOCATION %>
+        p <%= attributes.ADDRESS %> (<%= attributes.DISTANCE %>)
+
+script#modelTemplate(type="text/template")
+    p <%= hours() %>
+    p <%= description() %>
+    p
+        a(href!="<%= generateMapsHref() %>", data-role="button") Get directions

@@ -7,22 +7,27 @@
         if @attributes? and @attributes.OBJECTID?
             @id = @attributes.OBJECTID
 
-    url: ->
-        return "/locations/" + @id
+    fullName: ->
+        str = @attributes.NAME
+        str += " (#{@attributes.COMPANY})" unless @attributes.COMPANY == " "
+        return str
 
-    name: ->
-        @attributes.NAME
+    url: ->
+        "/locations/" + @id
+
+    hasWeekend: ->
+        @attributes.WEEKEND != " "
+
+    hours: ->
+        str = "Open #{@attributes.DAYS} from #{@attributes.HOURS}"
+        str += ", #{@attributes.WEEKEND} from #{@attributes.WEEKEND_HO}" if @hasWeekend
+        return str
 
     description: ->
-        attrs = @attributes
-        details = "<p>Open #{attrs.DAYS} from #{attrs.HOURS}"
-        details += ", #{attrs.WEEKEND} from #{attrs.WEEKEND_HO}" if attrs.WEEKEND != " "
-        details += "</p>"
-        if attrs.DESCRIPTIO != " "
-            details += "<p>#{attrs.DESCRIPTIO}</p>"
+        @attributes.DESCRIPTIO
 
-        # Generate the link to get directions.
-        details += "<p><a href='http://maps.google.com/maps?daddr=#{attrs.geometry[1]},#{attrs.geometry[0]}&hl=en' data-role='button'>Get directions</a></p>"
+    generateMapsHref: ->
+        "http://maps.google.com/maps?daddr=#{@attributes.geometry[1]},#{@attributes.geometry[0]}&hl=en"
 
 LocationCollection = Backbone.Collection.extend
     model: Location
@@ -34,6 +39,7 @@ Locations = new LocationCollection
 
 @app.LocationItemView = LocationItemView = Backbone.View.extend
     el: $('#locationView')
+    template: _.template $("#modelTemplate").html()
 
     events:
         'pageshow': 'refreshMap'
@@ -42,8 +48,10 @@ Locations = new LocationCollection
         google.maps.event.trigger @map, 'resize'
 
     setId: (id) ->
-        @model = null
-        @id = id
+        unless @id == id
+            # Reset model so we do a fetch the next time.
+            @model = null
+            @id = id
 
     renderMap: (model) ->
         # If the map is already available, we recenter and move the marker.
@@ -64,22 +72,20 @@ Locations = new LocationCollection
             }
 
     renderModel: (model) ->
-        @$('h1').html model.name()
-        @$('#details').html model.description()
-        @renderMap model
+        @$('h1').html model.attributes.NAME
+        @$('#details').html @template(model);
 
         # Need to do this to render the button.
         @$el.trigger('pagecreate')
 
-        return this
-
     render: ->
-        location = new Location {id: @id}
-        location.fetch {
-            success: (model, response) =>
-                @model = model
-                @renderModel(model)
-        }
+        unless @model
+            location = new Location {id: @id}
+            location.fetch
+                success: (model, response) =>
+                    @model = model
+                    @renderModel model
+                    @renderMap model
 
         return this
 
@@ -88,11 +94,7 @@ Locations = new LocationCollection
     template: _.template $('#locationTemplate').html()
 
     render: ->
-        attrs = @model.toJSON()
-        # Show the company's name if available.
-        attrs.NAME += " (#{attrs.COMPANY})" unless attrs.COMPANY == " "
-
-        @$el.html @template(attrs)
+        @$el.html @template(@model)
         return this
 
 @app.ResultView = ResultView = Backbone.View.extend
@@ -133,10 +135,9 @@ Locations = new LocationCollection
 @app.SearchView = SearchView = Backbone.View.extend
     el: $('#searchView')
 
-    initialize: ->
-        @initializeSearchBox @$('input[type=text]')
+    initializeSearchBox: ->
+        searchBox = @$ 'input[type=text]'
 
-    initializeSearchBox: (searchBox) ->
         # Default bounds for Honolulu
         defaultBounds = new google.maps.LatLngBounds(
             new google.maps.LatLng(20.3111981, -158.8405013),
@@ -204,6 +205,7 @@ Locations = new LocationCollection
 
         # Save these so that we don't keep rendering them.
         @searchView = new SearchView()
+        @searchView.initializeSearchBox()
         @locationView = new LocationItemView()
 
     changePage: (page) ->
