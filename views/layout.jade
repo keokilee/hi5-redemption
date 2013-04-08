@@ -39,3 +39,10 @@ html
     script(src="/javascripts/backbone-0.9.10.js")
     script(type="text/javascript", src!="http://maps.googleapis.com/maps/api/js?#{maps_key}&libraries=places&sensor=true")
     != js('app')
+    script
+      $(function() {
+        var router = new app.AppRouter();
+        Backbone.history.start();
+
+        $("#about-popup").popup();
+      });

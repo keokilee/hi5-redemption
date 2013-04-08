@@ -1,6 +1,8 @@
 ########## Models and Collections ################
 
-Location = Backbone.Model.extend
+@app = {} unless @app?
+
+@app.Location = Location = Backbone.Model.extend
     initialize: ->
         if @attributes? and @attributes.OBJECTID?
             @id = @attributes.OBJECTID
@@ -30,7 +32,7 @@ Locations = new LocationCollection
 
 ########### Views ################
 
-LocationItemView = Backbone.View.extend
+@app.LocationItemView = LocationItemView = Backbone.View.extend
     el: $('#locationView')
 
     events:
@@ -81,7 +83,7 @@ LocationItemView = Backbone.View.extend
 
         return this
 
-LocationRowView = Backbone.View.extend
+@app.LocationRowView = LocationRowView = Backbone.View.extend
     tagName: 'li'
     template: _.template $('#locationTemplate').html()
 
@@ -93,7 +95,7 @@ LocationRowView = Backbone.View.extend
         @$el.html @template(attrs)
         return this
 
-ResultView = Backbone.View.extend
+@app.ResultView = ResultView = Backbone.View.extend
     el: $('#resultView')
 
     initialize: ->
@@ -128,7 +130,7 @@ ResultView = Backbone.View.extend
         @$el.listview 'refresh'
         return this
 
-SearchView = Backbone.View.extend
+@app.SearchView = SearchView = Backbone.View.extend
     el: $('#searchView')
 
     initialize: ->
@@ -186,7 +188,7 @@ SearchView = Backbone.View.extend
         resultView = new ResultView {lat: latitude, long: longitude}
 
 ########## Router ##############
-AppRouter = Backbone.Router.extend
+@app.AppRouter = AppRouter = Backbone.Router.extend
     routes:
         "": "search"
         "locations/:id": "showLocation"
@@ -221,10 +223,3 @@ AppRouter = Backbone.Router.extend
     showLocation: (id) ->
         @locationView.setId id
         @changePage(@locationView)
-
-######### Entry point #########
-$(document).ready ->
-    router = new AppRouter()
-    Backbone.history.start()
-
-    $("#about-popup").popup()
