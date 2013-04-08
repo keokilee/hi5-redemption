@@ -5,6 +5,7 @@ script#locationTemplate(type="text/template")
         p <%= attributes.ADDRESS %> (<%= attributes.DISTANCE %>)
 
 script#modelTemplate(type="text/template")
+    h4 <%= fullName() %>
     p <%= hours() %>
     p <%= description() %>
     p
