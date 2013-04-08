@@ -76,7 +76,7 @@ Locations = new LocationCollection
         @$('#details').html @template(model);
 
         # Need to do this to render the button.
-        @$el.trigger('pagecreate')
+        @$el.trigger 'pagecreate'
 
     render: ->
         unless @model
