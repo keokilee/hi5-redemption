@@ -1,6 +1,6 @@
 ########## Models and Collections ################
 
-@app = {} unless @app?
+@app ?= {}
 
 @app.Location = Location = Backbone.Model.extend
     initialize: ->
