@@ -3,41 +3,96 @@ settings = require('../settings')
 http = require('http')
 Client = require('mongodb').MongoClient
 
-remoteCallback = (response) ->
-    body = ''
-    response.on 'data', (chunk) ->
-        body += chunk
+class MongoConnection
+    constructor: (@mongoUrl) ->
+        @collections = {}
 
-    response.on 'end', ->
-        console.log body
-        console.log "Authenticating to server at #{settings.get('MONGO_URL')}."
-        Client.connect settings.get('MONGO_URL'), (err, db) ->
-            db.collection 'locations', (err, collection) ->
-                data = JSON.parse(body)
-                reloadLocations(data, collection, db)       
+    connect: (callback) ->
+        console.log "Authenticating to server at #{@mongoUrl}."
+        Client.connect @mongoUrl, (err, db) =>
+            @db = db
+            callback db
 
-reloadLocations = (data, collection, db) ->
-    console.log('Reloading locations')
-    # Erase all records from the collection, if any
-    collection.remove {}, (err, result) ->
-        processAttributes(collection, location.attributes, location.geometry) for location in data.features
-        # Create index.
-        console.log "Establishing index."
-        collection.dropIndexes (err) ->
-            collection.ensureIndex {geometry: "2d"}, (err) ->
-                console.log(err) if err?
-                collection.count (err, count) ->
-                    console.log("Loaded " + count + " locations.");
-                    db.close()
+    getCollection: (collectionName, callback) ->
+        if @collections[collectionName]
+            callback @collections[collectionName]
+        else if @db?
+            @db.collection collectionName, (err, collection) =>
+                @collections[collectionName] = collection
+                callback collection
 
-processAttributes = (collection, attributes, geometry) ->
-    attributes.geometry = [geometry.x, geometry.y]
-    collection.insert attributes, (err, res) ->
-        # Don't need to do anything here
+        else
+            @connect (db) =>
+                db.collection collectionName, (err, collection) =>
+                    @collections[collectionName] = collection
+                    callback collection
+
+
+    clear: (collectionName, callback) ->
+        @getCollection collectionName, (collection) ->
+            collection.remove {}, (err, result) ->
+                callback result
+
+
+    insert: (collectionName, doc, callback) ->
+        @getCollection collectionName, (collection) ->
+            collection.insert doc, (err, response) ->
+                callback response
+
+    rebuildIndex: (collectionName, indexParams, callback) ->
+        @getCollection collectionName, (collection) ->
+            collection.dropIndexes (err) ->
+                collection.ensureIndex indexParams, (err) ->
+                    callback()
+
+    close: ->
+        @db.close()
+        @collections = {}
+
+
+class ArcGisLoader
+    constructor: (@mongo, @collectionName) ->
+
+    fetch: (sourceUrl, completeCallback) ->
+        console.log "Retrieving data from #{sourceUrl}"
+        request = http.request sourceUrl, (response) ->
+            body = ""
+            response.on 'data', (chunk) ->
+                body += chunk
+
+            response.on 'end', ->
+                completeCallback body
+
+        request.end()
+
+    reloadData: (contents) ->
+        @clearLocations =>
+            data = JSON.parse contents
+            @processLocations data
+
+    clearLocations: (callback) ->
+        @mongo.clear @collectionName, ->
+            callback()
+
+    processLocations: (data, collection, db) ->
+        locations = (@processLocation(l) for l in data.features)
+        @mongo.insert @collectionName, locations, =>
+            @mongo.rebuildIndex @collectionName, {geometry: "2d"}, =>
+                console.log "Loaded #{locations.length} locations."
+                @mongo.close()
+
+    processLocation: (location) ->
+        attributes = location.attributes
+        attributes.geometry = [location.geometry.x, location.geometry.y]
+        return attributes
+
 
 # Main method for loading data.
 main = ->
-    http.request(settings.get('QUERY_URL'), remoteCallback).end()
+    mongo = new MongoConnection(settings.get 'MONGO_URL')
+    loader = new ArcGisLoader(mongo, "locations")
+    loader.fetch settings.get('QUERY_URL'), (body) ->
+        loader.reloadData body
 
 if require.main == module
     main()
