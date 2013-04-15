@@ -2,7 +2,7 @@ require('source-map-support').install()
 settings = require('../settings')
 http = require('http')
 Client = require('mongodb').MongoClient
-processDays = require('../hours-parser').processDays
+HoursProcessor = require('../hours-parser').HoursProcessor
 
 class MongoConnection
     constructor: (@mongoUrl) ->
@@ -52,6 +52,7 @@ class MongoConnection
 
 class ArcGisLoader
     constructor: (@mongo, @collectionName) ->
+        @hoursProcessor = new HoursProcessor()
 
     fetch: (sourceUrl, completeCallback) ->
         console.log "Retrieving data from #{sourceUrl}"
@@ -84,7 +85,7 @@ class ArcGisLoader
     processLocation: (location) ->
         attributes = location.attributes
         attributes.geometry = [location.geometry.x, location.geometry.y]
-        attributes.hours = processDays(attributes.DAYS)
+        attributes.hours = @hoursProcessor.processHours(attributes.DAYS)
         return attributes
 
 
