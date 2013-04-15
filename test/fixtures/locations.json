@@ -16,5 +16,26 @@
          "ADDRESS": "91-870 Makule Road",
          "PUBLICACCE": "Yes",
          "GLOBALID": "{1D9C88AC-73DF-4B49-AC6B-39F77D1701E9}" },
-      "geometry": { "x": -158.01271414474863, "y": 21.315816629634313 } }
-  ]
+        "geometry": { "x": -158.01271414474863, "y": 21.315816629634313 }
+    },
+    {"attributes":
+        { "FID": 56,
+          "OBJECTID": 58,
+          "OBJECTID_1": 0,
+          "NAME": "Nuuanu",
+          "LOCATION": "S Vineyard Blvd",
+          "DAYS": "Mon - Sat",
+          "HOURS": "8 am - 4 pm",
+          "WEEKEND": "Sun",
+          "WEEKEND_HO": "9 am - 4 pm",
+          "TYPE": " ",
+          "COMPANY": "ICR",
+          "DESCRIPTIO": " ",
+          "CODE": "Nuuanu",
+          "ADDRESS": "33 S Vineyard Blvd",
+          "PUBLICACCE": "Yes",
+          "GLOBALID": "{AF2FF07C-A0CC-4FBF-9AB1-E096B029E468}"
+        },
+        "geometry": { "x": -158.01271414474863, "y": 21.315816629634313 }
+    }
+]

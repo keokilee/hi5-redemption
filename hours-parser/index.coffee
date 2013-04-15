@@ -42,7 +42,7 @@ class DaysProcessor
 
         return daysOfWeek
 
-hoursRegex = new RegExp(/(\d{1,2}(:\d{2})? (am|pm))/g)
+hoursRegex = new RegExp(/(\d{1,2}(:\d{2})? (am|pm|noon))/g)
 
 class TimesProcessor
     process: (hours) ->
@@ -61,6 +61,7 @@ class TimesProcessor
             timeInt = parseInt(time) * 100
 
         timeInt += 1200 if ampm == "pm" && timeInt < 1200
+        timeInt -= 1200 if ampm == "am" && timeInt >= 1200
         return timeInt
 
 class HoursProcessor

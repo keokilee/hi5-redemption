@@ -11,6 +11,11 @@ describe "hours-parser", ->
             days = @processor.processHours "Mon - Sun", "7:30 am - 5 pm"
             days.should.have.property(i) for i in [0..6]
 
+        it "should be able to handle Sat - Sun", ->
+            days = @processor.processHours "Sat - Sun", "7:30 am - 5 pm"
+            days.should.have.property(i) for i in [0, 6]
+            days.should.not.have.property(i) for i in [1..5]
+
         it "should be able to handle Tue - Sat", ->
             location = fixtures[0]
             days = @processor.processHours "Tue - Sat", "7:30 am - 5 pm"
@@ -53,3 +58,7 @@ describe "hours-parser", ->
         it "should have a close time", ->
             days = @processor.processHours "Mon - Sun", "7:30 am - 5 pm"
             days[i].close.should.equal(1700) for i in [0..6]
+
+        it "should be able to handle a close time of 12:00 noon", ->
+            days = @processor.processHours "Sat", "8 am - 12 noon"
+            days[6].close.should.equal(1200)

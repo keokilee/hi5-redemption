@@ -3,6 +3,7 @@ settings = require('../settings')
 http = require('http')
 Client = require('mongodb').MongoClient
 HoursProcessor = require('../hours-parser').HoursProcessor
+_ = require 'underscore'
 
 class MongoConnection
     constructor: (@mongoUrl) ->
@@ -84,8 +85,11 @@ class ArcGisLoader
 
     processLocation: (location) ->
         attributes = location.attributes
+        console.log location
         attributes.geometry = [location.geometry.x, location.geometry.y]
         attributes.hours = @hoursProcessor.processHours attributes.DAYS, attributes.HOURS
+        if attributes.WEEKEND != " "
+            _.extend(attributes.hours, @hoursProcessor.processHours(attributes.WEEKEND, attributes.WEEKEND_HO))
         return attributes
 
 
