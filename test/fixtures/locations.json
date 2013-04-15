@@ -1,0 +1,20 @@
+[
+    { "attributes":
+       { "FID": 60,
+         "OBJECTID": 81,
+         "OBJECTID_1": 0,
+         "NAME": "Ewa Beach",
+         "LOCATION": "91-870 Makule Road",
+         "DAYS": "Mon - Sun",
+         "HOURS": "10 am - 4 pm",
+         "WEEKEND": " ",
+         "WEEKEND_HO": " ",
+         "TYPE": " ",
+         "COMPANY": "RRR",
+         "DESCRIPTIO": " ",
+         "CODE": "Makule",
+         "ADDRESS": "91-870 Makule Road",
+         "PUBLICACCE": "Yes",
+         "GLOBALID": "{1D9C88AC-73DF-4B49-AC6B-39F77D1701E9}" },
+      "geometry": { "x": -158.01271414474863, "y": 21.315816629634313 } }
+  ]

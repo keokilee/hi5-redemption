@@ -18,7 +18,6 @@ class LocationService
     # Constructor for the class.
     constructor: (connectionUrl) ->
         @connectionUrl = connectionUrl
-        
 
     search: (latitude, longitude, callback) ->
         locationParams =
@@ -30,7 +29,6 @@ class LocationService
                 items = (processResult(result) for result in response.documents[0].results)
                 callback items
                 db.close()
-        
 
     location: (locId, callback) ->
         authenticateDb @connectionUrl, (err, db) ->
