@@ -85,7 +85,7 @@ class ArcGisLoader
     processLocation: (location) ->
         attributes = location.attributes
         attributes.geometry = [location.geometry.x, location.geometry.y]
-        attributes.hours = @hoursProcessor.processHours(attributes.DAYS)
+        attributes.hours = @hoursProcessor.processHours attributes.DAYS, attributes.HOURS
         return attributes
 
 

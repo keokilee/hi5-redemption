@@ -2,8 +2,7 @@
 String::trim = ->
     this.replace /^\s+|\s+$/, ""
 
-DAYS = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-
+daysArray = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
 rangeRegex = new RegExp(/(\w{3}) - (\w{3})/)
 commaRegex = new RegExp(/(\w{3}), (\w{3})/)
 
@@ -12,6 +11,7 @@ class DaysProcessor
         components = days.split(" & ")
         result = []
         (result = result.concat(@_processComponent(c))) for c in components
+        return result
 
     _processComponent: (component) ->
         isRange = rangeRegex.exec component
@@ -24,16 +24,16 @@ class DaysProcessor
             (subComponents = subComponents.concat(@_processComponent(c))) for c in component.split(",")
             return subComponents
         else
-            [DAYS.indexOf(component.trim())]
+            [daysArray.indexOf(component.trim())]
 
     _processRange: (startDay, endDay) ->
         daysOfWeek = []
         # API starts with Monday, so we're fine here
-        start = DAYS.indexOf(startDay)
+        start = daysArray.indexOf(startDay)
 
         # Have to handle the end day properly
         if endDay != "Sun"
-            end = DAYS.indexOf(endDay)
+            end = daysArray.indexOf(endDay)
             daysOfWeek = [start..end]
         else
             end = 6
@@ -42,14 +42,37 @@ class DaysProcessor
 
         return daysOfWeek
 
+hoursRegex = new RegExp(/(\d{1,2}(:\d{2})? (am|pm))/g)
+
+class TimesProcessor
+    process: (hours) ->
+        matches = hours.match hoursRegex
+
+        return {
+            open: @_processTime matches[0]
+            close: @_processTime matches[1]
+        }
+
+    _processTime: (timeStr) ->
+        [time, ampm] = timeStr.split(" ")
+        if time.indexOf(":") != -1
+            timeInt = parseInt(time.replace(":", ""))
+        else
+            timeInt = parseInt(time) * 100
+
+        timeInt += 1200 if ampm == "pm" && timeInt < 1200
+        return timeInt
+
 class HoursProcessor
     constructor: ->
         @daysProcessor = new DaysProcessor()
+        @timesProcessor = new TimesProcessor()
 
     processHours: (days, hours) ->
         parsedDays = @daysProcessor.process days
+        parsedHours = @timesProcessor.process hours
         obj = {}
-        (obj[i] = "") for i in days
+        (obj[i] = parsedHours) for i in parsedDays
         return obj
 
 exports.HoursProcessor = HoursProcessor
