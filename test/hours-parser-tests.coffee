@@ -6,6 +6,7 @@ describe "hours-parser", ->
     describe "days", ->
         before ->
             @processor = new HoursProcessor()
+
         it "should be able to handle Mon - Sun", ->
             days = @processor.processHours "Mon - Sun"
             days.should.have.property(i) for i in [0..6]

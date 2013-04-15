@@ -7,14 +7,11 @@ DAYS = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
 rangeRegex = new RegExp(/(\w{3}) - (\w{3})/)
 commaRegex = new RegExp(/(\w{3}), (\w{3})/)
 
-class HoursProcessor
-    processHours: (days, hours) ->
+class DaysProcessor
+    process: (days) ->
         components = days.split(" & ")
-        days = []
-        (days = days.concat(@_processComponent(c))) for c in components
-        obj = {}
-        (obj[i] = "") for i in days
-        return obj
+        result = []
+        (result = result.concat(@_processComponent(c))) for c in components
 
     _processComponent: (component) ->
         isRange = rangeRegex.exec component
@@ -44,5 +41,15 @@ class HoursProcessor
             daysOfWeek.unshift(0)
 
         return daysOfWeek
+
+class HoursProcessor
+    constructor: ->
+        @daysProcessor = new DaysProcessor()
+
+    processHours: (days, hours) ->
+        parsedDays = @daysProcessor.process days
+        obj = {}
+        (obj[i] = "") for i in days
+        return obj
 
 exports.HoursProcessor = HoursProcessor
