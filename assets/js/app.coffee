@@ -20,8 +20,16 @@
 
     hours: ->
         str = "Open #{@attributes.DAYS} from #{@attributes.HOURS}"
-        str += ", #{@attributes.WEEKEND} from #{@attributes.WEEKEND_HO}" if @hasWeekend
+        str += ", #{@attributes.WEEKEND} from #{@attributes.WEEKEND_HO}" if @hasWeekend()
         return str
+
+    isOpen: (date) ->
+        hours = @attributes.hours
+        day = date.getDay()
+        return false unless hours[day]?
+
+        timeInt = (date.getHours() * 100) + date.getMinutes()
+        hours[day].open < timeInt and timeInt < hours[day].close
 
     description: ->
         @attributes.DESCRIPTIO
