@@ -1,9 +1,13 @@
+settings = require './settings'
+# Nodefly monitoring.
+if settings.get('NODEFLY_KEY')?
+  require('nodefly').profile settings.get('NODEFLY_KEY'), ["hi5-redemption", "hi5-redemption"]
+
 # Module dependencies.
 express = require 'express'
 routes = require './routes'
 http = require 'http'
 path = require 'path'
-settings = require './settings'
 
 app = express()
 

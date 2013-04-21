@@ -14,7 +14,8 @@
     "express": "~3.1.0",
     "nconf": "~0.6.7",
     "connect-assets": "~2.4.0",
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "nodefly": "stable"
   },
   "subdomain": "hi5-redemption",
   "domains": [
