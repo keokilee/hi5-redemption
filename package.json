@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "coffee app.coffee",
-    "test": "node_modules/mocha/bin/mocha test/*.coffee -R spec"
+    "test": "node_modules/mocha/bin/mocha test/*.coffee -R spec && ./node_modules/mocha-phantomjs/bin/mocha-phantomjs http://localhost:3000/tests      "
   },
   "dependencies": {
     "jade": "~0.28.2",
@@ -29,6 +29,7 @@
     "mocha": "~1.8.2",
     "source-map-support": "~0.1.2",
     "supertest": "~0.5.1",
-    "chai": "~1.5.0"
+    "chai": "~1.5.0",
+    "mocha-phantomjs": "~2.0.1"
   }
 }
