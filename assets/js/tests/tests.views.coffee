@@ -10,7 +10,7 @@ describe "Views", ->
             @view.model = {}
             @view.id = 0
             @view.setId 1
-            should.not.exist @view.model
+            @view.model?.should.not.be.ok
 
         it "should not clear the model if the id remains the same", ->
             testModel = {foo: "bar"}

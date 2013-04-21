@@ -30,5 +30,6 @@ html
       $(function() {
         mocha.checkLeaks();
         mocha.globals(['jQuery']);
-        mocha.run();
+        if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+        else {mocha.run();}
       });
