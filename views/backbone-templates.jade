@@ -3,6 +3,7 @@ script#locationTemplate(type="text/template")
         h2 <%= fullName() %>
         p <%= attributes.LOCATION %>
         p <%= attributes.ADDRESS %> (<%= attributes.DISTANCE %>)
+        p <%= todaysHours() %>
 
 script#modelTemplate(type="text/template")
     h4 <%= fullName() %>

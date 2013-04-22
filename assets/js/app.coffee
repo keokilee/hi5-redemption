@@ -2,6 +2,24 @@
 
 @app ?= {}
 
+parseTime = (time) ->
+    # Translate time into a proper time string.
+    ampm = "AM"
+    hour = time / 100
+    minutes = time - (hour * 100)
+    if minutes < 10
+        minutes = "0" + minutes
+
+    if hour == 0
+        hour = 12
+    else if hour == 12
+        ampm = "PM"
+    else if hour > 12
+        hour = hour - 12
+        ampm = "PM"
+
+    return "#{hour}:#{minutes} #{ampm}"
+
 @app.Location = Location = Backbone.Model.extend
     initialize: ->
         @id = @attributes.OBJECTID if @attributes?.OBJECTID?
@@ -21,6 +39,30 @@
         str = "Open #{@attributes.DAYS} from #{@attributes.HOURS}"
         str += ", #{@attributes.WEEKEND} from #{@attributes.WEEKEND_HO}" if @hasWeekend()
         return str
+
+    todaysHours: ->
+        date = new Date()
+        day = date.getDay()
+        if @attributes.hours[day]?
+            return "Open today from #{@openTime date} to #{@closeTime date}"
+        else
+            return "Closed today"
+
+    openTime: (date) ->
+        hours = @attributes.hours
+        day = date.getDay()
+        if hours[day]
+            return parseTime(hours[day].open)
+        else
+            return null
+
+    closeTime: (date) ->
+        hours = @attributes.hours
+        day = date.getDay()
+        if hours[day]
+            return parseTime(hours[day].close)
+        else
+            return null
 
     isOpen: (date) ->
         hours = @attributes.hours

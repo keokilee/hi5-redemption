@@ -3,16 +3,16 @@ describe "Views", ->
         beforeEach ->
             @view = new window.app.LocationItemView()
 
-        it "should be an instance of a Backbone view", ->
+        it "is an instance of a Backbone view", ->
             @view.should.be.an.instanceof Backbone.View
 
-        it "should set the model to null if id is updated.", ->
+        it "sets the model to null if id is updated.", ->
             @view.model = {}
             @view.id = 0
             @view.setId 1
             @view.model?.should.not.be.ok
 
-        it "should not clear the model if the id remains the same", ->
+        it "does not clear the model if the id remains the same", ->
             testModel = {foo: "bar"}
             @view.model = testModel
             @view.id = 0
@@ -20,7 +20,7 @@ describe "Views", ->
             @view.model.should.be.ok
             @view.model.foo.should.equal "bar"
 
-        it "should be able to render its template", ->
+        it "is able to render its template", ->
             model = new window.app.Location()
             model.attributes =
                 NAME: "test"
@@ -34,16 +34,17 @@ describe "Views", ->
         beforeEach ->
             @view = new window.app.LocationRowView()
 
-        it "should be an instance of a Backbone view", ->
+        it "is an instance of a Backbone view", ->
             @view.should.be.an.instanceof Backbone.View
 
-        it "should be able to render its template", ->
+        it "is able to render its template", ->
             model = new window.app.Location {id: 0}
             model.attributes =
                 NAME: "test"
                 LOCATION: "test"
                 ADDRESS: "test"
                 DISTANCE: 0.0
+                hours: {}
 
             @view.template(model).should.be.ok
 
@@ -51,5 +52,5 @@ describe "Views", ->
         beforeEach ->
             @view = new window.app.SearchView()
 
-        it "should be an instance of a Backbone view", ->
+        it "is an instance of a Backbone view", ->
             @view.should.be.an.instanceof Backbone.View
