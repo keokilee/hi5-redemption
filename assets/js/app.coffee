@@ -129,9 +129,7 @@ Locations = new LocationCollection
 
     render: ->
         unless @model?
-            console.log @id
             location = new Location {id: @id}
-            console.log location
             location.fetch
                 success: (model, response) =>
                     @model = model
