@@ -3,8 +3,8 @@ String::trim = ->
     this.replace /^\s+|\s+$/, ""
 
 daysArray = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-rangeRegex = new RegExp(/(\w{3}) - (\w{3})/)
-commaRegex = new RegExp(/(\w{3}), (\w{3})/)
+rangeRegex = new RegExp(/(\w{3,4}) - (\w{3,4})/)
+commaRegex = new RegExp(/(\w{3,4}), (\w{3,4})/)
 
 class DaysProcessor
     process: (days) ->
@@ -23,7 +23,7 @@ class DaysProcessor
             subComponents = []
             (subComponents = subComponents.concat(@_processComponent(c))) for c in component.split(",")
             return subComponents
-        else
+        else if component.trim() in daysArray
             [daysArray.indexOf(component.trim())]
 
     _processRange: (startDay, endDay) ->
@@ -74,6 +74,8 @@ class HoursProcessor
         parsedHours = @timesProcessor.process hours
         obj = {}
         (obj[i] = parsedHours) for i in parsedDays
+        if obj[-1]?
+            console.log "Failed to properly parse #{days}/#{hours}."
         return obj
 
 exports.HoursProcessor = HoursProcessor

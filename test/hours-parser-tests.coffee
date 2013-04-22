@@ -38,7 +38,7 @@ describe "hours-parser", ->
             location = fixtures[0]
             days = @processor.processHours "Mon, Tue, Wed, & Fri", "7:30 am - 5 pm"
             days.should.have.property(i) for i in [1, 2, 3, 5]
-            days.should.not.have.property(i) for i in [0, 4, 6]
+            days.should.not.have.property(i) for i in [-1, 0, 4, 6]
 
         it "should be able to handle Mon & Sat", ->
             location = fixtures[0]

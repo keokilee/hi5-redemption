@@ -55,7 +55,7 @@ Locations = new LocationCollection
         google.maps.event.trigger @map, 'resize'
 
     setId: (id) ->
-        unless @id? == id
+        unless @id == id
             # Reset model so we do a fetch the next time.
             @model = null
             @id = id
