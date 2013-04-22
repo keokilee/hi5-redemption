@@ -1,4 +1,4 @@
-Client = require('mongodb').MongoClient
+Connection = require('./connection').Connection
 
 # Private functions
 processResult = (result) ->
@@ -10,10 +10,6 @@ processResult = (result) ->
 
     return item
 
-authenticateDb = (connectionUrl, callback) ->
-    Client.connect connectionUrl, (err, db) =>
-        callback err, db
-
 class LocationService
     # Constructor for the class.
     constructor: (connectionUrl) ->
@@ -24,18 +20,18 @@ class LocationService
             geoNear: "locations"
             near: [parseFloat(longitude), parseFloat(latitude)]
 
-        authenticateDb @connectionUrl, (err, db) ->
-            db.executeDbCommand locationParams, (err, response) ->
-                items = (processResult(result) for result in response.documents[0].results)
-                callback items
-                db.close()
+        connection = new Connection @connectionUrl
+
+        connection.executeCommand locationParams, (results) ->
+            items = (processResult(result) for result in results)
+            callback results
+            connection.close()
 
     location: (locId, callback) ->
-        authenticateDb @connectionUrl, (err, db) ->
-            db.collection 'locations', (err, collection) ->
-                collection.find {'OBJECTID': parseInt(locId)}, (err, cursor) ->
-                    cursor.toArray (err, items) ->
-                        callback items[0]
-                        db.close()
+        connection = new Connection @connectionUrl
+
+        connection.find 'locations', {'OBJECTID': parseInt(locId)}, (items) ->
+            callback items[0]
+            connection.close()
 
 exports.LocationService = LocationService

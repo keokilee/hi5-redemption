@@ -1,55 +1,9 @@
 require('source-map-support').install()
 settings = require('../settings')
+Connection = require('./connection').Connection
 http = require('http')
-Client = require('mongodb').MongoClient
 HoursProcessor = require('../hours-parser').HoursProcessor
 _ = require 'underscore'
-
-class MongoConnection
-    constructor: (@mongoUrl) ->
-        @collections = {}
-
-    connect: (callback) ->
-        console.log "Authenticating to server at #{@mongoUrl}."
-        Client.connect @mongoUrl, (err, db) =>
-            @db = db
-            callback db
-
-    getCollection: (collectionName, callback) ->
-        if @collections[collectionName]
-            callback @collections[collectionName]
-        else if @db?
-            @db.collection collectionName, (err, collection) =>
-                @collections[collectionName] = collection
-                callback collection
-
-        else
-            @connect (db) =>
-                db.collection collectionName, (err, collection) =>
-                    @collections[collectionName] = collection
-                    callback collection
-
-
-    clear: (collectionName, callback) ->
-        @getCollection collectionName, (collection) ->
-            collection.remove {}, (err, result) ->
-                callback result
-
-
-    insert: (collectionName, doc, callback) ->
-        @getCollection collectionName, (collection) ->
-            collection.insert doc, (err, response) ->
-                callback response
-
-    rebuildIndex: (collectionName, indexParams, callback) ->
-        @getCollection collectionName, (collection) ->
-            collection.dropIndexes (err) ->
-                collection.ensureIndex indexParams, (err) ->
-                    callback()
-
-    close: ->
-        @db.close()
-        @collections = {}
 
 class ArcGisLoader
     constructor: (@mongo, @collectionName) ->
@@ -85,7 +39,6 @@ class ArcGisLoader
 
     processLocation: (location) ->
         attributes = location.attributes
-        console.log location
         attributes.geometry = [location.geometry.x, location.geometry.y]
         attributes.hours = @hoursProcessor.processHours attributes.DAYS, attributes.HOURS
         if attributes.WEEKEND != " "
@@ -95,7 +48,7 @@ class ArcGisLoader
 
 # Main method for loading data.
 main = ->
-    mongo = new MongoConnection(settings.get 'MONGO_URL')
+    mongo = new Connection(settings.get 'MONGO_URL')
     loader = new ArcGisLoader(mongo, "locations")
     loader.fetch settings.get('QUERY_URL'), (body) ->
         loader.reloadData body
@@ -105,4 +58,3 @@ if require.main == module
 
 else
     exports.ArcGisLoader = ArcGisLoader
-    exports.MongoConnection = MongoConnection
