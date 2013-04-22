@@ -4,7 +4,7 @@
 
 @app.Location = Location = Backbone.Model.extend
     initialize: ->
-        @id = @attributes.OBJECTID
+        @id = @attributes.OBJECTID if @attributes?.OBJECTID?
 
     fullName: ->
         str = @attributes.NAME
@@ -55,7 +55,7 @@ Locations = new LocationCollection
         google.maps.event.trigger @map, 'resize'
 
     setId: (id) ->
-        unless @id == id
+        unless @id? == id
             # Reset model so we do a fetch the next time.
             @model = null
             @id = id
@@ -86,8 +86,10 @@ Locations = new LocationCollection
         @$el.trigger 'pagecreate'
 
     render: ->
-        unless @model
+        unless @model?
+            console.log @id
             location = new Location {id: @id}
+            console.log location
             location.fetch
                 success: (model, response) =>
                     @model = model
