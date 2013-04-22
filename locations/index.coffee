@@ -24,7 +24,7 @@ class LocationService
 
         connection.executeCommand locationParams, (results) ->
             items = (processResult(result) for result in results)
-            callback results
+            callback items
             connection.close()
 
     location: (locId, callback) ->

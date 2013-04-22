@@ -4,8 +4,7 @@
 
 @app.Location = Location = Backbone.Model.extend
     initialize: ->
-        if @attributes? and @attributes.OBJECTID?
-            @id = @attributes.OBJECTID
+        @id = @attributes.OBJECTID
 
     fullName: ->
         str = @attributes.NAME
