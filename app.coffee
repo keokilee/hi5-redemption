@@ -16,7 +16,6 @@ app.configure ->
   app.set 'views', (__dirname + '/views')
   app.set 'view engine', 'jade'
   app.use express.favicon()
-  app.use express.logger('dev')
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
@@ -26,7 +25,7 @@ app.configure ->
 app.configure 'production', ->
   app.use express.logger('dev')
 
-app.configure 'development', ->
+if app.get('env') != "production"
   app.use express.errorHandler()
   app.use '/mocha/', express.static(path.join(__dirname, 'node_modules', 'mocha'))
   app.use '/chai/', express.static(path.join(__dirname, 'node_modules', 'chai'))

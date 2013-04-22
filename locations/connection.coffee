@@ -1,5 +1,12 @@
 Client = require('mongodb').MongoClient
 
+# Stubbed connection when testing.
+class TestConnection
+    find: (collectionName, params, callback) ->
+        callback []
+
+    close: ->
+
 class MongoConnection
     constructor: (@mongoUrl) ->
         @collections = {}
@@ -58,4 +65,8 @@ class MongoConnection
         @db.close()
         @collections = {}
 
-module.exports.Connection = MongoConnection
+if process.env.NODE_ENV == "test"
+    module.exports.Connection = TestConnection
+
+else
+    module.exports.Connection = MongoConnection
