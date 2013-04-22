@@ -1,9 +1,10 @@
 script#locationTemplate(type="text/template")
     a(href!="#locations/<%= id %>")
         h2 <%= fullName() %>
+        p
+            strong <%= todaysHours() %>
         p <%= attributes.LOCATION %>
         p <%= attributes.ADDRESS %> (<%= attributes.DISTANCE %>)
-        p <%= todaysHours() %>
 
 script#modelTemplate(type="text/template")
     h4 <%= fullName() %>
