@@ -31,6 +31,10 @@ describe "Models", ->
                 @location.attributes.hours[@today] = {"open": 1200}
                 @location.openTime(@date).should.equal "12:00 PM"
 
+            it "handles 1630 close time properly", ->
+                @location.attributes.hours[@today] = {"close": 1630}
+                @location.closeTime(@date).should.equal "4:30 PM"
+
             it "displays hours for a given day", ->
                 @location.attributes.hours[@today] = {"open": 900, "close": 1400}
                 @location.todaysHours().should.have.string "9:00 AM"

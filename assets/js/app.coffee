@@ -5,7 +5,7 @@
 parseTime = (time) ->
     # Translate time into a proper time string.
     ampm = "AM"
-    hour = time / 100
+    hour = Math.floor(time / 100)
     minutes = time - (hour * 100)
     if minutes < 10
         minutes = "0" + minutes
