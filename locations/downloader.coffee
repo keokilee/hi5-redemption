@@ -1,9 +1,12 @@
 require('source-map-support').install()
-settings = require('../settings')
-Connection = require('./connection').Connection
-http = require('http')
-HoursProcessor = require('../hours-parser').HoursProcessor
+
+http = require 'http'
 _ = require 'underscore'
+program = require 'commander'
+
+settings = require '../settings'
+Connection = require('./connection').Connection
+HoursProcessor = require('../hours-parser').HoursProcessor
 
 class Loader
     constructor: ->
@@ -89,7 +92,15 @@ loadIntoConsole = (url) ->
 
 # Main method for loading data.
 main = ->
-    loadIntoConsole settings.get('QUERY_URL')
+    program.version('1.0.0')
+    .option('-m, --mongo', 'Write to MongoDB instead of console')
+    .option('-c, --clear', 'Clear existing contents before writing (for MongoDB)')
+    .parse(process.argv)
+
+    if program.mongo
+        loadIntoMongo settings.get('QUERY_URL'), program.clear
+    else
+        loadIntoConsole settings.get('QUERY_URL'), program.clear
 
 if require.main == module
     main()
