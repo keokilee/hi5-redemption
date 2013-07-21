@@ -95,5 +95,6 @@ if require.main == module
     main()
 
 else
+    exports.Loader = Loader
     exports.MongoLoader = MongoLoader
     exports.JsonLoader = JsonLoader

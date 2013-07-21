@@ -2,10 +2,13 @@ should = require('chai').should()
 downloader = require '../locations/downloader'
 fixtures = require './fixtures/locations.json'
 
-describe "downloader", ->
+class TestLoader extends downloader.Loader
+    constructor: ->
+
+describe "TestLoader", ->
     describe "locations", ->
         before ->
-            @loader = new downloader.ArcGisLoader
+            @loader = new TestLoader
 
         describe "hours", ->
             it "should have a hours field", ->
