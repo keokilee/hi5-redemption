@@ -7,16 +7,16 @@
     "test": "node_modules/mocha/bin/mocha test/*.coffee -R spec && ./node_modules/mocha-phantomjs/bin/mocha-phantomjs http://localhost:3000/tests"
   },
   "dependencies": {
-    "jade": "~0.28.2",
-    "less": "~1.3.3",
     "coffee-script": "~1.6.1",
     "commander": "~2.0.0",
-    "mongodb": "~1.2.14",
-    "express": "~3.1.2",
-    "nconf": "~0.6.7",
     "connect-assets": "~2.4.0",
-    "underscore": "~1.4.4",
-    "nodefly": "stable"
+    "express": "~3.1.2",
+    "jade": "~0.28.2",
+    "less": "~1.3.3",
+    "mongodb": "^1.4.40",
+    "nconf": "~0.6.7",
+    "nodefly": "stable",
+    "underscore": "~1.4.4"
   },
   "subdomain": "hi5-redemption",
   "domains": [
