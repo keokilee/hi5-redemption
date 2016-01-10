@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const cssnext = require('postcss-cssnext')
 
 module.exports = {
   devServer: {
@@ -37,12 +38,14 @@ module.exports = {
         test: /\.css$/,
         loaders: [
           'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader'
         ]
       }
     ]
   },
   plugins: [ new HtmlWebpackPlugin({ title: 'HI-5 Redemption Centers' }) ],
+  postcss: () => [ cssnext ],
   output: {
     path: `${process.cwd()}/dist`,
     publicPath: '/',

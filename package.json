@@ -47,6 +47,7 @@
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.19",
+    "postcss-loader": "^0.8.0",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
