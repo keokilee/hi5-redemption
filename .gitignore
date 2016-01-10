@@ -1,4 +1,3 @@
-settings/*.json
 node_modules
-builtAssets
+dist/
 *.log
