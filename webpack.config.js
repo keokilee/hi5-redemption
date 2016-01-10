@@ -1,9 +1,8 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const cssnext = require('postcss-cssnext')
 
 module.exports = {
   devServer: {
-    contentBase: `${process.cwd()}/dist`,
+    contentBase: `${process.cwd()}/public`,
     host: '0.0.0.0',
     historyApiFallback: true,
     noInfo: true
@@ -44,11 +43,10 @@ module.exports = {
       }
     ]
   },
-  plugins: [ new HtmlWebpackPlugin({ title: 'HI-5 Redemption Centers' }) ],
   postcss: () => [ cssnext ],
   output: {
-    path: `${process.cwd()}/dist`,
-    publicPath: '/',
+    path: `${process.cwd()}/public/assets`,
+    publicPath: '/assets',
     filename: '[name].js'
   },
   resolve: {
