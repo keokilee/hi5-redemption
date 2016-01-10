@@ -1,16 +1,15 @@
 <template>
   <div id='app'>
-    <img class='logo' src='./assets/logo.png'>
-    <hello></hello>
+    <app-header></app-header>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Header from './components/Header'
 
 export default {
   components: {
-    Hello
+    'app-header': Header
   }
 }
 </script>

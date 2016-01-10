@@ -33,6 +33,12 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash]'
         }
+      }, {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        ]
       }
     ]
   },
