@@ -1,4 +1,6 @@
 /* global __DEBUG__:false */
+import 'babel-polyfill'
+
 import Vue from 'vue'
 import App from './App'
 

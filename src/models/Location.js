@@ -6,6 +6,8 @@
 function parseTime (time) {
   let ampm = 'AM'
   let hour = Math.floor(time / 100)
+  let minutes = time - (hour * 100)
+
   if (hour === 0) {
     hour = 12
   } else if (hour === 12) {
@@ -15,7 +17,6 @@ function parseTime (time) {
     ampm = 'PM'
   }
 
-  let minutes = time - (hour * 100)
   if (minutes < 10) {
     minutes = `0${minutes}`
   }

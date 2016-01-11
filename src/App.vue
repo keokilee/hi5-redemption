@@ -2,16 +2,28 @@
   <div class='app'>
     <app-header></app-header>
     <search></search>
-    <location-list></location-list>
+    <location-list :locations='locations'></location-list>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Search from './components/Search'
-import LocationList from './components/LocationList'
+import Header from 'src/components/Header'
+import Search from 'src/components/Search'
+import LocationList from 'src/components/LocationList'
+
+import Location from 'src/models/Location'
+import { getLocation } from 'src/services/geolocation'
+import locationData from 'src/data/locations.json'
+
+const locations = locationData.map(l => new Location(l))
+getLocation().then(([lat, lng]) => console.log(`${lat},${lng}`))
 
 export default {
+  data () {
+    return {
+      locations
+    }
+  },
   components: {
     'app-header': Header,
     Search,
