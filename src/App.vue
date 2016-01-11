@@ -7,21 +7,23 @@
 </template>
 
 <script>
+import store from 'src/store'
+
 import Header from 'src/components/Header'
 import Search from 'src/components/Search'
 import LocationList from 'src/components/LocationList'
 
-import Location from 'src/models/Location'
 import { getLocation } from 'src/services/geolocation'
-import locationData from 'src/data/locations.json'
 
-const locations = locationData.map(l => new Location(l))
-getLocation().then(([lat, lng]) => console.log(`${lat},${lng}`))
+getLocation().then(([lat, lng]) => store.dispatch('SET_LOCATION', {
+  latitude: lat,
+  longitude: lng
+}))
 
 export default {
-  data () {
-    return {
-      locations
+  computed: {
+    locations () {
+      return store.state.recyclingCenters
     }
   },
   components: {

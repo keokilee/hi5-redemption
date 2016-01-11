@@ -1,11 +1,11 @@
-const cssnext = require('postcss-cssnext')
 const webpack = require('webpack')
 
 module.exports = {
   devServer: {
     contentBase: `${process.cwd()}/public`,
     host: '0.0.0.0',
-    historyApiFallback: true
+    historyApiFallback: true,
+    noInfo: true
   },
   devtool: 'eval-source-map',
   entry: {
@@ -48,7 +48,13 @@ module.exports = {
       __DEBUG__: true
     })
   ],
-  postcss: () => [ cssnext ],
+  postcss: webpack => [
+    require('postcss-import')({ addDependencyTo: webpack }),
+    require('postcss-url')(),
+    require('postcss-cssnext')(),
+    require('postcss-browser-reporter')(),
+    require('postcss-reporter')()
+  ],
   output: {
     path: `${process.cwd()}/public/assets`,
     publicPath: '/assets',

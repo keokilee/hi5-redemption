@@ -1,6 +1,6 @@
 <template>
   <div class='{{ styles.header }}'>
-    <h1>HI5 Redemption Centers</h1>
+    <h1>Redeem HI5</h1>
   </div>
 </template>
 
