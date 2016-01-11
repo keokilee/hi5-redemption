@@ -7,7 +7,7 @@
   font-size: 1.1rem;
   padding-bottom: 10px;
   display: inline-block;
-  width: calc(100% - 40px);
+  width: calc(100% - 42px);
   border: none;
   border-bottom: 1px solid #757575;
 }
@@ -30,7 +30,7 @@
 .search input:focus ~ label {
   top: -20px;
   font-size: 0.9rem;
-  color: #5264AE;
+  color: #2979FF;
 }
 
 .search input:focus ~ .bar:before, .search input:focus ~ .bar:after {
