@@ -1,0 +1,21 @@
+.locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.locations li {
+  padding: 15px 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #CCC;
+}
+
+.location h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.location p {
+  font-size: 14px;
+  margin: 5px 0;
+}

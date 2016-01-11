@@ -1,7 +1,7 @@
 <template>
   <div class='{{ styles.search }}'>
     <i class="material-icons">search</i>
-    <input type='text' v-model='place'>
+    <input type='text' v-model='place' placeholder='Search Near a Location'>
     <span class='{{ styles.highlight }}'></span>
     <span class='{{ styles.bar}}'></span>
   </div>

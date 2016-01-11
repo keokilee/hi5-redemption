@@ -4,7 +4,7 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --config webpack.config.js",
+    "start": "webpack-dev-server --inline --hot --config webpack.config.js",
     "build": "rimraf dist && webpack --progress --hide-modules --config webpack.config.js",
     "test": "karma start build/karma.conf.js --single-run"
   },

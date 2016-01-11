@@ -1,0 +1,2871 @@
+
+[
+  {
+    "FID": 1,
+    "OBJECTID": 2,
+    "OBJECTID_1": 81,
+    "NAME": "Ewa Beach",
+    "LOCATION": "Ewa Beach Shoppping Center",
+    "DAYS": "Mon - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Ewa Beach Star",
+    "ADDRESS": "91-919 Fort Weaver Road",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A4AF4A18-56E3-4751-9A65-707866DB5A9E}",
+    "geometry": [
+      -158.01378353839715,
+      21.31596295429439
+    ],
+    "hours": {
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 2,
+    "OBJECTID": 3,
+    "OBJECTID_1": 82,
+    "NAME": "Ewa Beach",
+    "LOCATION": "Ewa Town Center",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Ewa",
+    "ADDRESS": "91-1401 Fort Weaver Road",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{B563758D-75D8-4EC0-B903-29464C36DB1F}",
+    "geometry": [
+      -158.02348441272107,
+      21.333862012857836
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 3,
+    "OBJECTID": 4,
+    "OBJECTID_1": 84,
+    "NAME": "Halawa",
+    "LOCATION": "Halawa Recycling Plant",
+    "DAYS": "Mon - Sun",
+    "HOURS": "7:30 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": " ",
+    "CODE": "Halawa",
+    "ADDRESS": "99-1160 Iwaena St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{AF36E0EA-3268-46A9-95A8-6C44C40F345B}",
+    "geometry": [
+      -157.90869022151253,
+      21.379687765511527
+    ],
+    "hours": {
+      "0": {
+        "open": 730,
+        "close": 1700
+      },
+      "1": {
+        "open": 730,
+        "close": 1700
+      },
+      "2": {
+        "open": 730,
+        "close": 1700
+      },
+      "3": {
+        "open": 730,
+        "close": 1700
+      },
+      "4": {
+        "open": 730,
+        "close": 1700
+      },
+      "5": {
+        "open": 730,
+        "close": 1700
+      },
+      "6": {
+        "open": 730,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 4,
+    "OBJECTID": 5,
+    "OBJECTID_1": 85,
+    "NAME": "Haleiwa",
+    "LOCATION": "Haleiwa Shopping Center",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Haleiwa",
+    "ADDRESS": "66-145 Kamehameha Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{3CA0B288-C140-4337-B455-259ADC7C3D68}",
+    "geometry": [
+      -158.10344712972213,
+      21.58903383174819
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 5,
+    "OBJECTID": 6,
+    "OBJECTID_1": 86,
+    "NAME": "Hawaii Kai",
+    "LOCATION": "Hawaii Kai Park & Ride",
+    "DAYS": "Mon - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Hawaii Kai",
+    "ADDRESS": "300 Keahole St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{E01F1C09-45D5-44F6-8884-063E35F8F806}",
+    "geometry": [
+      -157.71401095672437,
+      21.283907383207758
+    ],
+    "hours": {
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 6,
+    "OBJECTID": 7,
+    "OBJECTID_1": 87,
+    "NAME": "Hawaii Kai",
+    "LOCATION": "Kalama Valley Village Center",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Kalama Valley",
+    "ADDRESS": "501 Kealahou St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{F7870975-A0F3-4036-B169-289270B19B4C}",
+    "geometry": [
+      -157.67318065025376,
+      21.29695143752054
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 7,
+    "OBJECTID": 8,
+    "OBJECTID_1": 88,
+    "NAME": "Hickam Air Force Base",
+    "LOCATION": "Building 1715",
+    "DAYS": "Tue - Fri",
+    "HOURS": "12 pm - 6 pm",
+    "WEEKEND": "Sat",
+    "WEEKEND_HO": "9 am - 3 pm",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": "Limited Access",
+    "CODE": "Hickam",
+    "ADDRESS": "Kuntz Ave, Bldg 1715",
+    "PUBLICACCE": "No",
+    "GLOBALID": "{D65D5C78-543F-4D82-A077-F997AB3E4053}",
+    "geometry": [
+      -157.93399774604356,
+      21.33432603721151
+    ],
+    "hours": {
+      "2": {
+        "open": 1200,
+        "close": 1800
+      },
+      "3": {
+        "open": 1200,
+        "close": 1800
+      },
+      "4": {
+        "open": 1200,
+        "close": 1800
+      },
+      "5": {
+        "open": 1200,
+        "close": 1800
+      },
+      "6": {
+        "open": 900,
+        "close": 1500
+      }
+    }
+  },
+  {
+    "FID": 8,
+    "OBJECTID": 9,
+    "OBJECTID_1": 91,
+    "NAME": "Kahuku",
+    "LOCATION": "Kahuku Sugar Mill (Near Kaiser Permanente)",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Kahuku",
+    "ADDRESS": "56-565 Kamehameha Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{53291432-EED3-49C3-8771-5FB93DFBF8F7}",
+    "geometry": [
+      -157.95042723751547,
+      21.677570745789815
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 9,
+    "OBJECTID": 10,
+    "OBJECTID_1": 92,
+    "NAME": "Kailua",
+    "LOCATION": "Aikahi Park Shopping Center (behind Safeway)",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Aikahi",
+    "ADDRESS": "25 Kaneohe Bay Dr",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{14AA4AF1-9168-44D8-B3AF-570A063EA039}",
+    "geometry": [
+      -157.7488453763262,
+      21.422930185322766
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 10,
+    "OBJECTID": 11,
+    "OBJECTID_1": 80,
+    "NAME": "Enchanted Lakes",
+    "LOCATION": "Keolu Shopping Center",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm); Close 8/18-9/2",
+    "CODE": "Keolu",
+    "ADDRESS": "1090 Keolu Dr Suite 102 & 103",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A2782FD4-FA8F-4395-BA0B-6B9B061AB58F}",
+    "geometry": [
+      -157.7289913111356,
+      21.3765944230055
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 11,
+    "OBJECTID": 12,
+    "OBJECTID_1": 94,
+    "NAME": "Kaimuki",
+    "LOCATION": "Kaimuki",
+    "DAYS": "Mon - Wed & Fri",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sat - Sun",
+    "WEEKEND_HO": "8 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Kaimuki",
+    "ADDRESS": "3109 Waialae Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{4377AD2F-AB59-48A8-B4BA-B859843C1914}",
+    "geometry": [
+      -157.8101298254854,
+      21.28823287119948
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 12,
+    "OBJECTID": 13,
+    "OBJECTID_1": 95,
+    "NAME": "Kalihi",
+    "LOCATION": "Corner of N. King and Akepo Ln",
+    "DAYS": "Mon - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 3 pm",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Kalihi",
+    "ADDRESS": "693 N. King St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{9A6A7AEB-CACF-4BE0-91BF-3FCCF3A9359C}",
+    "geometry": [
+      -157.8660980334988,
+      21.32013728860702
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1500
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 13,
+    "OBJECTID": 14,
+    "OBJECTID_1": 96,
+    "NAME": "Kalihi",
+    "LOCATION": "Honolulu Recovery Systems (Kalihi)",
+    "DAYS": "Mon - Sat",
+    "HOURS": "7 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "HRS",
+    "DESCRIPTIO": " ",
+    "CODE": "HRS",
+    "ADDRESS": "207 Puuhale Rd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{43EE41E0-FAC8-461A-86A5-CD3C94BBBD1F}",
+    "geometry": [
+      -157.88766355039795,
+      21.324370390458302
+    ],
+    "hours": {
+      "1": {
+        "open": 700,
+        "close": 1600
+      },
+      "2": {
+        "open": 700,
+        "close": 1600
+      },
+      "3": {
+        "open": 700,
+        "close": 1600
+      },
+      "4": {
+        "open": 700,
+        "close": 1600
+      },
+      "5": {
+        "open": 700,
+        "close": 1600
+      },
+      "6": {
+        "open": 700,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 14,
+    "OBJECTID": 15,
+    "OBJECTID_1": 97,
+    "NAME": "Kalihi",
+    "LOCATION": "Dillingham",
+    "DAYS": "Mon - Sat",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Dillingham",
+    "ADDRESS": "1803 Dillingham",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{8A8DA460-3776-4CBB-85EE-CEF7EC44B3F7}",
+    "geometry": [
+      -157.88049545122226,
+      21.327588739596568
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "2": {
+        "open": 800,
+        "close": 1600
+      },
+      "3": {
+        "open": 800,
+        "close": 1600
+      },
+      "4": {
+        "open": 800,
+        "close": 1600
+      },
+      "5": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 15,
+    "OBJECTID": 16,
+    "OBJECTID_1": 99,
+    "NAME": "Sand Island",
+    "LOCATION": "CM Recycling",
+    "DAYS": "Mon - Sat",
+    "HOURS": "8 am - 4:30 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "SI Access Rd",
+    "ADDRESS": "204 Sand Island Access Rd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{7FB2A930-3FB5-4E72-B07B-C1C1192B198F}",
+    "geometry": [
+      -157.88942770923703,
+      21.325767699098794
+    ],
+    "hours": {
+      "1": {
+        "open": 800,
+        "close": 1630
+      },
+      "2": {
+        "open": 800,
+        "close": 1630
+      },
+      "3": {
+        "open": 800,
+        "close": 1630
+      },
+      "4": {
+        "open": 800,
+        "close": 1630
+      },
+      "5": {
+        "open": 800,
+        "close": 1630
+      },
+      "6": {
+        "open": 800,
+        "close": 1630
+      }
+    }
+  },
+  {
+    "FID": 16,
+    "OBJECTID": 18,
+    "OBJECTID_1": 101,
+    "NAME": "Mapunapuna",
+    "LOCATION": "Goodwill Industries (Kilihau St)",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Kilihau",
+    "ADDRESS": "2610 Kilihau St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A19EF7B2-9A86-4FC1-87A6-2E0471C06E12}",
+    "geometry": [
+      -157.89474361682218,
+      21.33598808204388
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1600
+      },
+      "2": {
+        "open": 900,
+        "close": 1600
+      },
+      "3": {
+        "open": 900,
+        "close": 1600
+      },
+      "4": {
+        "open": 900,
+        "close": 1600
+      },
+      "5": {
+        "open": 900,
+        "close": 1600
+      },
+      "6": {
+        "open": 900,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 17,
+    "OBJECTID": 19,
+    "OBJECTID_1": 103,
+    "NAME": "Kaneohe",
+    "LOCATION": "Windward Mall",
+    "DAYS": "Mon - Thur",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sat & Sun",
+    "WEEKEND_HO": "8 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Windward",
+    "ADDRESS": "Ala Loa St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{4C864101-6B70-4FC7-BDC4-334C0C235746}",
+    "geometry": [
+      -157.80719119700737,
+      21.4187935443529
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 18,
+    "OBJECTID": 20,
+    "OBJECTID_1": 104,
+    "NAME": "Kapahulu",
+    "LOCATION": "Goodwill Industries (Campbell Ave)",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Kapahulu",
+    "ADDRESS": "3331 Campbell Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{9E2595B4-B245-4A22-B293-EE391401DBDF}",
+    "geometry": [
+      -157.81327068606672,
+      21.276684408670558
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1600
+      },
+      "2": {
+        "open": 900,
+        "close": 1600
+      },
+      "3": {
+        "open": 900,
+        "close": 1600
+      },
+      "4": {
+        "open": 900,
+        "close": 1600
+      },
+      "5": {
+        "open": 900,
+        "close": 1600
+      },
+      "6": {
+        "open": 900,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 19,
+    "OBJECTID": 21,
+    "OBJECTID_1": 106,
+    "NAME": "Kapolei",
+    "LOCATION": "Campbell Industrial Park - Kaomi",
+    "DAYS": "Mon - Sat",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Kaomi",
+    "ADDRESS": "91-140 Kaomi Loop",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{3538200D-5716-4E93-BB4C-B006A04AF2F0}",
+    "geometry": [
+      -158.10962352292506,
+      21.301145745817156
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "2": {
+        "open": 800,
+        "close": 1600
+      },
+      "3": {
+        "open": 800,
+        "close": 1600
+      },
+      "4": {
+        "open": 800,
+        "close": 1600
+      },
+      "5": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 20,
+    "OBJECTID": 22,
+    "OBJECTID_1": 107,
+    "NAME": "Kapolei",
+    "LOCATION": "Campbell Industrial Park - Kalaeloa",
+    "DAYS": "Mon - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 1 pm",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": "Accepts large loads",
+    "CODE": "Kalaeloa",
+    "ADDRESS": "91-165 Kalaeloa Blvd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{62718147-F7DC-4DBE-9369-4EBEF4D2EF0B}",
+    "geometry": [
+      -158.09803603499864,
+      21.306042959044976
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1300
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 21,
+    "OBJECTID": 23,
+    "OBJECTID_1": 109,
+    "NAME": "Kapolei",
+    "LOCATION": "Kapolei Shopping Center (next to Safeway)",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Kapolei",
+    "ADDRESS": "91-590 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{B33500C8-3FEF-4C7F-B12A-FDF82D1B5660}",
+    "geometry": [
+      -158.0793641204687,
+      21.337919945901323
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 22,
+    "OBJECTID": 24,
+    "OBJECTID_1": 110,
+    "NAME": "Kunia",
+    "LOCATION": "Kunia Park & Ride",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Kunia",
+    "ADDRESS": "94-640 Kupuohi St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{2CB4E358-669A-4B64-A383-ADB3E9E2D0C6}",
+    "geometry": [
+      -158.0329397719934,
+      21.38899759006912
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 23,
+    "OBJECTID": 25,
+    "OBJECTID_1": 111,
+    "NAME": "Makiki",
+    "LOCATION": "Goodwill Industries (Beretania St)",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Makiki",
+    "ADDRESS": "1075 Beretania St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{F4147361-F328-4F58-85D8-2655B81B59DF}",
+    "geometry": [
+      -157.84567219574984,
+      21.30233792963863
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1600
+      },
+      "2": {
+        "open": 900,
+        "close": 1600
+      },
+      "3": {
+        "open": 900,
+        "close": 1600
+      },
+      "4": {
+        "open": 900,
+        "close": 1600
+      },
+      "5": {
+        "open": 900,
+        "close": 1600
+      },
+      "6": {
+        "open": 900,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 24,
+    "OBJECTID": 26,
+    "OBJECTID_1": 119,
+    "NAME": "Mililani",
+    "LOCATION": "Town Center of Mililani (near Tesoro)",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Mililani",
+    "ADDRESS": "95-1249 Meheula Parkway",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{F3276E15-641A-45DD-84A0-35EC58E30E56}",
+    "geometry": [
+      -158.0047854931772,
+      21.452426141178805
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 25,
+    "OBJECTID": 27,
+    "OBJECTID_1": 120,
+    "NAME": "Mililani Mauka",
+    "LOCATION": "Mililani Mauka Park & Ride",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Mauka",
+    "ADDRESS": "95-1101 Ukuwai St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{77B3CE6A-482D-4798-B7AC-293CB4179863}",
+    "geometry": [
+      -158.00341207650285,
+      21.468664555378048
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 26,
+    "OBJECTID": 28,
+    "OBJECTID_1": 122,
+    "NAME": "Nanakuli",
+    "LOCATION": "Pacific Shopping Mall",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Nanakuli",
+    "ADDRESS": "87-2070 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{08301B89-6DBD-46C0-B9E9-7CFB5048365F}",
+    "geometry": [
+      -158.15147480523527,
+      21.388022468939386
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 27,
+    "OBJECTID": 29,
+    "OBJECTID_1": 123,
+    "NAME": "Nanakuli",
+    "LOCATION": "87-1796 Farrington Hwy",
+    "DAYS": "Mon - Sun",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Nanakuli2",
+    "ADDRESS": "87-1796 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{10C2A911-2733-4473-BEEB-4EBBF8EC6172}",
+    "geometry": [
+      -158.15648097490393,
+      21.3920010619782
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "2": {
+        "open": 800,
+        "close": 1600
+      },
+      "3": {
+        "open": 800,
+        "close": 1600
+      },
+      "4": {
+        "open": 800,
+        "close": 1600
+      },
+      "5": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 28,
+    "OBJECTID": 30,
+    "OBJECTID_1": 124,
+    "NAME": "Pearl City",
+    "LOCATION": "Pearl City Shopping Center",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "PC",
+    "ADDRESS": "850 Kamehameha Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{65BF6064-56D7-471B-A30F-9323968F9585}",
+    "geometry": [
+      -157.9677352603409,
+      21.39572487080435
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 29,
+    "OBJECTID": 31,
+    "OBJECTID_1": 125,
+    "NAME": "Pearl Harbor",
+    "LOCATION": "Pearl Harbor Navy Exchange",
+    "DAYS": "Tue, Thur & Sat",
+    "HOURS": "8 am - 6 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": "HRS",
+    "DESCRIPTIO": "Limited Access",
+    "CODE": "Pearl Harbor",
+    "ADDRESS": "Pearl Harbor NEX",
+    "PUBLICACCE": "No",
+    "GLOBALID": "{6B58F137-8440-48BE-A432-5B4D4C8CAD31}",
+    "geometry": [
+      -157.93238104028723,
+      21.349664080336996
+    ],
+    "hours": {
+      "2": {
+        "open": 800,
+        "close": 1800
+      },
+      "4": {
+        "open": 800,
+        "close": 1800
+      },
+      "6": {
+        "open": 800,
+        "close": 1800
+      }
+    }
+  },
+  {
+    "FID": 30,
+    "OBJECTID": 32,
+    "OBJECTID_1": 126,
+    "NAME": "Pearlridge",
+    "LOCATION": "Kam Swap Meet",
+    "DAYS": "Mon - Wed, Fri & Sat",
+    "HOURS": "10 am - 5 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "10 am - 3 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Pearlridge",
+    "ADDRESS": "Corner of Moanalua Rd & Kaonohi St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{8D52A6F9-6A76-4F68-A1D4-44FF5B798ABA}",
+    "geometry": [
+      -157.94261212213289,
+      21.3861080568295
+    ],
+    "hours": {
+      "0": {
+        "open": 1000,
+        "close": 1500
+      },
+      "1": {
+        "open": 1000,
+        "close": 1700
+      },
+      "2": {
+        "open": 1000,
+        "close": 1700
+      },
+      "3": {
+        "open": 1000,
+        "close": 1700
+      },
+      "6": {
+        "open": 1000,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 31,
+    "OBJECTID": 33,
+    "OBJECTID_1": 127,
+    "NAME": "Halawa",
+    "LOCATION": "Stadium Mall",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Stadium Mall",
+    "ADDRESS": "4510 Salt Lake Blvd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{0C0D41D4-2C6D-4E23-8606-54E85E634054}",
+    "geometry": [
+      -157.92831202491837,
+      21.36467945899551
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 32,
+    "OBJECTID": 34,
+    "OBJECTID_1": 129,
+    "NAME": "Wahiawa",
+    "LOCATION": "Goodwill Industries (California Ave)",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Wahiawa Goodwill",
+    "ADDRESS": "823 California Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{1576B2C5-B062-43C1-A573-2920772CBE96}",
+    "geometry": [
+      -158.02597804187513,
+      21.497323058661323
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 33,
+    "OBJECTID": 35,
+    "OBJECTID_1": 130,
+    "NAME": "Wahiawa",
+    "LOCATION": "1011 California Ave",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Wahiawa2",
+    "ADDRESS": "1011 California Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{45827AAC-77CB-4A11-9B75-05390B4F5E24}",
+    "geometry": [
+      -158.02372179800835,
+      21.4980542929642
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 34,
+    "OBJECTID": 36,
+    "OBJECTID_1": 131,
+    "NAME": "Wahiawa",
+    "LOCATION": "823 Olive Ave",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Wahiawa",
+    "ADDRESS": "823 Olive Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{EF31692B-FB40-4AC6-A30D-BD79A980A9A8}",
+    "geometry": [
+      -158.02528878798182,
+      21.496031476894892
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 35,
+    "OBJECTID": 37,
+    "OBJECTID_1": 133,
+    "NAME": "Waianae",
+    "LOCATION": "Waianae Store",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Waianae",
+    "ADDRESS": "85-863 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{1534F769-4BCA-4453-A7E7-A56AB38FAFD3}",
+    "geometry": [
+      -158.18885370926176,
+      21.4457043785344
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 36,
+    "OBJECTID": 38,
+    "OBJECTID_1": 134,
+    "NAME": "Waikele",
+    "LOCATION": "Waikele Center",
+    "DAYS": "Mon - Wed & Fri",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sat & Sun",
+    "WEEKEND_HO": "8 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Waikele",
+    "ADDRESS": "94-795 Lumiaina St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{CC8BCEB1-C547-4222-A498-EB0CDB2A579E}",
+    "geometry": [
+      -158.00212308152922,
+      21.40091410368559
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 37,
+    "OBJECTID": 39,
+    "OBJECTID_1": 135,
+    "NAME": "Waikiki",
+    "LOCATION": "Next to Hard Rock Cafe",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Waikiki",
+    "ADDRESS": "1812 Kalakaua Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{572224B5-A3AF-43F1-968F-850E3C78CE76}",
+    "geometry": [
+      -157.83489875028707,
+      21.28945076227406
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 38,
+    "OBJECTID": 40,
+    "OBJECTID_1": 136,
+    "NAME": "Waimanalo",
+    "LOCATION": "Across from Waimanalo Beach Park",
+    "DAYS": "Mon - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Waimanalo",
+    "ADDRESS": "41-853 Kalanianaole Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{6AD4A269-B40C-43B5-B6AE-04887D2A35A0}",
+    "geometry": [
+      -157.69752397954227,
+      21.332333641212518
+    ],
+    "hours": {
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 39,
+    "OBJECTID": 41,
+    "OBJECTID_1": 137,
+    "NAME": "Waipahu",
+    "LOCATION": "Next to Times Supermarket",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Waipahu - Times",
+    "ADDRESS": "94-766 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{37316DB0-E54E-4DA2-A073-33256F8AD0BD}",
+    "geometry": [
+      -158.00509135746123,
+      21.38468151877431
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 40,
+    "OBJECTID": 42,
+    "OBJECTID_1": 138,
+    "NAME": "Waipahu",
+    "LOCATION": "Waipahu Depot Metal",
+    "DAYS": "Mon - Sun",
+    "HOURS": "8 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Waipahu Depot",
+    "ADDRESS": "94-037 Waipahu Depot Rd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{3997BBCF-E5B9-4323-B675-4642A41D1A67}",
+    "geometry": [
+      -158.0049573360418,
+      21.381014883693794
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1700
+      },
+      "1": {
+        "open": 800,
+        "close": 1700
+      },
+      "2": {
+        "open": 800,
+        "close": 1700
+      },
+      "3": {
+        "open": 800,
+        "close": 1700
+      },
+      "4": {
+        "open": 800,
+        "close": 1700
+      },
+      "5": {
+        "open": 800,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 41,
+    "OBJECTID": 43,
+    "OBJECTID_1": 139,
+    "NAME": "Waipahu",
+    "LOCATION": "Waipahu (Island Container Redemption)",
+    "DAYS": "Mon & Sat",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Waipahu ICR",
+    "ADDRESS": "94-819 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{30B60706-5D9E-4069-AC84-618E76B16321}",
+    "geometry": [
+      -158.0036159943341,
+      21.383936761258088
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 42,
+    "OBJECTID": 44,
+    "OBJECTID_1": 0,
+    "NAME": "Aiea",
+    "LOCATION": "Aiea Shell",
+    "DAYS": "Mon - Sun",
+    "HOURS": "7 am - 6 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": "Reverse Vending Machine",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Aiea Shell",
+    "ADDRESS": "99-170 Moanalua Rd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{8F4B8141-EC37-4C57-992C-76F6F392CC96}",
+    "geometry": [
+      -157.9305887329135,
+      21.379180459882566
+    ],
+    "hours": {
+      "0": {
+        "open": 700,
+        "close": 1800
+      },
+      "1": {
+        "open": 700,
+        "close": 1800
+      },
+      "2": {
+        "open": 700,
+        "close": 1800
+      },
+      "3": {
+        "open": 700,
+        "close": 1800
+      },
+      "4": {
+        "open": 700,
+        "close": 1800
+      },
+      "5": {
+        "open": 700,
+        "close": 1800
+      },
+      "6": {
+        "open": 700,
+        "close": 1800
+      }
+    }
+  },
+  {
+    "FID": 43,
+    "OBJECTID": 45,
+    "OBJECTID_1": 0,
+    "NAME": "Ala Moana",
+    "LOCATION": "Kapiolani Blvd",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Ala Moana",
+    "ADDRESS": "1391 Kapiolani Blvd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{E3958BDB-B89E-4666-BEEF-5CFDB26ACF1F}",
+    "geometry": [
+      -157.84381645538522,
+      21.29348366305608
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 44,
+    "OBJECTID": 46,
+    "OBJECTID_1": 0,
+    "NAME": "Kalihi",
+    "LOCATION": "Aala St Redemption Center",
+    "DAYS": "Mon - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Aala",
+    "ADDRESS": "254 N Beretania St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A0B1EF3A-988D-4385-8FA7-2D0C9BE37208}",
+    "geometry": [
+      -157.86272161370087,
+      21.315332760033986
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 45,
+    "OBJECTID": 47,
+    "OBJECTID_1": 0,
+    "NAME": "Kaneohe",
+    "LOCATION": "Temple Valley",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Temple Valley",
+    "ADDRESS": "47-388 Hui Iwa St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{9D9CBF11-5883-42BF-BFFA-47C53BAC5F2D}",
+    "geometry": [
+      -157.82574142311003,
+      21.4359916866205
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 46,
+    "OBJECTID": 48,
+    "OBJECTID_1": 0,
+    "NAME": "Sand Island",
+    "LOCATION": "Sand Island Access Rd",
+    "DAYS": "Mon - Sat",
+    "HOURS": "7:30 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": "Accepts large loads",
+    "CODE": "SI Large",
+    "ADDRESS": "1130 Sand Island Access Rd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{E21C6520-7DD8-4D82-83C4-3BB03DD10569}",
+    "geometry": [
+      -157.874148283146,
+      21.30549928248633
+    ],
+    "hours": {
+      "1": {
+        "open": 730,
+        "close": 1600
+      },
+      "2": {
+        "open": 730,
+        "close": 1600
+      },
+      "3": {
+        "open": 730,
+        "close": 1600
+      },
+      "4": {
+        "open": 730,
+        "close": 1600
+      },
+      "5": {
+        "open": 730,
+        "close": 1600
+      },
+      "6": {
+        "open": 730,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 47,
+    "OBJECTID": 49,
+    "OBJECTID_1": 0,
+    "NAME": "Kaimuki",
+    "LOCATION": "Waialae",
+    "DAYS": "Mon - Sun",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Waialae",
+    "ADDRESS": "2960 Waialae Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A02437D1-D9F6-4EC5-8FA1-C22473563D6F}",
+    "geometry": [
+      -157.81281170048715,
+      21.289222478601967
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "2": {
+        "open": 800,
+        "close": 1600
+      },
+      "3": {
+        "open": 800,
+        "close": 1600
+      },
+      "4": {
+        "open": 800,
+        "close": 1600
+      },
+      "5": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 48,
+    "OBJECTID": 50,
+    "OBJECTID_1": 0,
+    "NAME": "Nanakuli",
+    "LOCATION": "Nanakuli Village",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Nanakuli Village",
+    "ADDRESS": "89-102 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{32E7DE0F-3120-4745-AEDD-55797852F116}",
+    "geometry": [
+      -158.14426598614304,
+      21.380710221254397
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 49,
+    "OBJECTID": 51,
+    "OBJECTID_1": 0,
+    "NAME": "Waianae",
+    "LOCATION": "Hawaii Recycling",
+    "DAYS": "Tue - Sun",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": "Closed Noon - 1 pm",
+    "CODE": "HR Waianae",
+    "ADDRESS": "87-710 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{683BACE9-4A52-4D21-B897-101E69AECD35}",
+    "geometry": [
+      -158.17659105603818,
+      21.410508632801214
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 50,
+    "OBJECTID": 52,
+    "OBJECTID_1": 0,
+    "NAME": "Waianae",
+    "LOCATION": "Waianae Boat Harbor",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "WN Boat Harbor",
+    "ADDRESS": "85-491 Farrington Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{143D3276-483F-45D4-B742-F2903170D5A0}",
+    "geometry": [
+      -158.1948825216082,
+      21.452310718855905
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 51,
+    "OBJECTID": 53,
+    "OBJECTID_1": 0,
+    "NAME": "Hauula",
+    "LOCATION": "Hauula",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Hauula",
+    "ADDRESS": "54-290 Kamehameha Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{A62F9316-E340-49AB-8EC9-D8CD58FE0A05}",
+    "geometry": [
+      -157.9149492912225,
+      21.61898578821469
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 52,
+    "OBJECTID": 54,
+    "OBJECTID_1": 0,
+    "NAME": "Kahaluu",
+    "LOCATION": "Kahaluu",
+    "DAYS": "Mon, Tue, Wed, & Fri",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sat & Sun",
+    "WEEKEND_HO": "8 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Kahaluu",
+    "ADDRESS": "47-705 Kamehameha Hwy",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{D45DA8A5-1091-45C6-ADC7-CE221562DB4D}",
+    "geometry": [
+      -157.84325697271106,
+      21.4655582154634
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      },
+      "undefined": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 53,
+    "OBJECTID": 55,
+    "OBJECTID_1": 0,
+    "NAME": "Kakaako",
+    "LOCATION": "Kakaako",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Kakaako",
+    "ADDRESS": "555 South St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{54A9D870-00BD-44A9-AF0A-A010D314DEFC}",
+    "geometry": [
+      -157.86022771098078,
+      21.301378147797628
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 54,
+    "OBJECTID": 56,
+    "OBJECTID_1": 0,
+    "NAME": "Kapahulu",
+    "LOCATION": "Kapahulu",
+    "DAYS": "Mon - Wed, & Fri",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": "Sat & Sun",
+    "WEEKEND_HO": "8 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Kapahulu",
+    "ADDRESS": "548 Kapahulu Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{00507D20-2FA4-4790-A75D-912887BC3949}",
+    "geometry": [
+      -157.81432580765426,
+      21.27758371279617
+    ],
+    "hours": {
+      "0": {
+        "open": 800,
+        "close": 1600
+      },
+      "1": {
+        "open": 900,
+        "close": 1700
+      },
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 55,
+    "OBJECTID": 57,
+    "OBJECTID_1": 0,
+    "NAME": "Moiliili",
+    "LOCATION": "Church of the Crossroads",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": "Closed for lunch (12 pm - 1:30 pm)",
+    "CODE": "Moiliili",
+    "ADDRESS": "1212 University Ave",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{8FA7AAA8-DC9E-4F38-B535-361F6E748E98}",
+    "geometry": [
+      -157.82204265598983,
+      21.293982927557646
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 56,
+    "OBJECTID": 58,
+    "OBJECTID_1": 0,
+    "NAME": "Nuuanu",
+    "LOCATION": "S Vineyard Blvd",
+    "DAYS": "Mon - Sat",
+    "HOURS": "8 am - 4 pm",
+    "WEEKEND": "Sun",
+    "WEEKEND_HO": "9 am - 4 pm",
+    "TYPE": " ",
+    "COMPANY": "ICR",
+    "DESCRIPTIO": " ",
+    "CODE": "Nuuanu",
+    "ADDRESS": "33 S Vineyard Blvd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{AF2FF07C-A0CC-4FBF-9AB1-E096B029E468}",
+    "geometry": [
+      -157.85742904362783,
+      21.31370035862858
+    ],
+    "hours": {
+      "0": {
+        "open": 900,
+        "close": 1600
+      },
+      "1": {
+        "open": 800,
+        "close": 1600
+      },
+      "2": {
+        "open": 800,
+        "close": 1600
+      },
+      "3": {
+        "open": 800,
+        "close": 1600
+      },
+      "4": {
+        "open": 800,
+        "close": 1600
+      },
+      "5": {
+        "open": 800,
+        "close": 1600
+      },
+      "6": {
+        "open": 800,
+        "close": 1600
+      }
+    }
+  },
+  {
+    "FID": 57,
+    "OBJECTID": 97,
+    "OBJECTID_1": 0,
+    "NAME": "Kalihi",
+    "LOCATION": "Palama Settlement",
+    "DAYS": "Tue - Sat",
+    "HOURS": "9 am - 5 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "Reynolds",
+    "DESCRIPTIO": " ",
+    "CODE": "Palama Settlement",
+    "ADDRESS": "810 N Vineyard Blvd",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{130223E0-4B02-4C35-9788-4056BD3511FF}",
+    "geometry": [
+      -157.86357858379526,
+      21.32243138364295
+    ],
+    "hours": {
+      "2": {
+        "open": 900,
+        "close": 1700
+      },
+      "3": {
+        "open": 900,
+        "close": 1700
+      },
+      "4": {
+        "open": 900,
+        "close": 1700
+      },
+      "5": {
+        "open": 900,
+        "close": 1700
+      },
+      "6": {
+        "open": 900,
+        "close": 1700
+      }
+    }
+  },
+  {
+    "FID": 58,
+    "OBJECTID": 98,
+    "OBJECTID_1": 0,
+    "NAME": "Sand Island",
+    "LOCATION": "Honolulu Disposal Service",
+    "DAYS": "Mon - Fri",
+    "HOURS": "7 am - 5 pm",
+    "WEEKEND": "Sat",
+    "WEEKEND_HO": "7 am - 2 pm",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "HDS",
+    "ADDRESS": "1071 Makepono St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{ED86CDC7-A303-4197-93C8-CA07F904F9F8}",
+    "geometry": [
+      -157.876448938653,
+      21.30545089984441
+    ],
+    "hours": {
+      "1": {
+        "open": 700,
+        "close": 1700
+      },
+      "2": {
+        "open": 700,
+        "close": 1700
+      },
+      "3": {
+        "open": 700,
+        "close": 1700
+      },
+      "4": {
+        "open": 700,
+        "close": 1700
+      },
+      "5": {
+        "open": 700,
+        "close": 1700
+      },
+      "6": {
+        "open": 700,
+        "close": 1400
+      }
+    }
+  },
+  {
+    "FID": 59,
+    "OBJECTID": 99,
+    "OBJECTID_1": 0,
+    "NAME": "Sand Island",
+    "LOCATION": "Ace Iron Recycling",
+    "DAYS": "Mon - Fri",
+    "HOURS": "8 am - 5 pm",
+    "WEEKEND": "Sat",
+    "WEEKEND_HO": "8 am - 12 noon",
+    "TYPE": " ",
+    "COMPANY": " ",
+    "DESCRIPTIO": " ",
+    "CODE": "Ace Iron",
+    "ADDRESS": "2110 Auiki St",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{75A54308-A151-4D52-8F81-7352B410B3F7}",
+    "geometry": [
+      -157.88991639229238,
+      21.32246907937943
+    ],
+    "hours": {
+      "1": {
+        "open": 800,
+        "close": 1700
+      },
+      "2": {
+        "open": 800,
+        "close": 1700
+      },
+      "3": {
+        "open": 800,
+        "close": 1700
+      },
+      "4": {
+        "open": 800,
+        "close": 1700
+      },
+      "5": {
+        "open": 800,
+        "close": 1700
+      },
+      "6": {
+        "open": 800,
+        "close": 1200
+      }
+    }
+  },
+  {
+    "FID": 60,
+    "OBJECTID": 81,
+    "OBJECTID_1": 0,
+    "NAME": "Ewa Beach",
+    "LOCATION": "91-870 Makule Road",
+    "DAYS": "Mon - Sun",
+    "HOURS": "10 am - 4 pm",
+    "WEEKEND": " ",
+    "WEEKEND_HO": " ",
+    "TYPE": " ",
+    "COMPANY": "RRR",
+    "DESCRIPTIO": " ",
+    "CODE": "Makule",
+    "ADDRESS": "91-870 Makule Road",
+    "PUBLICACCE": "Yes",
+    "GLOBALID": "{1D9C88AC-73DF-4B49-AC6B-39F77D1701E9}",
+    "geometry": [
+      -158.01271414474863,
+      21.315816629634313
+    ],
+    "hours": {
+      "0": {
+        "open": 1000,
+        "close": 1600
+      },
+      "1": {
+        "open": 1000,
+        "close": 1600
+      },
+      "2": {
+        "open": 1000,
+        "close": 1600
+      },
+      "3": {
+        "open": 1000,
+        "close": 1600
+      },
+      "4": {
+        "open": 1000,
+        "close": 1600
+      },
+      "5": {
+        "open": 1000,
+        "close": 1600
+      },
+      "6": {
+        "open": 1000,
+        "close": 1600
+      }
+    }
+  }
+]
