@@ -2,6 +2,7 @@
   <div class='app'>
     <app-header></app-header>
     <search></search>
+    <p>Showing all redemption centers within 10 miles of your location</p>
     <location-list :locations='locations'></location-list>
   </div>
 </template>

@@ -1,6 +1,6 @@
 .search {
   position: relative;
-  margin: 25px 10px 45px 20px;
+  margin: 25px 10px 25px 20px;
 }
 
 .search input {
@@ -49,7 +49,7 @@
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264AE;
+  background: #2979FF;
   transition: 0.2s ease all;
 }
 
