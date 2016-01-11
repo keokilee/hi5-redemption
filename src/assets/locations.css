@@ -8,6 +8,7 @@
   padding: 15px 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #CCC;
+  cursor: pointer;
 }
 
 .location h3 {
@@ -18,4 +19,8 @@
 .location p {
   font-size: 14px;
   margin: 5px 0;
+}
+
+.locationHours {
+  font-weight: bold;
 }
