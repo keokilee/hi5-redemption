@@ -1,33 +1,3 @@
-/**
- * Helper function for generating time format
- * @param  {Number} time The numerical time provided as an int (like 1900)
- * @return {String}      Time in the format HH:MM AM/PM
- */
-function parseTime (time) {
-  let ampm = 'AM'
-  let hour = Math.floor(time / 100)
-  let minutes = time - (hour * 100)
-
-  if (hour === 0) {
-    hour = 12
-  } else if (hour === 12) {
-    ampm = 'PM'
-  } else if (hour > 12) {
-    hour -= 12
-    ampm = 'PM'
-  }
-
-  if (minutes < 10) {
-    minutes = `0${minutes}`
-  }
-
-  return `${hour}:${minutes} ${ampm}`
-}
-
-function radians (degrees) {
-  return degrees * Math.PI / 180
-}
-
 export default class Location {
   constructor (location) {
     this.attributes = location
@@ -112,11 +82,12 @@ export default class Location {
   }
 
   getDistance (lat, lng) {
-    let [ lat2, lng2 ] = this.attributes.geometry
+    // BACKWARDS!!!
+    let [ lng2, lat2 ] = this.attributes.geometry
 
     const R = 3959 // miles
-    var dLat = radians(lat - lat2)
-    var dLon = radians(lng - lng2)
+    var dLat = radians(lat2 - lat)
+    var dLon = radians(lng2 - lng)
     lat = radians(lat)
     lat2 = radians(lat2)
 
@@ -126,4 +97,39 @@ export default class Location {
 
     return R * c
   }
+}
+
+/**
+ * Helper function for generating time format
+ * @param  {Number} time The numerical time provided as an int (like 1900)
+ * @return {String}      Time in the format HH:MM AM/PM
+ */
+function parseTime (time) {
+  let ampm = 'AM'
+  let hour = Math.floor(time / 100)
+  let minutes = time - (hour * 100)
+
+  if (hour === 0) {
+    hour = 12
+  } else if (hour === 12) {
+    ampm = 'PM'
+  } else if (hour > 12) {
+    hour -= 12
+    ampm = 'PM'
+  }
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+
+  return `${hour}:${minutes} ${ampm}`
+}
+
+/**
+ * Convert degrees into radians
+ * @param  {Number} degrees The degrees used for the location
+ * @return {Number}         The radians for the location
+ */
+function radians (degrees) {
+  return degrees * Math.PI / 180
 }

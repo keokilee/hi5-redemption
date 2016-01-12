@@ -1,7 +1,7 @@
 <template>
   <ul class='{{ styles.locations }}'>
     <li v-for='location in locations'>
-      <location-row :location='location'></location-row>
+      <location-row :location='location' :coordinates='coordinates'></location-row>
     </li>
   </ul>
 </template>
@@ -16,7 +16,7 @@ export default {
       styles
     }
   },
-  props: [ 'locations' ],
+  props: [ 'locations', 'coordinates' ],
   components: { LocationRow }
 }
 </script>

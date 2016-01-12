@@ -2,8 +2,8 @@
   <div class='app'>
     <app-header></app-header>
     <search></search>
-    <p>Showing all redemption centers within 10 miles of your location</p>
-    <location-list :locations='locations'></location-list>
+    <filters></filters>
+    <location-list :locations='locations' :coordinates='coordinates'></location-list>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import store from 'src/store'
 
 import Header from 'src/components/Header'
 import Search from 'src/components/Search'
+import Filters from 'src/components/Filters'
 import LocationList from 'src/components/LocationList'
 
 import { getLocation } from 'src/services/geolocation'
@@ -23,13 +24,13 @@ getLocation().then(([lat, lng]) => store.dispatch('SET_LOCATION', {
 
 export default {
   computed: {
-    locations () {
-      return store.state.recyclingCenters
-    }
+    locations: () => store.state.recyclingCenters,
+    coordinates: () => store.state.coordinates
   },
   components: {
     'app-header': Header,
     Search,
+    Filters,
     LocationList
   }
 }
