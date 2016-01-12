@@ -24,6 +24,10 @@ function parseTime (time) {
   return `${hour}:${minutes} ${ampm}`
 }
 
+function radians (degrees) {
+  return degrees * Math.PI / 180
+}
+
 export default class Location {
   constructor (location) {
     this.attributes = location
@@ -105,5 +109,21 @@ export default class Location {
 
   getAddress () {
     return this.attributes.ADDRESS
+  }
+
+  getDistance (lat, lng) {
+    let [ lat2, lng2 ] = this.attributes.geometry
+
+    const R = 3959 // miles
+    var dLat = radians(lat - lat2)
+    var dLon = radians(lng - lng2)
+    lat = radians(lat)
+    lat2 = radians(lat2)
+
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat) * Math.cos(lat2)
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+
+    return R * c
   }
 }
