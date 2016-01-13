@@ -2,20 +2,20 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 
 import mutations from 'src/store/mutations'
-import LocationCollection from 'src/models/LocationCollection'
+import { ALL_LOCATIONS } from 'src/constants'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
     filters: {
-      open: LocationCollection.ALL,
-      distance: LocationCollection.ALL
+      open: ALL_LOCATIONS,
+      distance: ALL_LOCATIONS
     },
     recyclingCenters: null,
     coordinates: null
   },
-  mutations: mutations
+  mutations
 })
 
 export default store
