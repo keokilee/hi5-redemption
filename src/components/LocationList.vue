@@ -27,4 +27,8 @@ export default {
   border-bottom: 1px solid #CCC;
   cursor: pointer;
 }
+
+.locations li:first-child {
+  padding-top: 0;
+}
 </style>

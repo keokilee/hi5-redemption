@@ -1,7 +1,6 @@
 <template>
   <div class='app'>
     <app-header></app-header>
-    <search></search>
     <filters></filters>
     <location-list :locations='locations' :coordinates='coordinates'></location-list>
   </div>
@@ -11,7 +10,6 @@
 import store from 'src/store'
 
 import Header from 'src/components/Header'
-import Search from 'src/components/Search'
 import Filters from 'src/components/Filters'
 import LocationList from 'src/components/LocationList'
 
@@ -29,7 +27,6 @@ export default {
   },
   components: {
     'app-header': Header,
-    Search,
     Filters,
     LocationList
   }
