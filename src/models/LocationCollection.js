@@ -18,7 +18,8 @@ export default class LocationCollection {
   }
 
   sort (latitude, longitude) {
-    return this.data.filter(openFilter(this.openFilter))
+    return this.data
+               .filter(openFilter(this.openFilter))
                .filter(distanceFilter(latitude, longitude, this.distanceFilter))
                .sort(sortByDistanceFrom(latitude, longitude))
   }
