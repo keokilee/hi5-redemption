@@ -1,5 +1,5 @@
 <template>
-  <ul class='{{ styles.locations }}'>
+  <ul class='locations'>
     <li v-for='location in locations'>
       <location-row :location='location' :coordinates='coordinates'></location-row>
     </li>
@@ -7,16 +7,24 @@
 </template>
 
 <script>
-import styles from 'src/assets/locations.css'
 import LocationRow from 'src/components/LocationRow'
 
 export default {
-  data () {
-    return {
-      styles
-    }
-  },
   props: [ 'locations', 'coordinates' ],
   components: { LocationRow }
 }
 </script>
+
+<style scoped>
+.locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.locations li {
+  padding: 15px 20px 10px;
+  border-bottom: 1px solid #CCC;
+  cursor: pointer;
+}
+</style>

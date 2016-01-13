@@ -1,17 +1,28 @@
 <template>
-  <div class='{{ styles.header }}'>
-    <h1>Redeem HI5</h1>
+  <div class='header'>
+    <h1>{{ title }}</h1>
   </div>
 </template>
 
 <script>
-import styles from 'src/assets/header.css'
-
 export default {
   data () {
     return {
-      styles
+      title: 'Redeem HI5'
     }
   }
 }
 </script>
+
+<style scoped>
+.header {
+  background-color: #2196F3;
+}
+
+.header h1 {
+  padding: 15px 20px;
+  color: white;
+  margin: 0;
+  font-size: 24px;
+}
+</style>

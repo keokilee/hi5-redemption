@@ -1,8 +1,8 @@
 <template>
-  <div class={{styles.filters}}>
+  <div class="filters">
     <p>
       Show
-      <span class="{{styles.dropdown}}">
+      <span class="dropdown">
         <select v-model='openValue' @change='openChange'>
           <option value="{{ constants.ALL_LOCATIONS }}">all</option>
           <option value="{{ constants.OPEN_LOCATIONS }}">open</option>
@@ -10,7 +10,7 @@
         </select>
       </span>
       redemption centers
-      <span class="{{styles.dropdown}}">
+      <span class="dropdown">
         <select v-model='distanceValue' @change='distanceChange'>
           <option value="{{ constants.ALL_LOCATIONS }}">on O`ahu</option>
           <option value="5">within 5 miles</option>
@@ -23,7 +23,6 @@
 
 <script>
 import store from 'src/store'
-import styles from 'src/assets/filters.css'
 import { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
 
 export default {
@@ -31,8 +30,7 @@ export default {
     return {
       distanceValue: ALL_LOCATIONS,
       openValue: ALL_LOCATIONS,
-      constants: { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS },
-      styles
+      constants: { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS }
     }
   },
   methods: {
@@ -50,3 +48,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.filters {
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.dropdown {
+  border-bottom: 1px solid #2979FF;
+}
+
+.dropdown select {
+  display: inline-block;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+</style>

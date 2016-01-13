@@ -33,13 +33,6 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash]'
         }
-      }, {
-        test: /\.css$/,
-        loaders: [
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'postcss'
-        ]
       }
     ]
   },
@@ -47,13 +40,6 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEBUG__: true
     })
-  ],
-  postcss: webpack => [
-    require('postcss-import')({ addDependencyTo: webpack }),
-    require('postcss-url')(),
-    require('postcss-cssnext')(),
-    require('postcss-browser-reporter')(),
-    require('postcss-reporter')()
   ],
   output: {
     path: `${process.cwd()}/public/assets`,
@@ -68,7 +54,14 @@ module.exports = {
   },
   vue: {
     loaders: {
-      js: 'babel!eslint'
+      js: 'babel!eslint',
+      postcss: [
+        require('postcss-url')(),
+        require('postcss-cssnext')(),
+        require('postcss-browser-reporter')(),
+        require('postcss-reporter')()
+      ],
+      autoprefixer: false
     }
   }
 }

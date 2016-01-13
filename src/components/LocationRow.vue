@@ -1,21 +1,14 @@
 <template>
-  <div class='{{ styles.location }}'>
+  <div class='location'>
     <h3>{{ location.fullName() }}</h3>
     <p>{{ location.getLocation() }}</p>
     <p>{{ addressLabel(location, coordinates) }}</p>
-    <p class='{{ styles.locationHours }}'>{{ location.getTodaysHours() }}</p>
+    <p class='location-hours'>{{ location.getTodaysHours() }}</p>
   </div>
 </template>
 
 <script>
-import styles from 'src/assets/locations.css'
-
 export default {
-  data () {
-    return {
-      styles
-    }
-  },
   methods: {
     addressLabel (location, coordinates) {
       if (!coordinates) {
@@ -29,3 +22,19 @@ export default {
   props: [ 'location', 'coordinates' ]
 }
 </script>
+
+<style scoped>
+.location h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.location p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.location-hours {
+  font-weight: bold;
+}
+</style>
