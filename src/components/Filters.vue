@@ -83,7 +83,7 @@ export default {
 
 .search {
   position: relative;
-  margin: 25px 10px 25px 20px;
+  margin: 25px 10px 25px;
 }
 
 .search input {
@@ -126,10 +126,10 @@ export default {
 }
 
 .bar:before {
-  left: calc(50% + 55px);
+  left: calc(50% + 46px);
 }
 
 .bar:after {
-  right: calc(50% - 55px);
+  right: calc(50% - 46px);
 }
 </style>
