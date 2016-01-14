@@ -13,6 +13,7 @@ const store = new Vuex.Store({
       distance: ALL_LOCATIONS
     },
     recyclingCenters: null,
+    defaultCoordinates: null,
     coordinates: null
   },
   mutations

@@ -1,12 +1,16 @@
 <template>
   <span class='search'>
-    <input id='placeAutocomplete' type='text' v-model='place' />
+    <input id='placeAutocomplete' type='text' @focus='clearInput' @blur='resetInput' value='Current Location' />
     <span class='bar'></span>
   </span>
 </template>
 
 <script>
+import store from 'src/store'
 import MapsLoader from 'src/services/google_maps'
+
+// Hold previous value in the input
+let previousValue
 
 MapsLoader.load(google => {
   const bounds = new google.maps.LatLngBounds(
@@ -14,20 +18,32 @@ MapsLoader.load(google => {
     new google.maps.LatLng(22.2711981, -156.8005013)
   )
 
+  const el = document.getElementById('placeAutocomplete')
+
   const autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById('placeAutocomplete'),
+    el,
     { bounds, radius: 200, componentRestrictions: { country: 'us' } }
   )
 
   google.maps.event.addListener(autocomplete, 'place_changed', () => {
-    console.log(autocomplete.getPlace())
+    const place = autocomplete.getPlace()
+    const name = place.name
+    const latitude = place.geometry.location.lat()
+    const longitude = place.geometry.location.lng()
+
+    el.blur()
+    store.dispatch('SET_LOCATION', { latitude, longitude, name })
   })
 })
 
 export default {
-  data () {
-    return {
-      place: ''
+  methods: {
+    clearInput (event) {
+      previousValue = event.target.value
+      event.target.value = ''
+    },
+    resetInput (event) {
+      event.target.value = previousValue
     }
   }
 }
@@ -40,12 +56,13 @@ export default {
 }
 
 .search input {
-  font-size: 16px;
+  font-size: 14px;
   padding-bottom: 5px;
   display: inline-block;
   width: calc(100% - 60px);
   border: none;
   border-bottom: 1px solid #757575;
+  text-overflow: ellipsis;
 }
 
 .search input:focus {

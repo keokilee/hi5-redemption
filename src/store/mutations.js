@@ -3,8 +3,12 @@ import locationData from 'src/data/locations.json'
 import Location from 'src/models/Location'
 
 export default {
-  SET_LOCATION (state, { latitude, longitude }) {
-    state.coordinates = { latitude, longitude }
+  SET_LOCATION (state, { latitude, longitude, name }) {
+    if (!state.defaultCoordinates) {
+      state.defaultCoordinates = { latitude, longitude, name }
+    }
+
+    state.coordinates = { latitude, longitude, name }
     state.recyclingCenters = updateRecyclingCenters(state)
   },
   SET_OPEN (state, open) {

@@ -67,6 +67,7 @@ export default {
 }
 
 .dropdown {
+  padding-bottom: 3px;
   border-bottom: 1px solid #2979FF;
 }
 

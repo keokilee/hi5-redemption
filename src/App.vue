@@ -15,9 +15,10 @@ import LocationList from 'src/components/LocationList'
 
 import { getLocation } from 'src/services/geolocation'
 
-getLocation().then(([lat, lng]) => store.dispatch('SET_LOCATION', {
-  latitude: lat,
-  longitude: lng
+getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
+  name: 'Current Location',
+  latitude,
+  longitude
 }))
 
 export default {
