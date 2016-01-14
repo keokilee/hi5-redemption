@@ -2,14 +2,10 @@
 import 'babel-polyfill'
 
 import Vue from 'vue'
-import App from './App'
+
+import App from 'src/App'
+import router from 'src/router'
 
 Vue.config.debug = __DEBUG__
 
-/* eslint-disable no-new */
-new Vue({
-  el: 'body',
-  replace: false,
-  template: '<app></app>',
-  components: { App }
-})
+router.start(App, 'body')

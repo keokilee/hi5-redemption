@@ -1,8 +1,7 @@
 <template>
   <div class='app'>
     <app-header></app-header>
-    <filters></filters>
-    <location-list :locations='locations' :coordinates='coordinates'></location-list>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -10,9 +9,6 @@
 import store from 'src/store'
 
 import Header from 'src/components/Header'
-import Filters from 'src/components/Filters'
-import LocationList from 'src/components/LocationList'
-
 import { getLocation } from 'src/services/geolocation'
 
 getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
@@ -22,14 +18,9 @@ getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
 }))
 
 export default {
-  computed: {
-    locations: () => store.state.recyclingCenters,
-    coordinates: () => store.state.coordinates
-  },
+  replace: false,
   components: {
-    'app-header': Header,
-    Filters,
-    LocationList
+    'app-header': Header
   }
 }
 </script>
