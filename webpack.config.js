@@ -1,9 +1,10 @@
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const secrets = require('./secrets.json')
 
 module.exports = {
   devServer: {
-    contentBase: `${process.cwd()}/public`,
+    contentBase: `${process.cwd()}/dist`,
     host: '0.0.0.0',
     historyApiFallback: true,
     noInfo: true
@@ -38,14 +39,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'HI5 Redemption Centers'
+    }),
     new webpack.DefinePlugin({
       __DEBUG__: true,
       __MAPS_KEY__: JSON.stringify(secrets.development.GOOGLE_MAPS_API_KEY)
     })
   ],
   output: {
-    path: `${process.cwd()}/public/assets`,
-    publicPath: '/assets',
+    path: `${process.cwd()}/dist`,
+    publicPath: '/',
     filename: '[name].js'
   },
   resolve: {
