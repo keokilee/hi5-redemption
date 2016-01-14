@@ -12,30 +12,6 @@ import MapsLoader from 'src/services/google_maps'
 // Hold previous value in the input
 let previousValue
 
-MapsLoader.load(google => {
-  const bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(20.3111981, -158.8405013),
-    new google.maps.LatLng(22.2711981, -156.8005013)
-  )
-
-  const el = document.getElementById('placeAutocomplete')
-
-  const autocomplete = new google.maps.places.Autocomplete(
-    el,
-    { bounds, radius: 200, componentRestrictions: { country: 'us' } }
-  )
-
-  google.maps.event.addListener(autocomplete, 'place_changed', () => {
-    const place = autocomplete.getPlace()
-    const name = place.name
-    const latitude = place.geometry.location.lat()
-    const longitude = place.geometry.location.lng()
-
-    el.blur()
-    store.dispatch('SET_LOCATION', { latitude, longitude, name })
-  })
-})
-
 export default {
   methods: {
     clearInput (event) {
@@ -45,6 +21,31 @@ export default {
     resetInput (event) {
       event.target.value = previousValue
     }
+  },
+  ready () {
+    MapsLoader.load().then(google => {
+      const bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(20.3111981, -158.8405013),
+        new google.maps.LatLng(22.2711981, -156.8005013)
+      )
+
+      const el = document.getElementById('placeAutocomplete')
+
+      const autocomplete = new google.maps.places.Autocomplete(
+        el,
+        { bounds, radius: 200, componentRestrictions: { country: 'us' } }
+      )
+
+      google.maps.event.addListener(autocomplete, 'place_changed', () => {
+        const place = autocomplete.getPlace()
+        const name = place.name
+        const latitude = place.geometry.location.lat()
+        const longitude = place.geometry.location.lng()
+
+        el.blur()
+        store.dispatch('SET_LOCATION', { latitude, longitude, name })
+      })
+    })
   }
 }
 </script>
