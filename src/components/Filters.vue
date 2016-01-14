@@ -20,22 +20,19 @@
     </p>
     <p>
       near
-      <span class='search'>
-        <input type='text' v-model='place' />
-        <span class='bar'></span>
-      </span>
+      <search></search>
     </p>
   </div>
 </template>
 
 <script>
+import Search from 'src/components/Search'
 import store from 'src/store'
 import { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
 
 export default {
   data () {
     return {
-      place: 'Current Location',
       distanceValue: ALL_LOCATIONS,
       openValue: ALL_LOCATIONS,
       constants: { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS }
@@ -53,7 +50,8 @@ export default {
 
       store.dispatch('SET_DISTANCE', value)
     }
-  }
+  },
+  components: { Search }
 }
 </script>
 
@@ -79,57 +77,5 @@ export default {
   border: none;
   font-size: inherit;
   border-radius: 0;
-}
-
-.search {
-  position: relative;
-  margin: 25px 10px 25px;
-}
-
-.search input {
-  font-size: 16px;
-  padding-bottom: 5px;
-  display: inline-block;
-  width: calc(100% - 60px);
-  border: none;
-  border-bottom: 1px solid #757575;
-}
-
-.search input:focus {
-  outline: none;
-}
-
-.search input:focus ~ label {
-  top: -20px;
-  font-size: 0.9rem;
-  color: #2979FF;
-}
-
-.search input:focus ~ .bar:before, .search input:focus ~ .bar:after {
-  width: 50%;
-}
-
-.bar {
-  position: relative;
-  display: block;
-  width: calc(100% - 60px);
-}
-
-.bar:before, .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 4px;
-  position: absolute;
-  background: #2979FF;
-  transition: 0.2s ease all;
-}
-
-.bar:before {
-  left: calc(50% + 46px);
-}
-
-.bar:after {
-  right: calc(50% - 46px);
 }
 </style>

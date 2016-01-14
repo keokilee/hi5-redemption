@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const secrets = require('./secrets.json')
 
 module.exports = {
   devServer: {
@@ -38,7 +39,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __DEBUG__: true
+      __DEBUG__: true,
+      __MAPS_KEY__: JSON.stringify(secrets.development.GOOGLE_MAPS_API_KEY)
     })
   ],
   output: {
@@ -56,6 +58,7 @@ module.exports = {
     loaders: {
       js: 'babel!eslint',
       postcss: [
+        require('postcss-font-magician')(),
         require('postcss-url')(),
         require('postcss-cssnext')(),
         require('postcss-browser-reporter')(),
