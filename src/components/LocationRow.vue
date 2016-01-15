@@ -1,5 +1,5 @@
 <template>
-  <div class='location'>
+  <div @click='navigate(location)' class='location'>
     <h3>{{ location.fullName() }}</h3>
     <p>{{ location.getLocation() }}</p>
     <p>{{ addressLabel(location, coordinates) }}</p>
@@ -27,6 +27,7 @@ export default {
 .location h3 {
   font-size: 20px;
   margin: 0;
+  cursor: pointer;
 }
 
 .location p {

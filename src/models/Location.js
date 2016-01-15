@@ -1,7 +1,7 @@
 export default class Location {
   constructor (location) {
     this.attributes = location
-    this.id = location.ID
+    this.id = location.FID
   }
 
   fullName () {
