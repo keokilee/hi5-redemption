@@ -1,6 +1,6 @@
 <template>
   <ul class='locations'>
-    <li v-for='location in locations' @click='navigate(location)'>
+    <li v-for='location in locations'>
       <location-row :location='location' :coordinates='coordinates'></location-row>
     </li>
   </ul>
@@ -11,12 +11,7 @@ import LocationRow from 'src/components/LocationRow'
 
 export default {
   props: [ 'locations', 'coordinates' ],
-  components: { LocationRow },
-  methods: {
-    navigate (location) {
-      this.$router.go({ path: `/locations/${location.id}` })
-    }
-  }
+  components: { LocationRow }
 }
 </script>
 
@@ -28,7 +23,7 @@ export default {
 }
 
 .locations li {
-  padding: 15px 20px 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #CCC;
 }
 

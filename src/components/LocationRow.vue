@@ -17,6 +17,9 @@ export default {
       const { latitude, longitude } = coordinates
       const distance = Math.floor(location.getDistance(latitude, longitude) * 10) / 10
       return `${location.getAddress()} (${distance} miles)`
+    },
+    navigate (location) {
+      this.$router.go({ path: `/locations/${location.id}` })
     }
   },
   props: [ 'location', 'coordinates' ]
@@ -24,14 +27,18 @@ export default {
 </script>
 
 <style scoped>
+.location {
+  padding: 15px 20px 0;
+}
+
 .location h3 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
   cursor: pointer;
 }
 
 .location p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 5px 0;
 }
 

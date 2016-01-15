@@ -11,7 +11,7 @@ router.map({
   '/': {
     component: RootView
   },
-  '/location/:id': {
+  '/locations/:id': {
     component: LocationView
   }
 })
