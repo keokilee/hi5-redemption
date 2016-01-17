@@ -35,6 +35,7 @@ export default {
 
 .location a {
   display: inline-block;
+  width: 100%;
 }
 
 .location h3 {

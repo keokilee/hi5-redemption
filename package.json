@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --config webpack.config.js",
-    "build": "rimraf dist && webpack --progress --hide-modules --config webpack.config.js"
+    "build": "rimraf public/assets && webpack --progress --hide-modules --config webpack.production.js"
   },
   "repository": {
     "type": "git",

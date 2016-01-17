@@ -2,13 +2,7 @@ const webpack = require('webpack')
 const secrets = require('./secrets.json')
 
 module.exports = {
-  devServer: {
-    contentBase: `${process.cwd()}/public`,
-    host: '0.0.0.0',
-    historyApiFallback: true,
-    noInfo: true
-  },
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   entry: {
     app: './src/main.js'
   },
@@ -39,13 +33,12 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __DEBUG__: true,
-      __MAPS_KEY__: JSON.stringify(secrets.development.GOOGLE_MAPS_API_KEY)
+      __DEBUG__: false,
+      __MAPS_KEY__: JSON.stringify(secrets.production.GOOGLE_MAPS_API_KEY)
     })
   ],
   output: {
     path: `${process.cwd()}/public/assets`,
-    publicPath: '/',
     filename: '[name].js'
   },
   resolve: {
