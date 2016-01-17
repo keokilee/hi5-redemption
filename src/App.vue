@@ -1,6 +1,5 @@
 <template>
   <div class='app'>
-    <app-header></app-header>
     <router-view></router-view>
   </div>
 </template>
@@ -8,7 +7,6 @@
 <script>
 import store from 'src/store'
 
-import Header from 'src/components/Header'
 import { getLocation } from 'src/services/geolocation'
 
 getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
@@ -18,10 +16,7 @@ getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
 }))
 
 export default {
-  replace: false,
-  components: {
-    'app-header': Header
-  }
+  replace: false
 }
 </script>
 
@@ -30,5 +25,11 @@ body {
   font-family: Roboto, sans-serif;
   margin: 0;
   font-size: 10px;
+  background-color: #FEFEFE;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }
 </style>

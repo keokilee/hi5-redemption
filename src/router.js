@@ -9,10 +9,12 @@ let router = new VueRouter()
 
 router.map({
   '/': {
-    component: RootView
+    component: RootView,
+    name: 'root'
   },
   '/locations/:id': {
-    component: LocationView
+    component: LocationView,
+    name: 'location'
   }
 })
 

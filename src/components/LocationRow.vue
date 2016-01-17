@@ -1,9 +1,11 @@
 <template>
   <div @click='navigate(location)' class='location'>
-    <h3>{{ location.fullName() }}</h3>
-    <p>{{ location.getLocation() }}</p>
-    <p>{{ addressLabel(location, coordinates) }}</p>
-    <p class='location-hours'>{{ location.getTodaysHours() }}</p>
+    <a v-link="{name: 'location' , params: { id: location.id }}">
+      <h3>{{ location.fullName() }}</h3>
+      <p>{{ location.getLocation() }}</p>
+      <p>{{ addressLabel(location, coordinates) }}</p>
+      <p class='location-hours'>{{ location.getTodaysHours() }}</p>
+    </a>
   </div>
 </template>
 
@@ -29,6 +31,10 @@ export default {
 <style scoped>
 .location {
   padding: 15px 20px 0;
+}
+
+.location a {
+  display: inline-block;
 }
 
 .location h3 {

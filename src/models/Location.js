@@ -4,6 +4,10 @@ export default class Location {
     this.id = location.FID
   }
 
+  mapsLink () {
+    return `http://maps.google.com/maps?daddr=${this.attributes.geometry[1]},${this.attributes.geometry[0]}&hl=en`
+  }
+
   fullName () {
     let name = this.attributes.NAME
     if (this.attributes.COMPANY !== ' ') {
