@@ -1,63 +1,35 @@
-const webpack = require('webpack')
-const secrets = require('../secrets.json')
+'use strict'
 
-module.exports = {
-  devtool: 'source-map',
-  entry: {
-    app: './src/main.js'
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      }, {
-        test: /\.js$/,
-        loader: 'babel!eslint',
-        exclude: /node_modules/
-      }, {
-        test: /\.json$/,
-        loader: 'json'
-      }, {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: '[name].[ext]?[hash]'
-        }
-      }
-    ]
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      __DEBUG__: false,
-      __MAPS_KEY__: JSON.stringify(secrets.production.GOOGLE_MAPS_API_KEY)
-    })
-  ],
-  output: {
-    path: `${process.cwd()}/public/assets`,
-    filename: '[name].js'
-  },
-  resolve: {
-    extensions: ['', '.js', '.vue'],
-    alias: {
-      'src': `${process.cwd()}/src`
-    }
-  },
-  vue: {
-    loaders: {
-      js: 'babel!eslint',
-      postcss: [
-        require('postcss-font-magician')(),
-        require('postcss-url')(),
-        require('postcss-cssnext')(),
-        require('postcss-browser-reporter')(),
-        require('postcss-reporter')()
-      ],
-      autoprefixer: false
-    }
-  }
+const webpack = require('webpack')
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const secrets = require('../secrets.json')
+let config = require('./webpack.base')
+
+config.debug = false
+config.devtool = 'source-map'
+config.output.path = 'dist/'
+
+config.plugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: 'production'
+    },
+    __DEBUG__: false,
+    __MAPS_KEY__: JSON.stringify(secrets.production.GOOGLE_MAPS_API_KEY)
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: { warnings: false }
+  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextWebpackPlugin('[name].[contenthash].css'),
+  new HtmlWebpackPlugin({ title: 'HI-5 Redemption Centers' })
+]
+
+config.vue.loaders = {
+  js: 'babel!eslint',
+  css: ExtractTextWebpackPlugin.extract('vue-style', 'css?sourceMap')
 }
+
+module.exports = config

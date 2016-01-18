@@ -3,7 +3,6 @@ module.exports = (config) => {
     frameworks: [ 'mocha' ],
     reporters: [ 'spec', 'coverage' ],
     files: [
-      'test/karma.shim.js',
       'test/index.js'
     ],
     preprocessors: {
@@ -17,7 +16,7 @@ module.exports = (config) => {
         { type: 'html', dir: 'tmp' }
       ]
     },
-    webpack: require('./config/webpack.test.js'),
+    webpack: require('./config/webpack.test'),
     webpackMiddleware: {
       noInfo: true
     }
