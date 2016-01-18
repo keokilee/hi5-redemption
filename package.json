@@ -4,8 +4,8 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --config webpack.config.js",
-    "build": "rimraf public/assets && webpack --progress --hide-modules --config webpack.production.js"
+    "start": "webpack-dev-server --inline --hot --config config/webpack.config.js",
+    "build": "rimraf public/assets && webpack --progress --hide-modules --config config/webpack.production.js"
   },
   "repository": {
     "type": "git",

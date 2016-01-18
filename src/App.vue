@@ -9,14 +9,15 @@ import store from 'src/store'
 
 import { getLocation } from 'src/services/geolocation'
 
-getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
-  name: 'Current Location',
-  latitude,
-  longitude
-}))
-
 export default {
-  replace: false
+  replace: false,
+  ready () {
+    getLocation().then(([latitude, longitude]) => store.dispatch('SET_LOCATION', {
+      name: 'Current Location',
+      latitude,
+      longitude
+    }))
+  }
 }
 </script>
 
