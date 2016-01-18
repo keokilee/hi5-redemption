@@ -1,9 +1,7 @@
-<template>
-  <ul class='locations'>
-    <li v-for='location in locations'>
-      <location-row :location='location' :coordinates='coordinates'></location-row>
-    </li>
-  </ul>
+<template lang="jade">
+ul.locations
+  li(v-for='location in locations')
+    location-row(:location='location', :coordinates='coordinates')
 </template>
 
 <script>
@@ -25,9 +23,9 @@ export default {
 .locations li {
   padding-bottom: 10px;
   border-bottom: 1px solid #CCC;
-}
 
-.locations li:first-child {
-  padding-top: 0;
+  &:first-child {
+    padding-top: 0;
+  }
 }
 </style>

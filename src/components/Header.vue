@@ -1,12 +1,9 @@
-<template>
-  <div class='header'>
-    <a v-link='back' v-if='back'>
-      <img :src='backIcon' />
-    </a>
-    <h1 :class="{ 'no-back': !back }">
-      {{ title }}
-    </h1>
-  </div>
+<template lang="jade">
+div.header
+  a(v-link="back", v-if="back")
+    img(:src="backIcon")
+
+  h1(:class="{ 'no-back': !back }") {{ title }}
 </template>
 
 <script>
@@ -38,9 +35,9 @@ export default {
   color: white;
   margin: 0;
   font-size: 24px;
-}
 
-.header h1.no-back {
-  margin-left: 24px;
+  &.no-back {
+    margin-left: 24px;
+  }
 }
 </style>

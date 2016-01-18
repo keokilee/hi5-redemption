@@ -1,28 +1,20 @@
-<template>
-  <div class="filters">
-    <p>
-      Show
-      <span class="dropdown">
-        <select v-model='openValue' @change='openChange'>
-          <option value="{{ constants.ALL_LOCATIONS }}">all</option>
-          <option value="{{ constants.OPEN_LOCATIONS }}">open</option>
-          <option value="{{ constants.CLOSED_LOCATIONS }}">closed</option>
-        </select>
-      </span>
-      redemption centers
-      <span class="dropdown">
-        <select v-model='distanceValue' @change='distanceChange'>
-          <option value="{{ constants.ALL_LOCATIONS }}">on O`ahu</option>
-          <option value="5">within 5 miles</option>
-          <option value="10">within 10 miles</option>
-        </select>
-      </span>
-    </p>
-    <p>
-      near
-      <search></search>
-    </p>
-  </div>
+<template lang="jade">
+div.filters
+  p Show
+    span.dropdown
+      select(v-model='openValue', @change='openChange')
+        option(value='{{ constants.ALL_LOCATIONS }}') all
+        option(value='{{ constants.OPEN_LOCATIONS }}') open
+        option(value='{{ constants.CLOSED_LOCATIONS }}') closed
+    | redemption centers
+    span.dropdown
+      select(v-model='distanceValue', @change='distanceChange')
+        option(value='{{ constants.ALL_LOCATIONS }}') on O&#8216;ahu
+        option(value='5') within 5 miles
+        option(value='10') within 10 miles
+
+  p near
+    search
 </template>
 
 <script>
@@ -59,24 +51,24 @@ export default {
 .filters {
   padding: 10px 20px 0;
   font-size: 16px;
-}
 
-.filters p {
-  margin: 0;
-  line-height: 2.4rem;
+  & p {
+    margin: 0;
+    line-height: 2.4rem;
+  }
 }
 
 .dropdown {
   padding-bottom: 3px;
   border-bottom: 1px solid #2979FF;
-}
 
-.dropdown select {
-  display: inline-block;
-  font-family: inherit;
-  background-color: transparent;
-  border: none;
-  font-size: inherit;
-  border-radius: 0;
+  & select {
+    display: inline-block;
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    border-radius: 0;
+  }
 }
 </style>

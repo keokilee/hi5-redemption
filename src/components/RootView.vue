@@ -1,9 +1,8 @@
-<template>
-  <div class="root">
-    <app-header title='Recycling Centers'></app-header>
-    <filters></filters>
-    <location-list :locations='locations' :coordinates='coordinates'></location-list>
-  </div>
+<template lang="jade">
+div.root
+  app-header(title='Recycling Centers')
+  filters
+  location-list(:locations='locations', :coordinates='coordinates')
 </template>
 
 <script>

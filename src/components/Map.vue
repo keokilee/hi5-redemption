@@ -1,5 +1,5 @@
-<template>
-  <div id="map"></div>
+<template lang="jade">
+div#map
 </template>
 
 <script>

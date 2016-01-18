@@ -1,25 +1,17 @@
-<template>
-  <div v-if='location'>
-    <app-header :title='location.fullName()' back="/"></app-header>
-    <div class='location-view'>
-      <div class="location-details" :class="{'no-description': location.getDescription() === ' '}">
-        <p>{{ location.getHours() }}</p>
-        <p>{{ location.getDescription() }}</p>
-      </div>
-      <div class='location-map' :class="{'no-description': location.getDescription() === ' '}">
-        <map
-          :latitude='this.location.attributes.geometry[1]'
-          :longitude='this.location.attributes.geometry[0]'
-          keep-alive>
-        </map>
-      </div>
-      <div class='location-directions'>
-        <h3>
-          <a target='_blank' href="{{ location.mapsLink() }}">Get Directions</a>
-        </h3>
-      </div>
-    </div>
-  </div>
+<template lang="jade">
+div(v-if='location')
+  app-header(:title='location.fullName()', back='/')
+  div.location-view
+    div.location-details(:class="{ 'no-description': location.getDescription() === ' ' }")
+      p {{ location.getHours() }}
+      p {{ location.getDescription() }}
+
+    div.location-map(:class="{ 'no-description': location.getDescription() === ' ' }")
+      map(:latitude="this.location.attributes.geometry[1]", :longitude="this.location.attributes.geometry[0]", keep-alive)
+
+    div.location-directions
+      h3
+        a(target="_blank", href="{{ location.mapsLink() }}") Get Directions
 </template>
 
 <script>
@@ -56,34 +48,34 @@ export default {
 .location-details {
   padding: 10px 20px;
   height: 80px;
-}
 
-.location-details.no-description {
-  height: 50px;
+  &.no-description {
+    height: 50px;
+  }
 }
 
 .location-map {
   height: calc(100vh - 240px);
-}
 
-.location-map.no-description {
-  height: calc(100vh - 210px);
+  &.no-description {
+    height: calc(100vh - 210px);
+  }
 }
 
 .location-directions {
   text-align: center;
   height: 60px;
-}
 
-.location-directions h3 {
-  font-size: 22px;
-  margin: 0;
-  margin-top: 20px;
-}
+  & h3 {
+    font-size: 22px;
+    margin: 0;
+    margin-top: 20px;
+  }
 
-.location-directions a {
-  display: inline-block;
-  width: 100%;
-  color: #2962FF;
+  & a {
+    display: inline-block;
+    width: 100%;
+    color: #2962FF;
+  }
 }
 </style>

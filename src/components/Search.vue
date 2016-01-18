@@ -1,8 +1,7 @@
-<template>
-  <span class='search'>
-    <input id='placeAutocomplete' type='text' @focus='clearInput' @blur='resetInput' value='Current Location' />
-    <span class='bar'></span>
-  </span>
+<template lang="jade">
+span.search
+  input#placeAutocomplete(type='text', @focus='clearInput', @blur='resetINput', value='Current Location')
+  span.bar
 </template>
 
 <script>
@@ -54,53 +53,53 @@ export default {
 .search {
   position: relative;
   margin: 25px 10px 25px;
-}
 
-.search input {
-  font-size: 14px;
-  padding-bottom: 5px;
-  display: inline-block;
-  width: calc(100% - 60px);
-  border: none;
-  border-bottom: 1px solid #757575;
-  text-overflow: ellipsis;
-}
+  & input {
+    font-size: 14px;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: calc(100% - 60px);
+    border: none;
+    border-bottom: 1px solid #757575;
+    text-overflow: ellipsis;
 
-.search input:focus {
-  outline: none;
-}
+    &:focus {
+      outline: 0;
+    }
 
-.search input:focus ~ label {
-  top: -20px;
-  font-size: 0.9rem;
-  color: #2979FF;
-}
+    &:focus ~ label {
+      top: -20px;
+      font-size: 0.9rem;
+      color: #2979FF;
+    }
 
-.search input:focus ~ .bar:before, .search input:focus ~ .bar:after {
-  width: 50%;
+    &:focus ~ .bar:before, &:focus ~ .bar:after {
+      width: 50%;
+    }
+  }
 }
 
 .bar {
   position: relative;
   display: block;
   width: calc(100% - 60px);
-}
 
-.bar:before, .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 4px;
-  position: absolute;
-  background: #2979FF;
-  transition: 0.2s ease all;
-}
+  &:before, &:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 4px;
+    position: absolute;
+    background: #2979FF;
+    transition: 0.2s ease all;
+  }
 
-.bar:before {
-  left: calc(50% + 46px);
-}
+  &:before {
+    left: calc(50% + 42px);
+  }
 
-.bar:after {
-  right: calc(50% - 46px);
+  &:after {
+    right: calc(50% - 42px);
+  }
 }
 </style>
