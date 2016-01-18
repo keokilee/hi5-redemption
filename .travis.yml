@@ -2,7 +2,3 @@ language: node_js
 node_js:
   - "stable"
   - "4.2"
-before_script:
-    - npm start &
-    - export NODE_ENV="test"
-    - sleep 3
