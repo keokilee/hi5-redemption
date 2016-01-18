@@ -1,5 +1,5 @@
 <template lang="jade">
-div.root
+.root
   app-header(title='Recycling Centers')
   filters
   location-list(:locations='locations', :coordinates='coordinates')

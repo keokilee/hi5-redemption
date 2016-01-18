@@ -1,5 +1,5 @@
 <template lang="jade">
-div.filters
+.filters
   p Show
     span.dropdown
       select(v-model='openValue', @change='openChange')

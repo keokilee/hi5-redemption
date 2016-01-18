@@ -1,5 +1,5 @@
 <template lang="jade">
-div.location
+.location
   a(v-link="{name: 'location', params: { id: location.id }}")
     h3 {{ location.fullName() }}
     p {{ location.getLocation() }}

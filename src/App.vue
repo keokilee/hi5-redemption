@@ -1,7 +1,6 @@
-<template>
-  <div class='app'>
-    <router-view></router-view>
-  </div>
+<template lang="jade">
+.app
+  router-view
 </template>
 
 <script>

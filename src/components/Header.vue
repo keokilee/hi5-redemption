@@ -1,5 +1,5 @@
 <template lang="jade">
-div.header
+.header
   a(v-link="back", v-if="back")
     img(:src="backIcon")
 
