@@ -9,7 +9,10 @@ let config = require('./webpack.base')
 
 config.debug = false
 config.devtool = 'source-map'
-config.output.path = 'dist/'
+config.output = {
+  path: 'dist/',
+  filename: '[name].[hash].js'
+}
 
 config.plugins = [
   new webpack.DefinePlugin({

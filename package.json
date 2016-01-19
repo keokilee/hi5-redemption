@@ -4,7 +4,7 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf public/assets && webpack --progress --hide-modules --config config/webpack.production.js",
+    "build": "rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
     "start": "webpack-dev-server --inline --hot --config config/webpack.development.js",
     "test": "karma start karma.conf.js",
     "test:watch": "karma start karma.conf.js --no-single-run"
@@ -67,6 +67,7 @@
     "postcss-url": "^5.0.2",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.0",
+    "svgo-loader": "^1.1.0",
     "template-html-loader": "0.0.3",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
