@@ -16,6 +16,6 @@ config.plugins = [
   })
 ]
 
-config.vue.loaders.js = 'isparta'
+config.vue.loaders.js = 'isparta!eslint'
 
 module.exports = config

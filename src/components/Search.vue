@@ -1,6 +1,6 @@
 <template lang="jade">
 span.search
-  input#placeAutocomplete(type='text', @focus='clearInput', @blur='resetINput', value='Current Location')
+  input#placeAutocomplete(type='text', @focus='clearInput', @blur='resetInput', value='Current Location')
   span.bar
 </template>
 
@@ -41,6 +41,8 @@ export default {
         const latitude = place.geometry.location.lat()
         const longitude = place.geometry.location.lng()
 
+        console.log(place.geometry.location.lat())
+        console.log(place.geometry.location.lng())
         el.blur()
         store.dispatch('SET_LOCATION', { latitude, longitude, name })
       })

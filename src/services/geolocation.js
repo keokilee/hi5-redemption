@@ -11,3 +11,21 @@ export function getLocation () {
     })
   })
 }
+
+export function run (generator) {
+  const it = generator(go)
+
+  function go (result) {
+    if (result.done) {
+      return it.next(result.value)
+    }
+
+    return result.value.then(value => {
+      return go(it.next(value))
+    }, err => {
+      return go(it.throw(err))
+    })
+  }
+
+  go(it.next())
+}
