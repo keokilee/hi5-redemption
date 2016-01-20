@@ -22,7 +22,10 @@ config.plugins = [
     __DEBUG__: false,
     __MAPS_KEY__: JSON.stringify(secrets.production.GOOGLE_MAPS_API_KEY)
   }),
+  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
+    minimize: true,
+    sourceMap: true,
     compress: { warnings: false }
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
