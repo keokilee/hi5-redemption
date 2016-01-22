@@ -34,13 +34,11 @@ export default {
   }
 
   & h3 {
-    font-size: 22px;
     margin: 0;
     cursor: pointer;
   }
 
   & p {
-    font-size: 16px;
     margin: 5px 0;
   }
 }

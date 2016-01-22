@@ -3,7 +3,7 @@
   a(v-link="back", v-if="back")
     img(:src="backIcon")
 
-  h1(:class="{ 'no-back': !back }") {{ title }}
+  h2(:class="{ 'no-back': !back }") {{ title }}
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .header {
-  height: 60px;
+  height: 4.0rem;
   background-color: #2196F3;
 }
 
@@ -29,12 +29,11 @@ export default {
   display: inline-block;
 }
 
-.header h1 {
+.header h2 {
   display: inline-block;
   padding: 15px 5px;
   color: white;
   margin: 0;
-  font-size: 24px;
 
   &.no-back {
     margin-left: 24px;

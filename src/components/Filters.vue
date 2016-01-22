@@ -50,11 +50,10 @@ export default {
 <style scoped>
 .filters {
   padding: 10px 20px 0;
-  font-size: 16px;
 
   & p {
     margin: 0;
-    line-height: 2.4rem;
+    line-height: 2.0rem;
   }
 }
 

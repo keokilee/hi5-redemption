@@ -32,8 +32,25 @@ export default {
 body {
   font-family: Roboto, sans-serif;
   margin: 0;
-  font-size: 10px;
+  font-size: 16px;
   background-color: #FEFEFE;
+}
+
+h1 {
+  font-size: 2.0rem;
+}
+
+h2 {
+  font-size: 1.625rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+p {
+  font-size: 1.0rem;
+  line-height: 1.25rem;
 }
 
 a {

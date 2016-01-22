@@ -30,7 +30,11 @@ config.plugins = [
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new ExtractTextWebpackPlugin('[name].[contenthash].css'),
-  new HtmlWebpackPlugin({ title: 'HI-5 Redemption Centers' })
+  new HtmlWebpackPlugin({
+    title: 'HI-5 Redemption Centers',
+    template: 'template.html',
+    inject: true
+  })
 ]
 
 config.vue.loaders = {

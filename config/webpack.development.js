@@ -21,7 +21,11 @@ config.plugins = [
     __DEBUG__: true,
     __MAPS_KEY__: JSON.stringify(secrets.development.GOOGLE_MAPS_API_KEY)
   }),
-  new HtmlWebpackPlugin({ title: 'HI-5 Redemption Centers' })
+  new HtmlWebpackPlugin({
+    title: 'HI-5 Redemption Centers',
+    template: 'template.html',
+    inject: true
+  })
 ]
 
 module.exports = config

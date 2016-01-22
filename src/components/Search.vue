@@ -57,10 +57,10 @@ export default {
   margin: 25px 10px 25px;
 
   & input {
-    font-size: 14px;
+    font-size: 1.0rem;
     padding-bottom: 5px;
     display: inline-block;
-    width: calc(100% - 60px);
+    width: calc(100% - 5.5rem);
     border: none;
     border-bottom: 1px solid #757575;
     text-overflow: ellipsis;
@@ -71,7 +71,6 @@ export default {
 
     &:focus ~ label {
       top: -20px;
-      font-size: 0.9rem;
       color: #2979FF;
     }
 
@@ -90,18 +89,18 @@ export default {
     content: '';
     height: 2px;
     width: 0;
-    bottom: 4px;
+    bottom: 1px;
     position: absolute;
     background: #2979FF;
     transition: 0.2s ease all;
   }
 
   &:before {
-    left: calc(50% + 42px);
+    left: calc(50% + 32px);
   }
 
   &:after {
-    right: calc(50% - 42px);
+    right: calc(50% - 32px);
   }
 }
 </style>
