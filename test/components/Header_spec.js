@@ -18,6 +18,6 @@ describe('Header', () => {
     const title = 'Test Title'
     const vm = renderTemplate(`<div><app-header title="${title}"></app-header></div>`)
 
-    expect(vm.$el.querySelector('h1').textContent.trim()).toEqual(title)
+    expect(vm.$el.querySelector('h2').textContent.trim()).toEqual(title)
   })
 })

@@ -3,6 +3,7 @@
 const webpack = require('webpack')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const AppcacheWebpackPlugin = require('appcache-webpack-plugin')
 
 const secrets = require('../secrets.json')
 let config = require('./webpack.base')
@@ -30,6 +31,7 @@ config.plugins = [
   }),
   new webpack.optimize.OccurenceOrderPlugin(),
   new ExtractTextWebpackPlugin('[name].[contenthash].css'),
+  new AppcacheWebpackPlugin(),
   new HtmlWebpackPlugin({
     title: 'HI-5 Redemption Centers',
     template: 'template.html',
