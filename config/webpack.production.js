@@ -33,7 +33,11 @@ config.plugins = [
   new HtmlWebpackPlugin({
     title: 'HI-5 Redemption Centers',
     template: 'template.html',
-    inject: true
+    inject: true,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true
+    }
   })
 ]
 
