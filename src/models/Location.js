@@ -1,20 +1,19 @@
 export default class Location {
-  constructor (location) {
-    this.attributes = location
-    this.id = location.FID
+  constructor ({ attributes, geometry }) {
+    Object.assign(this, {
+      id: attributes.OBJECTID,
+      name: attributes.ns1_name4,
+      address: attributes.Address,
+      location: attributes.Location,
+      island: attributes.Island,
+      county: attributes.County,
+      hours: attributes.Days_and_Hours_of_Operation,
+      geometry
+    })
   }
 
   mapsLink () {
-    return `http://maps.google.com/maps?daddr=${this.attributes.geometry[1]},${this.attributes.geometry[0]}&hl=en`
-  }
-
-  fullName () {
-    let name = this.attributes.NAME
-    if (this.attributes.COMPANY !== ' ') {
-      name += ` - ${this.attributes.COMPANY}`
-    }
-
-    return name
+    return `http://maps.google.com/maps?daddr=${this.geometry.y},${this.geometry.x}&hl=en`
   }
 
   hasWeekend () {
@@ -73,21 +72,10 @@ export default class Location {
     return timeInt > open && timeInt < close
   }
 
-  getDescription () {
-    return this.attributes.DESCRIPTIO
-  }
-
-  getLocation () {
-    return this.attributes.LOCATION
-  }
-
-  getAddress () {
-    return this.attributes.ADDRESS
-  }
-
   getDistance (lat, lng) {
     // BACKWARDS!!!
-    let [ lng2, lat2 ] = this.attributes.geometry
+    let { x, y } = this.geometry
+    let [ lng2, lat2 ] = [x, y]
 
     const R = 3959 // miles
     var dLat = radians(lat2 - lat)

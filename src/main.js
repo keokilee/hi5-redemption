@@ -1,4 +1,4 @@
-/* global __DEBUG__:false */
+/* global __DEBUG__:false, fetch: true */
 import 'babel-polyfill'
 
 import Vue from 'vue'
