@@ -4,8 +4,5 @@
     "mocha": true
   },
   "parser": "babel-eslint",
-  "extends": "standard",
-  "rules": {
-    "no-native-reassign": [2, {"exceptions": ["Promise", "fetch"]}]
-  }
+  "extends": "standard"
 }
