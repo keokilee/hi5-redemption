@@ -5,19 +5,26 @@ const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 export default class HoursParser {
   openToday (hours, date = new Date()) {
     const currentDay = DAYS[moment(date).day()]
-    const components = hours.split(';').map(h => h.replace(/^\s+/, ''))
+    const components = this._parseComponents(hours)
 
-    return components.some(component => {
-      const days = component.split(' ')[0]
-      return this._inDays(days, currentDay)
-    })
+    return components.some(component => this._inDays(component, currentDay))
   }
 
-  _inDays (daysString, day) {
-    if (daysString.indexOf('-') >= 0) {
-      return this._inDayRange(daysString, day)
+  openNow (hours, date = new Date()) {
+    return false
+  }
+
+  _parseComponents (hours) {
+    return hours.split(';').map(h => h.replace(/^\s+/, ''))
+  }
+
+  _inDays (hoursComponent, day) {
+    const days = hoursComponent.split(' ')[0]
+
+    if (days.indexOf('-') >= 0) {
+      return this._inDayRange(days, day)
     } else {
-      return this._inSpecifiedDay(daysString, day)
+      return this._inSpecifiedDay(days, day)
     }
   }
 
@@ -26,12 +33,14 @@ export default class HoursParser {
     const startIndex = DAYS.indexOf(startDay)
     const endIndex = DAYS.indexOf(endDay) + 1
 
+    // If the range does not wrap, then we can handle this normally.
     if (startIndex < endIndex) {
-      // If the range does not wrap, then we can handle this normally.
-      return DAYS.slice(startIndex, endIndex).indexOf(day) >= 0
+      const days = DAYS.slice(startIndex, endIndex)
+      return days.length === 7 || days.indexOf(day) >= 0
     } else {
       // We flip the range around and check that the day is NOT included
-      return DAYS.slice(endIndex, startIndex).indexOf(day) < 0
+      const days = DAYS.slice(endIndex, startIndex)
+      return days.indexOf(day) < 0
     }
   }
 

@@ -49,6 +49,12 @@ describe('services/time_parser', () => {
           const date = moment().day(0).toDate()
           expect(parser.openToday(DATE_STRING, date)).toBe(true)
         })
+
+        it('handles a complete range', () => {
+          const date = moment().day(0).toDate()
+          const dateString = DATE_STRING.replace(/We-Su/, 'Mo-Su')
+          expect(parser.openToday(dateString, date)).toBe(true)
+        })
       })
     })
 
@@ -60,10 +66,38 @@ describe('services/time_parser', () => {
         expect(parser.openToday(DATE_STRING, date)).toBe(true)
       })
 
-      it('is closed for one of the unspecified day', () => {
+      it('is closed for one of the unspecified days', () => {
         const date = moment().day(1).toDate()
         expect(parser.openToday(DATE_STRING, date)).toBe(false)
       })
+    })
+
+    describe('combined', () => {
+      const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-15:30'
+
+      it('is open for one of the days in the range', () => {
+        const date = moment().day(1).toDate()
+        expect(parser.openToday(DATE_STRING, date)).toBe(true)
+      })
+
+      it('is open for one of the specified days', () => {
+        const date = moment().day(6).toDate()
+        expect(parser.openToday(DATE_STRING, date)).toBe(true)
+      })
+
+      it('is closed for a day not specified', () => {
+        const date = moment().day(0).toDate()
+        expect(parser.openToday(DATE_STRING, date)).toBe(false)
+      })
+    })
+  })
+
+  describe('#openNow', () => {
+    const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-15:30'
+
+    it('is false if the location is not open today', () => {
+      const date = moment().day(0).toDate()
+      expect(parser.openNow(DATE_STRING, date)).toBe(false)
     })
   })
 })
