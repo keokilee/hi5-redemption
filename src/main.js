@@ -1,4 +1,4 @@
-/* global __DEBUG__:false */
+/* global __DEBUG__:false, fetch:true */
 import 'babel-polyfill'
 
 import Vue from 'vue'
@@ -8,4 +8,11 @@ import router from 'src/router'
 
 Vue.config.debug = __DEBUG__
 
-router.start(App, 'body')
+if (typeof fetch === 'undefined') {
+  require.ensure([], require => {
+    require('imports?self=>window!whatwg-fetch')
+    router.start(App, 'body')
+  })
+} else {
+  router.start(App, 'body')
+}
