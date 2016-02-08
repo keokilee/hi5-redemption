@@ -93,11 +93,41 @@ describe('services/time_parser', () => {
   })
 
   describe('#openNow', () => {
-    const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-15:30'
+    const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-12:30'
 
     it('is false if the location is not open today', () => {
       const date = moment().day(0).toDate()
       expect(parser.openNow(DATE_STRING, date)).toBe(false)
+    })
+
+    it('is open at the beginning of the range', () => {
+      const date = moment().day(1).hour(8).minutes(0).toDate()
+      expect(parser.openNow(DATE_STRING, date)).toBe(true)
+    })
+
+    it('is closed at the end of the range', () => {
+      const date = moment().day(1).hour(15).minutes(30).toDate()
+      expect(parser.openNow(DATE_STRING, date)).toBe(false)
+    })
+
+    it('is open in the middle of the range', () => {
+      const date = moment().day(1).hour(12).minutes(30).toDate()
+      expect(parser.openNow(DATE_STRING, date)).toBe(true)
+    })
+
+    it('is closed outside of the range', () => {
+      const date = moment().day(1).hour(7).minutes(30).toDate()
+      expect(parser.openNow(DATE_STRING, date)).toBe(false)
+    })
+
+    it('is open in the beginning of the second range', () => {
+      const date = moment(6).hour(8).minutes(0)
+      expect(parser.openNow(DATE_STRING, date)).toBe(true)
+    })
+
+    it('is closed in the end of the second range', () => {
+      const date = moment(6).hour(12).minutes(30)
+      expect(parser.openNow(DATE_STRING, date)).toBe(true)
     })
   })
 })

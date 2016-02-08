@@ -11,7 +11,12 @@ export default class HoursParser {
   }
 
   openNow (hours, date = new Date()) {
-    return false
+    const currentDay = DAYS[moment(date).day()]
+    const components = this._parseComponents(hours)
+
+    return components.some(component => {
+      return this._inDays(component, currentDay) && this._inHours(component, date)
+    })
   }
 
   _parseComponents (hours) {
@@ -26,6 +31,19 @@ export default class HoursParser {
     } else {
       return this._inSpecifiedDay(days, day)
     }
+  }
+
+  _inHours (hoursComponent, date) {
+    const hours = hoursComponent.split(' ')[1]
+    const [start, end] = hours.split('-')
+    const [startHours, startMinutes] = start.split(':').map(t => +t)
+    const [endHours, endMinutes] = end.split(':').map(t => +t)
+
+    const startDate = moment(date).hour(startHours).minutes(startMinutes)
+    const endDate = moment(date).hour(endHours).minutes(endMinutes)
+
+    return (startDate.isBefore(date) || startDate.isSame(date)) &&
+            endDate.isAfter(date)
   }
 
   _inDayRange (daysString, day) {
