@@ -51,6 +51,10 @@ describe('models/Location', () => {
       expect(location.address).toEqual(LOCATION.attributes.Address)
     })
 
+    it('has a site address' () => {
+      expect(location.siteAddress).toEqual(LOCATION.attributes.Site_Address)
+    })
+
     it('has a location', () => {
       expect(location.location).toEqual(LOCATION.attributes.Location)
     })

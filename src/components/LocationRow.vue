@@ -1,23 +1,22 @@
 <template lang="jade">
 .location
   a(v-link="{name: 'location', params: { id: location.id }}")
-    h3 {{ location.fullName() }}
-    p {{ location.getLocation() }}
-    p {{ addressLabel(location, coordinates) }}
+    h3 {{ location.name }}
+    p {{ addressLabel() }}
     p
-      strong {{ location.getTodaysHours() }}
+      strong {{ location.todaysHours() }}
 </template>
 
 <script>
 export default {
   methods: {
-    addressLabel (location, coordinates) {
-      if (!coordinates) {
-        return location.getAddress()
+    addressLabel () {
+      if (!this.coordinates) {
+        return this.location.siteAddress
       }
-      const { latitude, longitude } = coordinates
-      const distance = Math.floor(location.getDistance(latitude, longitude) * 10) / 10
-      return `${location.getAddress()} (${distance} miles)`
+      const { latitude, longitude } = this.coordinates
+      const distance = Math.floor(this.location.getDistance(latitude, longitude) * 10) / 10
+      return `${this.location.siteAddress} (${distance} miles)`
     }
   },
   props: [ 'location', 'coordinates' ]
