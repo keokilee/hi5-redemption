@@ -38,9 +38,13 @@ describe('models/Location', () => {
     expect(location).toBeA(Location)
   })
 
-  describe('methods', () => {
+  describe('attributes', () => {
     it('has a id', () => {
       expect(location.id).toEqual(LOCATION.attributes.OBJECTID)
+    })
+
+    it('has an island', () => {
+      expect(location.island).toEqual(LOCATION.attributes.Island)
     })
 
     it('has a name', () => {
@@ -51,7 +55,7 @@ describe('models/Location', () => {
       expect(location.address).toEqual(LOCATION.attributes.Address)
     })
 
-    it('has a site address' () => {
+    it('has a site address', () => {
       expect(location.siteAddress).toEqual(LOCATION.attributes.Site_Address)
     })
 

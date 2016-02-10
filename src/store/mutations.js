@@ -28,7 +28,9 @@ export default {
 }
 
 function updateRecyclingCenters (state) {
-  let data = locationData.features.map(l => new Location(l))
+  let data = locationData.features
+            .filter(l => l.attributes.Status !== 'CLOSED')
+            .map(l => new Location(l))
   return data.filter(openFilter(state.filters.open))
              .filter(distanceFilter(state.coordinates, state.filters.distance))
              .sort(sortByDistance(state.coordinates))

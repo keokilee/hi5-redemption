@@ -3,9 +3,6 @@ import moment from 'moment'
 const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 const TIME_FORMAT = 'h:mm a'
 
-export default class HoursParser {
-}
-
 export function openToday (hours, date = new Date()) {
   return _parseComponents(hours).some(component => _inDays(component, date))
 }

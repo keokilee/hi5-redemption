@@ -2,7 +2,8 @@
 .location
   a(v-link="{name: 'location', params: { id: location.id }}")
     h3 {{ location.name }}
-    p {{ addressLabel() }}
+    p {{ location.siteAddress }}
+    p {{ distanceLabel() }}
     p
       strong {{ location.todaysHours() }}
 </template>
@@ -10,13 +11,13 @@
 <script>
 export default {
   methods: {
-    addressLabel () {
+    distanceLabel () {
       if (!this.coordinates) {
         return this.location.siteAddress
       }
       const { latitude, longitude } = this.coordinates
       const distance = Math.floor(this.location.getDistance(latitude, longitude) * 10) / 10
-      return `${this.location.siteAddress} (${distance} miles)`
+      return `${distance} miles away`
     }
   },
   props: [ 'location', 'coordinates' ]

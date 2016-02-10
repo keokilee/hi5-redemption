@@ -15,7 +15,9 @@ const store = new Vuex.Store({
       open: ALL_LOCATIONS,
       distance: ALL_LOCATIONS
     },
-    recyclingCenters: locationData.features.map(l => new Location(l)),
+    recyclingCenters: locationData.features
+                      .filter(l => l.attributes.STATUS !== 'CLOSED')
+                      .map(l => new Location(l)),
     defaultCoordinates: null,
     coordinates: null
   },
