@@ -1,5 +1,5 @@
 import { OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
-import locationData from 'src/data/locations.json'
+import locationData from '../../data/data.json'
 import Location from 'src/models/Location'
 
 export default {
@@ -28,7 +28,9 @@ export default {
 }
 
 function updateRecyclingCenters (state) {
-  let data = locationData.map(l => new Location(l))
+  let data = locationData.features
+            .filter(l => l.attributes.Status !== 'CLOSED')
+            .map(l => new Location(l))
   return data.filter(openFilter(state.filters.open))
              .filter(distanceFilter(state.coordinates, state.filters.distance))
              .sort(sortByDistance(state.coordinates))

@@ -4,7 +4,7 @@ import Vue from 'vue'
 import mutations from 'src/store/mutations'
 import { ALL_LOCATIONS } from 'src/constants'
 
-import locationData from 'src/data/locations.json'
+import locationData from '../../data/data.json'
 import Location from 'src/models/Location'
 
 Vue.use(Vuex)
@@ -15,7 +15,9 @@ const store = new Vuex.Store({
       open: ALL_LOCATIONS,
       distance: ALL_LOCATIONS
     },
-    recyclingCenters: locationData.map(l => new Location(l)),
+    recyclingCenters: locationData.features
+                      .filter(l => l.attributes.STATUS !== 'CLOSED')
+                      .map(l => new Location(l)),
     defaultCoordinates: null,
     coordinates: null
   },

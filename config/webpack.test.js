@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 
 const config = require('./webpack.base')
@@ -6,7 +7,7 @@ delete config.entry
 config.module.postLoaders = [{
   test: /\.js$/,
   loader: 'isparta',
-  include: 'src/'
+  include: path.resolve('src')
 }]
 
 config.plugins = [
