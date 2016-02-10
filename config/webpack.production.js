@@ -18,7 +18,7 @@ config.output = {
 config.plugins = [
   new webpack.DefinePlugin({
     'process.env': {
-      NODE_ENV: 'production'
+      NODE_ENV: JSON.stringify('production')
     },
     __DEBUG__: false,
     __MAPS_KEY__: JSON.stringify(secrets.production.GOOGLE_MAPS_API_KEY)

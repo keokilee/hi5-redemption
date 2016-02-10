@@ -1,13 +1,13 @@
 <template lang="jade">
 div(v-if='location')
-  app-header(:title='location.fullName()', back='/')
+  app-header(:title='location.name', back='/')
   .location-view
-    .location-details(:class="{ 'no-description': location.getDescription() === ' ' }")
-      p {{ location.getHours() }}
-      p {{ location.getDescription() }}
+    .location-details
+      p {{ location.address }}
+      p {{ location.todaysHours() }}
 
-    .location-map(:class="{ 'no-description': location.getDescription() === ' ' }")
-      map(:latitude="this.location.attributes.geometry[1]", :longitude="this.location.attributes.geometry[0]", keep-alive)
+    .location-map
+      map(:latitude="location.geometry.y", :longitude="location.geometry.x", keep-alive)
 
     .location-directions
       h3
