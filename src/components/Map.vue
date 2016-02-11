@@ -34,6 +34,6 @@ export default {
 
 <style>
 #map {
-  height: 100%;
+  flex: 1;
 }
 </style>

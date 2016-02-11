@@ -1,7 +1,8 @@
 <template lang="jade">
 .header
-  a(v-link="back", v-if="back")
-    img(:src="backIcon")
+  div(v-if="back")
+    a(v-link="back")
+      img(:src="backIcon")
 
   h2(:class="{ 'no-back': !back }") {{ title }}
 </template>
@@ -23,15 +24,18 @@ export default {
 .header {
   height: 4.0rem;
   background-color: #2196F3;
+  display: flex;
+  align-items: center;
 }
 
-.header a {
-  display: inline-block;
+.header img {
+  height: 32px;
+  padding: 0 5px;
 }
 
 .header h2 {
-  display: inline-block;
-  padding: 15px 5px;
+  flex: 1;
+  padding: 15px 5px 15px 0;
   color: white;
   margin: 0;
 

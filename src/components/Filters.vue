@@ -9,7 +9,7 @@
     | redemption centers
     span.dropdown
       select(v-model='distanceValue', @change='distanceChange')
-        option(value='{{ constants.ALL_LOCATIONS }}') on O&#8216;ahu
+        option(value='{{ constants.ALL_LOCATIONS }}')
         option(value='5') within 5 miles
         option(value='10') within 10 miles
 

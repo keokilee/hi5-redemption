@@ -2,6 +2,10 @@ import { OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
 import locationData from '../../data/data.json'
 import Location from 'src/models/Location'
 
+const locations = locationData.features
+            .filter(l => l.attributes.Status !== 'CLOSED')
+            .map(l => new Location(l))
+
 export default {
   SET_LOCATION (state, { latitude, longitude, name }) {
     if (!state.defaultCoordinates) {
@@ -24,16 +28,16 @@ export default {
       distance
     }
     state.recyclingCenters = updateRecyclingCenters(state)
+  },
+  SET_CENTER (state, centerId) {
+    state.selectedCenter = locations.filter(l => l.id === centerId)[0]
   }
 }
 
 function updateRecyclingCenters (state) {
-  let data = locationData.features
-            .filter(l => l.attributes.Status !== 'CLOSED')
-            .map(l => new Location(l))
-  return data.filter(openFilter(state.filters.open))
-             .filter(distanceFilter(state.coordinates, state.filters.distance))
-             .sort(sortByDistance(state.coordinates))
+  return locations.filter(openFilter(state.filters.open))
+                  .filter(distanceFilter(state.coordinates, state.filters.distance))
+                  .sort(sortByDistance(state.coordinates))
 }
 
 function openFilter (value) {
