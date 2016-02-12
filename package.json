@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
-    "start": "webpack-dev-server --inline --hot --config config/webpack.development.js",
+    "start": "npm run start:dev",
+    "start:dev": "webpack-dev-server --inline --hot --config config/webpack.development.js",
+    "start:prod": "npm run build && hs dist",
     "test": "karma start karma.conf.js",
     "test:watch": "karma start karma.conf.js --no-single-run"
   },

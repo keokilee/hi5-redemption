@@ -41,8 +41,6 @@ export default {
         const latitude = place.geometry.location.lat()
         const longitude = place.geometry.location.lng()
 
-        console.log(place.geometry.location.lat())
-        console.log(place.geometry.location.lng())
         el.blur()
         store.dispatch('SET_LOCATION', { latitude, longitude, name })
       })
@@ -60,6 +58,9 @@ export default {
     font-size: 1.0rem;
     padding-bottom: 5px;
     display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 0;
     width: calc(100% - 5.5rem);
     border: none;
     border-bottom: 1px solid #757575;

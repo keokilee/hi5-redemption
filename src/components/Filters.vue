@@ -9,7 +9,7 @@
     | redemption centers
     span.dropdown
       select(v-model='distanceValue', @change='distanceChange')
-        option(value='{{ constants.ALL_LOCATIONS }}')
+        option(value='{{ constants.ALL_LOCATIONS }}') in the state
         option(value='5') within 5 miles
         option(value='10') within 10 miles
 
@@ -68,6 +68,7 @@ export default {
     border: none;
     font-size: inherit;
     border-radius: 0;
+    -webkit-appearance: none;
   }
 }
 </style>
