@@ -1,0 +1,92 @@
+OBJECTID	SW_Permit_Number	ns1_name4	Days_and_Hours_of_Operation
+1	RY-0041-13	Atlas Recycling Center	Mon-Fri 08:00-17:00; Sat,Sun 08:00-15:00
+2	RY-0099-11	Atlas Recycling Center	Mon-Fri 07:00-16:00; Sat 08:00-15:00
+3	RY-0069-11	Atlas Recycling Center	Mon-Fri 08:00-16:00; Sat 08:00-15:00
+4	RY-0003-13	Atlas Recycling Center	Mon-Fri 08:00-16:00; Sat 08:00-14:00
+5	RY-0026-15	Atlas Recycling Center	Mon-Fri 08:00-16:00; Sat 08:00-15:00
+6	RY-0007-15	Atlas Recycling Center	Mon-Fri 08:00-16:00; Sat 08:00-15:00
+7	RY-0060-13	Mr. K's Recycle &amp; Redemption Center	Mon-Sun 07:30-17:30
+8	RY-0030-14	Atlas Recycling Center	Mon-Fri, 08:00-16:00; Sat,Sun 08:00-15:00
+9	RY-0031-14	Atlas Recycling Center	Wed,Fri,Sat,Sun 08:00-15:30
+10	RY-0032-14	Atlas Recycling Center	Tue,Thu,Sat,Sun 08:00-15:30
+11	RY-0039-14	Business Services Hawaii	Mon-Sun 08:00-15:30
+12	RY-0034-14	Atlas Recycling Center	Sat,Sun 08:00-15:30
+13	RY-0169-09	Business Services Hawaii	Wed,Sat,Sun 08:00-15:30
+14	RY-0092-14	Honokaa (Plumeria St) - BSH	Sat,Sun 08:00-15:30
+15	RY-0094-14	Business Services Hawaii	Sat,Sun 08:00-15:30
+16	RY-0095-14	Business Services Hawaii	Sun 08:00-15:30
+17	RY-0096-14	Business Services Hawaii	Wed,Sat,Sun 08:00-15:30
+18	RY-0037-14	Business Services Hawaii	Mon-Sun 08:00-15:30
+19	RY-0020-10	Lawai - (Post Office) - Reynolds	Tue,Wed,Sat 08:00-12:00
+20	RY-0057-13	Nawiliwili - Reynolds	Tue-Sat 09:00-12:00; Tue-Sat 13:30-17:00
+21	RY-0022-14	Reynolds	Tue-Sat 09:00-17:00
+22	RY-0056-12	Lihue - Garden Island Disposal	Mon,Tue,Thu,Fri,Sat 07:30-11:00; Mon,Tue,Thu,Fri,Sat 11:45-16:15
+23	RY-0086-14	KCRS - Kapaa	Mon-Fri 08:00-16:00
+24	Exempt	Kilauea - Kauai Community Recuycling Services	Tue,Fri 08:00-16:00
+25	Exempt	Koloa - Kauai Community Recycling Services	Thu,Sun 08:00-16:00
+26	Exempt	Kekaha - Kauai Community Recycling Services	Wed,Sat 08:00-16:00
+27	RY-0029-13	Lahaina International Market	Mon-Sat 08:15-16:45
+28	RY-0068-13	Maui Disposal - Lanai	Mon,Wed,Fri 08:30-16:00
+29	RY-0086-11	Wailuku - Maui Disposal	Mon,Tue,Fri,Sat,Sun 08:30-12:00; Mon,Tue,Fri,Sat,Sun 12:30-16:30
+30	RY-0058-13	Kahului - Maui Disposal	Mon-Fri 09:00-17:00; Sat 10:00-13:00
+31	RY-0036-13	Pukalani - (Terrace Center) - Maui Disposal	Mon-Sun 08:30-12:00; Mon-Sun 12:30-16:30
+32	RY-0022-12	Reynolds	Mon-Fri 08:00-17:00
+33	RY-0021-14	Kahului - Aloha Glass	Mon-Sat 08:00-17:30
+34	RY-0050-11	Aloha Shell	Mon-Sun 08:00-20:00; (RVMs open 24 hours)
+35	Exempt	NKH Construction	Mon-Sat 08:00-18:00; Sun 09:00-17:00
+36	Exempt (Application # RY-0024-14)	Ualapue - (Kilohana Rec Ctr) - Molokai Mobile	Wed 09:00-12:00; (Only 1st Weddnesday of month)
+37	RY-0087-11	Aloha Glass	Wed-Sun 08:30-16:30
+38	RY-0090-11	Aloha Glass	Wed-Sun 08:30-16:30
+39	RY-0088-11	Aloha Glass	Mon-Sun 08:30-17:30
+40	RY-0089-11	Aloha Glass	Mon-Sun 08:30-16:30
+41	RY-0079-14	Molokai Landfill	Tue-Sat 08:00-14:30
+42	RY-0044-12	CM Recycling	Mon-Sat 08:00-16:30
+44	RY-0038-13	Reynolds Recycling	Wed-Sat 08:00-17:00
+45	RY-0044-13	Reynolds Recycling	Wed-Sat 08:00-12:00; Wed-Sat 13:30-17:00
+46	RY-0046-13	CLOSED 11/22/15 Reynolds Recycling	Mon-Sun 09:00-12:00; Mon-Sun 13:30-17:00
+47	RY-0047-13	Reynolds Recycling	Tue-Sat 09:00-12:00; Tue-Sat 13:30-17:00
+48	RY-0050-13	Reynolds Recycling	Wed-Sat 08:00-12:00; Wed-Sat 13:30-17:00
+49	RY-0051-13	CLOSED 11/22/15 - Reynolds Recycling	Mon-Sun 09:00-12:00; Mon-Sun 13:30-17:00
+50	RY-0037-13	Reynolds Recycling	Wed-Sat 08:00-12:00; Wed-Sat 13:30-17:00
+51	RY-0012-13	Reynolds Recycling	Mon,Tue,Wed,Sun 08:00-12:00; Mon,Tue,Wed,Sun 13:30-17:00
+52	RY-0013-12	CLOSED 11/22/15 Reynolds Recycling	Mon-Sun 09:00-12:00; Mon-Sun 13:30-17:00
+53	RY-0020-12	CLOSED 11/22/15 - Reynolds Recycling	Mon-Sat, 09:00-12:00; Mon-Sat 13:30-17:00
+56	RY-0039-15	CLOSED 12/11/15 Reynolds Recycling	Mon-Sat 09:00-17:00; (COMMERCIAL LOADS ONLY)
+57	RY-0021-10	Reynolds Recycling	Mon,Tue,Sat,Sun 08:00-12:00; Mon,Tue,Sat,Sun 13:30-17:00
+59	RY-0165-09	Reynolds Recycling	Mon,Tue,Wed,Sun 08:00-12:00; Mon,Tue,Wed,Sun 13:30-17:00
+60	RY-0088-14	Reynolds Recycling	Tue-Sat 09:00-12:00; Tue-Sat 13:30-17:00
+61	RY-0046-14	Reynolds Recycling	Mon,Tue,Thu,Fri,Sat,Sun 08:00-17:00
+62	RY-0044-14	CLOSED 11/22/15 Reynolds Recycling	Tue-Sat 09:00-12:00; Tue-Sat 13:30-17:00
+63	RY-0007-14	CLOSED 11/22/15 Reynolds Recycling	Tue-Sat 09:00-12:00; Tue-Sat 13:30-17:00
+64	RY-0013-14	CLOSED 11/22/15 Reynolds Recycling	Mon-Sun 09:00-12:00; Mon-Sun 13:30-17:00
+66	RY-0045-13	Reynolds Recycling	Wed-Sat 08:00-12:00; Wed-Sat 13:30-17:00
+67	RY-0062-11	CLOSED 12/24/15  RRR Recycling Services Hawaii	Mon,Tue,Fri,Sat,Sun 10:00-16:00
+68	RY-0043-13	Reynolds Recycling	Mon,Tue,Sat,Sun 08:00-12:00; Mon,Tue,Sat,Sun 13:30-17:00
+69	RY-0082-14	CLOSED 11/22/15 Reynolds Recycling	Mon-Sat 09:00-12:00; Mon-Sat 13:30-17:00
+70	RY-0021-13	RRR Recycling Services Hawaii	Mon,Tue,Wed,Fri 09:15-16:45; Sat,Sun 08:00-15:30
+71	RY-0014-13	RRR Recycling Services Hawaii	Mon-Fri 09:00-17:00; Sat,Sun 08:00-16:00
+72	RY-0015-13	RRR Recycling Services Hawaii	Mon,Tue,Wed,Fri 09:15-16:45; Sat,Sun 08:00-15:30
+73	RY-0017-12	RRR Recycling Services Hawaii	Mon-Fri 09:15-16:45; Sat,Sun 08:00-15:30
+74	RY-0018-12	RRR Recycling Services Hawaii	Wed,Thu,Fri 09:15-16:45; Sat,Sun 08:00-15:30
+75	RY-0019-12	RRR Recycling Services Hawaii	Mon-Fri 09:15-16:45; Sat,Sun 08:00-15:30
+76	RY-0005-12	RRR Recycling Services Hawaii	Mon,Tue,Wed,Fri 09:15-16:45; Sat,Sun 09:00-16:00
+77	RY-0004-12	RRR Recycling Services Hawaii	Mon-Sat 09:00-17:00; Sun 09:00-15:00
+78	RY-0068-11	RRR Recycling Services Hawaii	Mon-Sat 09:00-17:00
+79	RY-0035-15	RRR Recycling Services Hawaii	Mon-Fri 09:15-16:45; Sat 08:00-15:30
+80	RY-0019-15	RRR Recycling Services Hawaii	Mon-Fri 09:15-16:45; Sat 08:00-15:30
+81	RY-0023-14	RRR Recycling Services Hawaii	Mon,Tue,Fri 09:15-16:45; Sat,Sun 08:00-3:30pm
+83	RY-0004-14	ICR	Mon-Sun 08:00-12:00; Mon-Sun 12:30-16:00
+84	RY-0071-10	CLOSED 10/6/15 ICR	Mon-Sun 08:00-12:00; Mon-Sun 12:30-16:00
+85	RY-0054-10	ICR	Mon-Sun 08:00-16:00
+87	TF-0091-11	Honolulu Disposal Service	Mon-Fri 07:00-17:00; Sat 07:00-14:00
+88	RY-0063-11	ICR	Mon-Sun 08:00-16:00
+89	TF-0082-11	CLOSED 12/30/15 Goodwill Industries Hawaii	Mon-Fri 09:00-16:00
+90	RY-0084-11	CLOSED 12/31/15  Goodwill Industries Hawaii	Mon-Sun 09:00-16:00
+91	RY-0085-11	CLOSED 12/30/15  Goodwill Industries Hawaii	Mon-Sun 09:00-17:00
+92	RY-0011-12	Aiea Shell	Mon-Sun 07:00-18:00
+93	RY-0102-11	Ace Iron Recycling	Mon-Sat 08:00-17:00; Sun 08:00-12:00
+94	RY-0016-13	Depot Metal	Mon-Sun 08:30-17:00
+95	RY-0058-11	Honolulu Recovery Systems	Mon-Fri 07:00-17:00; Sat 07:00-14:00
+104	RY-0036-15	Business Services Hawaii	Sat 08:00-15:00
+105	RY-0038-15	Business Services Hawaii	Mon-Sun 08:00-15:00
+106	RY-0037-15	Business Services Hawaii	Sat 08:00-15:00
