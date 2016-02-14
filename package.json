@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
-    "start": "npm run start:dev",
-    "start:dev": "webpack-dev-server --inline --hot --config config/webpack.development.js",
+    "start": "webpack-dev-server --inline --hot --config config/webpack.development.js",
     "start:prod": "npm run build && hs dist",
     "test": "karma start karma.conf.js",
     "test:watch": "karma start karma.conf.js --no-single-run"
@@ -22,7 +21,8 @@
   },
   "homepage": "https://github.com/keokilee/hi5-redemption#readme",
   "dependencies": {
-    "google-maps": "^3.1.0",
+    "google-maps": "^3.2.1",
+    "http-server": "^0.8.5",
     "moment": "^2.11.2",
     "vue": "^1.0.13",
     "vue-router": "^0.7.8",

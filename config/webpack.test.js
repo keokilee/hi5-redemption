@@ -4,9 +4,9 @@ const webpack = require('webpack')
 const config = require('./webpack.base')
 delete config.entry
 
-config.module.postLoaders = [{
+config.module.preLoaders = [{
   test: /\.js$/,
-  loader: 'isparta',
+  loader: 'isparta!eslint',
   include: path.resolve('src')
 }]
 
@@ -17,6 +17,6 @@ config.plugins = [
   })
 ]
 
-config.vue.loaders.js = 'isparta!babel!eslint'
+config.vue.loaders.js = 'babel!isparta!eslint'
 
 module.exports = config
