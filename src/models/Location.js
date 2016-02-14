@@ -1,4 +1,4 @@
-import { todaysHours } from '../services/time_parser'
+import { todaysHours, fullHours } from '../services/time_parser'
 
 export default class Location {
   constructor ({ attributes, geometry }) {
@@ -21,6 +21,10 @@ export default class Location {
 
   todaysHours () {
     return todaysHours(this.hours)
+  }
+
+  formattedHours () {
+    return fullHours(this.hours)
   }
 
   getDistance (lat, lng) {

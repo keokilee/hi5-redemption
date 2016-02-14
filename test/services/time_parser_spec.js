@@ -1,9 +1,21 @@
 import expect from 'expect'
 import moment from 'moment'
 
-import { openToday, openNow, todaysHours } from 'src/services/time_parser'
+import { openToday, openNow, todaysHours, fullHours } from 'src/services/time_parser'
 
 describe('services/time_parser', () => {
+  describe('#fullHours', () => {
+    const DATE_STRING = 'Mo-Su 08:00-17:00'
+
+    it('expands the days', () => {
+      expect(fullHours(DATE_STRING)).toContain('Monday - Sunday')
+    })
+
+    it('formats the hours to AM/PM', () => {
+      expect(fullHours(DATE_STRING)).toContain('8:00 AM - 5:00 PM')
+    })
+  })
+
   describe('#openToday', () => {
     describe('ranged dates', () => {
       describe('normal range', () => {

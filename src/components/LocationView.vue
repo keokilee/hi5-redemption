@@ -5,7 +5,7 @@ div
     .location-view
       .location-details
         p {{ location.address }}
-        p {{ location.todaysHours() }}
+        p.hours {{ location.formattedHours() }}
 
       map(:latitude="location.geometry.y", :longitude="location.geometry.x", keep-alive)
 
@@ -70,6 +70,14 @@ export default {
 
 .location-details {
   padding: 10px 20px;
+
+  & p {
+    line-height: 24px;
+  }
+}
+
+.hours {
+  white-space: pre;
 }
 
 .location-directions {

@@ -1,7 +1,55 @@
 import moment from 'moment'
 
 const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
+const FULL_DAYS = {
+  'Su': 'Sunday',
+  'Mo': 'Monday',
+  'Tu': 'Tuesday',
+  'We': 'Wednesday',
+  'Th': 'Thursday',
+  'Fr': 'Friday',
+  'Sa': 'Saturday'
+}
+
 const TIME_FORMAT = 'h:mm a'
+const TIME_REGEX = /\d{2}:\d{2}/g
+
+export function fullHours (hours) {
+  // Insert a from between the days and the times.
+  let formatted = hours.replace(/(\w{2}) (\d{2})/g, (_, day, hour) => {
+    return `${day} from ${hour}`
+  })
+
+  // Add some space between commas and replace dashes with 'to'
+  formatted = formatted.replace(/,/g, ', ').replace(/-/g, ' - ')
+
+  // Process the days
+  formatted = Object.keys(FULL_DAYS).reduce((str, shortDay) => {
+    return str.replace(shortDay, FULL_DAYS[shortDay])
+  }, formatted)
+
+  // Format the hours
+  formatted = formatted.replace(TIME_REGEX, (match) => {
+    return `${formatTime(match)}`
+  })
+
+  // Replace semicolons with new lines
+  return formatted.replace(/;\s/g, '\n')
+}
+
+function formatTime (timeStr) {
+  let [hours, minutes] = timeStr.split(':')
+  hours = +hours
+  let ampm = 'AM'
+
+  if (hours > 12) {
+    hours -= 12
+    ampm = 'PM'
+  }
+
+  return `${hours}:${minutes} ${ampm}`
+}
 
 export function openToday (hours, date = new Date()) {
   return _parseComponents(hours).some(component => _inDays(component, date))
