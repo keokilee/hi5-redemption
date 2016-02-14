@@ -1,19 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import RootView from 'src/components/RootView'
-import LocationView from 'src/components/LocationView'
-
 Vue.use(VueRouter)
 let router = new VueRouter()
 
 router.map({
   '/': {
-    component: RootView,
+    component: (resolve) => require(['./components/RootView.vue'], resolve),
     name: 'root'
   },
   '/locations/:id': {
-    component: LocationView,
+    component: (resolve) => require(['./components/LocationView.vue'], resolve),
     name: 'location'
   }
 })

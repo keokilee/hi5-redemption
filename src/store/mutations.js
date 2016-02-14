@@ -1,10 +1,17 @@
 import { OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
-import locationData from '../../data/data.json'
 import Location from 'src/models/Location'
 
-const locations = locationData.features
-            .filter(l => l.attributes.Status !== 'CLOSED')
-            .map(l => new Location(l))
+// TODO: Overkill for now, but locations may be async loaded in the future.
+const locations = new Promise((resolve) => {
+  require.ensure([], (require) => {
+    let data = require('../../data/data.json')
+    const locations = data.features
+      .filter(l => l.attributes.Status !== 'CLOSED')
+      .map(l => new Location(l))
+
+    resolve(locations)
+  })
+})
 
 export default {
   SET_LOCATION (state, { latitude, longitude, name }) {
@@ -13,31 +20,35 @@ export default {
     }
 
     state.coordinates = { latitude, longitude, name }
-    state.recyclingCenters = updateRecyclingCenters(state)
+    updateRecyclingCenters(state)
   },
   SET_OPEN (state, open) {
     state.filters = {
       ...state.filters,
       open
     }
-    state.recyclingCenters = updateRecyclingCenters(state)
+    updateRecyclingCenters(state)
   },
   SET_DISTANCE (state, distance) {
     state.filters = {
       ...state.filters,
       distance
     }
-    state.recyclingCenters = updateRecyclingCenters(state)
+    updateRecyclingCenters(state)
   },
   SET_CENTER (state, centerId) {
-    state.selectedCenter = locations.filter(l => l.id === centerId)[0]
+    locations.then(locs => {
+      state.selectedCenter = locs.filter(l => l.id === centerId)[0]
+    })
   }
 }
 
 function updateRecyclingCenters (state) {
-  return locations.filter(openFilter(state.filters.open))
-                  .filter(distanceFilter(state.coordinates, state.filters.distance))
-                  .sort(sortByDistance(state.coordinates))
+  return locations.then(locs => {
+    state.recyclingCenters = locs.filter(openFilter(state.filters.open))
+      .filter(distanceFilter(state.coordinates, state.filters.distance))
+      .sort(sortByDistance(state.coordinates))
+  })
 }
 
 function openFilter (value) {
