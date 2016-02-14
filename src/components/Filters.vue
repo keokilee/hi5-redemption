@@ -61,6 +61,10 @@ export default {
   padding-bottom: 3px;
   border-bottom: 1px solid #2979FF;
 
+  &:before {
+    content: ' ';
+  }
+
   & select {
     display: inline-block;
     font-family: inherit;
