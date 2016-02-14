@@ -11,7 +11,7 @@ export default {
           MapsLoader.KEY = __MAPS_KEY__
           MapsLoader.LIBRARIES = ['places']
 
-          MapsLoader.load(google => resolve(google))
+          MapsLoader.load(resolve)
         })
       })
     }

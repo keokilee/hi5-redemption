@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     openChange () {
-      store.dispatch('SET_OPEN', this.openValue)
+      store.actions.setOpen(this.openValue)
     },
     distanceChange () {
       let value = this.distanceValue
@@ -40,7 +40,7 @@ export default {
         value = +value
       }
 
-      store.dispatch('SET_DISTANCE', value)
+      store.actions.setDistance(value)
     }
   },
   components: { Search }

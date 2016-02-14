@@ -1,6 +1,6 @@
 <template lang="jade">
 .app
-  router-view
+  router-view(transition='slide')
 </template>
 
 <script>
@@ -13,10 +13,10 @@ export default {
   ready: async function () {
     try {
       let [ latitude, longitude ] = await getLocation()
-      store.dispatch('SET_LOCATION', { name: 'Current Location', latitude, longitude })
+      store.actions.setLocation({ name: 'Current Location', latitude, longitude })
     } catch (_) {
       // Use default location
-      store.dispatch('SET_LOCATION', {
+      store.actions.setLocation({
         name: 'Honolulu, HI',
         latitude: 21.3069444,
         longitude: -157.8583333

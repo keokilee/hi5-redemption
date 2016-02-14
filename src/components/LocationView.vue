@@ -1,16 +1,17 @@
 <template lang="jade">
-div(v-if='location')
-  app-header(:title='location.name', back='/')
-  .location-view
-    .location-details
-      p {{ location.address }}
-      p {{ location.todaysHours() }}
+div
+  div(v-if='location')
+    app-header(:title='location.name', back='/')
+    .location-view
+      .location-details
+        p {{ location.address }}
+        p {{ location.todaysHours() }}
 
-    map(:latitude="location.geometry.y", :longitude="location.geometry.x", keep-alive)
+      map(:latitude="location.geometry.y", :longitude="location.geometry.x", keep-alive)
 
-    .location-directions
-      h3
-        a(target="_blank", href="{{ location.mapsLink() }}") Get Directions
+      .location-directions
+        h3
+          a(target="_blank", href="{{ location.mapsLink() }}") Get Directions
 </template>
 
 <script>
@@ -29,7 +30,7 @@ export default {
   },
   route: {
     data ({ to, next }) {
-      store.dispatch('SET_CENTER', +to.params.id)
+      store.actions.setCenter(+to.params.id)
       next()
     }
   }
@@ -37,6 +38,29 @@ export default {
 </script>
 
 <style scoped>
+.slide-transition {
+  transform: translateX(0%);
+}
+
+.slide-enter {
+  animation: location-slide-in 0.5s forwards;
+  z-index: 100;
+}
+
+.slide-leave {
+  animation: location-slide-out 0.5s forwards;
+}
+
+@keyframes location-slide-in {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes location-slide-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
 .location-view {
   font-size: 16px;
   display: flex;

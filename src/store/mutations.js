@@ -1,10 +1,17 @@
+import {
+  SET_LOCATION,
+  SET_OPEN,
+  SET_DISTANCE,
+  SET_CENTER
+} from 'src/store/actions'
+
 import { OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
 import Location from 'src/models/Location'
 
 // TODO: Overkill for now, but locations may be async loaded in the future.
 const locations = new Promise((resolve) => {
   require.ensure([], (require) => {
-    let data = require('../../data/data.json')
+    const data = require('../../data/data.json')
     const locations = data.features
       .filter(l => l.attributes.Status !== 'CLOSED')
       .map(l => new Location(l))
@@ -14,7 +21,7 @@ const locations = new Promise((resolve) => {
 })
 
 export default {
-  SET_LOCATION (state, { latitude, longitude, name }) {
+  [SET_LOCATION] (state, { latitude, longitude, name }) {
     if (!state.defaultCoordinates) {
       state.defaultCoordinates = { latitude, longitude, name }
     }
@@ -22,21 +29,21 @@ export default {
     state.coordinates = { latitude, longitude, name }
     updateRecyclingCenters(state)
   },
-  SET_OPEN (state, open) {
+  [SET_OPEN] (state, open) {
     state.filters = {
       ...state.filters,
       open
     }
     updateRecyclingCenters(state)
   },
-  SET_DISTANCE (state, distance) {
+  [SET_DISTANCE] (state, distance) {
     state.filters = {
       ...state.filters,
       distance
     }
     updateRecyclingCenters(state)
   },
-  SET_CENTER (state, centerId) {
+  [SET_CENTER] (state, centerId) {
     locations.then(locs => {
       state.selectedCenter = locs.filter(l => l.id === centerId)[0]
     })

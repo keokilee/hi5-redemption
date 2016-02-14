@@ -42,7 +42,7 @@ export default {
         const longitude = place.geometry.location.lng()
 
         el.blur()
-        store.dispatch('SET_LOCATION', { latitude, longitude, name })
+        store.actions.setLocation({ latitude, longitude, name })
       })
     })
   }
