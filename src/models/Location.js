@@ -1,4 +1,4 @@
-import { todaysHours, fullHours } from '../services/time_parser'
+import { todaysHours, fullHours, openNow } from '../services/time_parser'
 
 export default class Location {
   constructor ({ attributes, geometry }) {
@@ -17,6 +17,10 @@ export default class Location {
 
   mapsLink () {
     return `http://maps.google.com/maps?daddr=${this.geometry.y},${this.geometry.x}&hl=en`
+  }
+
+  isOpen () {
+    return openNow(this.hours)
   }
 
   todaysHours () {
@@ -44,6 +48,19 @@ export default class Location {
 
     return R * c
   }
+}
+
+Location.load = async () => {
+  return await new Promise(resolve => {
+    require.ensure([], require => {
+      const data = require('../../data/data.json')
+      const locs = data.features
+        .filter(l => l.attributes.Status !== 'CLOSED')
+        .map(l => new Location(l))
+
+      resolve(locs)
+    })
+  })
 }
 
 /**

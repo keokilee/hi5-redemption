@@ -7,19 +7,24 @@ import { ALL_LOCATIONS } from 'src/constants'
 
 Vue.use(Vuex)
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 const store = new Vuex.Store({
+  middlewares: isProduction ? [] : [Vuex.createLogger()],
   state: {
     filters: {
       open: ALL_LOCATIONS,
       distance: ALL_LOCATIONS
     },
+    allCenters: [],
     recyclingCenters: [],
     selectedCenter: null,
     defaultCoordinates: null,
     coordinates: null
   },
   actions,
-  mutations
+  mutations,
+  strict: !isProduction
 })
 
 export default store

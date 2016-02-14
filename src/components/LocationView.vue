@@ -26,7 +26,15 @@ export default {
     Map
   },
   computed: {
-    location: () => store.state.selectedCenter
+    location: () => {
+      if (store.state.allCenters) {
+        return store.state.allCenters.filter(l =>
+          l.id === store.state.selectedCenter
+        )[0]
+      }
+
+      return null
+    }
   },
   route: {
     data ({ to, next }) {

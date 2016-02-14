@@ -5,24 +5,14 @@
 
 <script>
 import store from 'src/store'
-
-import { getLocation } from 'src/services/geolocation'
+import Location from 'src/models/Location'
 
 export default {
-  replace: false,
-  ready: async function () {
-    try {
-      let [ latitude, longitude ] = await getLocation()
-      store.actions.setLocation({ name: 'Current Location', latitude, longitude })
-    } catch (_) {
-      // Use default location
-      store.actions.setLocation({
-        name: 'Honolulu, HI',
-        latitude: 21.3069444,
-        longitude: -157.8583333
-      })
-    }
-  }
+  ready: async () => {
+    const recyclingCenters = await Location.load()
+    store.actions.initRecyclingCenters(recyclingCenters)
+  },
+  replace: false
 }
 </script>
 

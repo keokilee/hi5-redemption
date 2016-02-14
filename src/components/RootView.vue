@@ -2,16 +2,33 @@
 .root
   app-header(title='Recycling Centers')
   filters
-  location-list(:locations='locations', :coordinates='coordinates')
+  location-list(v-if='locations && coordinates',
+    :locations='locations',
+    :coordinates='coordinates')
 </template>
 
 <script>
 import store from 'src/store'
+import { getLocation } from 'src/services/geolocation'
+
 import Header from 'src/components/Header'
 import Filters from 'src/components/Filters'
 import LocationList from 'src/components/LocationList'
 
 export default {
+  ready: async function () {
+    try {
+      let [ latitude, longitude ] = await getLocation()
+      store.actions.setLocation({ name: 'Current Location', latitude, longitude })
+    } catch (_) {
+      // Use default location
+      store.actions.setLocation({
+        name: 'Honolulu, HI',
+        latitude: 21.3069444,
+        longitude: -157.8583333
+      })
+    }
+  },
   computed: {
     locations: () => store.state.recyclingCenters,
     coordinates: () => store.state.coordinates

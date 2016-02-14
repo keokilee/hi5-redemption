@@ -2,60 +2,50 @@ import {
   SET_LOCATION,
   SET_OPEN,
   SET_DISTANCE,
-  SET_CENTER
+  SET_CENTER,
+  INIT_RECYCLING_CENTERS
 } from 'src/store/actions'
 
 import { OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
-import Location from 'src/models/Location'
-
-// TODO: Overkill for now, but locations may be async loaded in the future.
-const locations = new Promise((resolve) => {
-  require.ensure([], (require) => {
-    const data = require('../../data/data.json')
-    const locations = data.features
-      .filter(l => l.attributes.Status !== 'CLOSED')
-      .map(l => new Location(l))
-
-    resolve(locations)
-  })
-})
 
 export default {
+  [INIT_RECYCLING_CENTERS] (state, recyclingCenters) {
+    state.allCenters = recyclingCenters
+    state.recyclingCenters = recyclingCenters
+  },
   [SET_LOCATION] (state, { latitude, longitude, name }) {
     if (!state.defaultCoordinates) {
       state.defaultCoordinates = { latitude, longitude, name }
     }
 
     state.coordinates = { latitude, longitude, name }
-    updateRecyclingCenters(state)
+    state.recyclingCenters = updateRecyclingCenters(state)
   },
   [SET_OPEN] (state, open) {
     state.filters = {
       ...state.filters,
       open
     }
-    updateRecyclingCenters(state)
+
+    state.recyclingCenters = updateRecyclingCenters(state)
   },
   [SET_DISTANCE] (state, distance) {
     state.filters = {
       ...state.filters,
       distance
     }
-    updateRecyclingCenters(state)
+
+    state.recyclingCenters = updateRecyclingCenters(state)
   },
   [SET_CENTER] (state, centerId) {
-    locations.then(locs => {
-      state.selectedCenter = locs.filter(l => l.id === centerId)[0]
-    })
+    state.selectedCenter = centerId
   }
 }
 
 function updateRecyclingCenters (state) {
-  return locations.then(locs => {
-    state.recyclingCenters = locs.filter(openFilter(state.filters.open))
-      .filter(distanceFilter(state.coordinates, state.filters.distance))
-      .sort(sortByDistance(state.coordinates))
-  })
+  return state.allCenters.filter(openFilter(state.filters.open))
+    .filter(distanceFilter(state.coordinates, state.filters.distance))
+    .sort(sortByDistance(state.coordinates))
 }
 
 function openFilter (value) {
