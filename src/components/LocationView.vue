@@ -1,7 +1,7 @@
 <template lang="jade">
 div
+  app-header(:title='location.name', back='/')
   div(v-if='location')
-    app-header(:title='location.name', back='/')
     .location-view
       .location-details
         p {{ location.address }}

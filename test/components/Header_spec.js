@@ -1,10 +1,9 @@
-/* global describe:false, it: false */
 import expect from 'expect'
 
 import Vue from 'vue'
 import Header from 'src/components/Header'
 
-describe('Header', () => {
+describe('components/Header', () => {
   function renderTemplate (template) {
     return new Vue({
       template,

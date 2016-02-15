@@ -17,6 +17,8 @@ export default {
         const distance = Math.floor(this.location.getDistance(latitude, longitude) * 10) / 10
         return `${distance} miles away`
       }
+
+      return ''
     }
   },
   props: [ 'location', 'coordinates' ]
