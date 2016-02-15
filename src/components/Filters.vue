@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     openChange () {
-      console.log(this.openValue)
       store.actions.setOpen(this.openValue)
     },
     distanceChange () {

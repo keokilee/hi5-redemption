@@ -130,14 +130,14 @@ describe('services/time_parser', () => {
       expect(openNow(DATE_STRING, date)).toBe(false)
     })
 
-    it('is open in the beginning of the second range', () => {
-      const date = moment(6).hour(8).minutes(0)
+    it('is open at the beginning of the second range', () => {
+      const date = moment().day(6).hour(8).minutes(0).toDate()
       expect(openNow(DATE_STRING, date)).toBe(true)
     })
 
-    it('is closed in the end of the second range', () => {
-      const date = moment(6).hour(12).minutes(30)
-      expect(openNow(DATE_STRING, date)).toBe(true)
+    it('is closed at the end of the second range', () => {
+      const date = moment().day(6).hour(12).minutes(30).toDate()
+      expect(openNow(DATE_STRING, date)).toBe(false)
     })
   })
 
