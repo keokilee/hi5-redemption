@@ -6,7 +6,7 @@
         option(value='{{ constants.ALL_LOCATIONS }}') all
         option(value='{{ constants.OPEN_LOCATIONS }}') open
         option(value='{{ constants.CLOSED_LOCATIONS }}') closed
-    | redemption centers
+    | centers
     span.dropdown
       select(v-model='distanceValue', @change='distanceChange')
         option(value='{{ constants.ALL_LOCATIONS }}') in the state
@@ -62,10 +62,6 @@ export default {
   padding-bottom: 3px;
   border-bottom: 1px solid #2979FF;
 
-  &:before {
-    content: ' ';
-  }
-
   & select {
     display: inline-block;
     font-family: inherit;
@@ -74,6 +70,7 @@ export default {
     font-size: inherit;
     border-radius: 0;
     -webkit-appearance: none;
+    margin-left: 7px;
   }
 }
 </style>

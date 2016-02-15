@@ -10,6 +10,8 @@ export default class Location {
       location: attributes.Location,
       island: attributes.Island,
       county: attributes.County,
+      city: attributes.City_1,
+      zip: attributes.Zip,
       hours: attributes.Days_and_Hours_of_Operation,
       geometry
     })

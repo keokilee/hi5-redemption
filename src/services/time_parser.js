@@ -26,7 +26,8 @@ export function fullHours (hours) {
 
   // Process the days
   formatted = Object.keys(FULL_DAYS).reduce((str, shortDay) => {
-    return str.replace(shortDay, FULL_DAYS[shortDay])
+    const re = new RegExp(shortDay, 'g')
+    return str.replace(re, FULL_DAYS[shortDay])
   }, formatted)
 
   // Format the hours
@@ -45,6 +46,8 @@ function formatTime (timeStr) {
 
   if (hours > 12) {
     hours -= 12
+    ampm = 'PM'
+  } else if (hours === 12) {
     ampm = 'PM'
   }
 

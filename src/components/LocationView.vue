@@ -1,11 +1,11 @@
 <template lang="jade">
 div
-  app-header(:title='location.name', back='/')
+  app-header(:title='location ? location.name : ""', back='/')
   div(v-if='location')
     .location-view
       .location-details
         p {{ location.address }}
-        p.hours {{ location.formattedHours() }}
+        p.hours(v-for='hours in splitHours') {{ hours }}
 
       map(:latitude="location.geometry.y", :longitude="location.geometry.x", keep-alive)
 
@@ -26,7 +26,7 @@ export default {
     Map
   },
   computed: {
-    location: () => {
+    location () {
       if (store.state.allCenters) {
         return store.state.allCenters.filter(l =>
           l.id === store.state.selectedCenter
@@ -34,6 +34,9 @@ export default {
       }
 
       return null
+    },
+    splitHours () {
+      return `Open ${this.location.formattedHours()}`.split('\n')
     }
   },
   route: {
@@ -82,10 +85,10 @@ export default {
   & p {
     line-height: 24px;
   }
-}
 
-.hours {
-  white-space: pre;
+  & .hours {
+    margin: 0;
+  }
 }
 
 .location-directions {
