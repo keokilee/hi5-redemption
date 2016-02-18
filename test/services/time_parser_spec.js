@@ -5,7 +5,7 @@ import { openToday, openNow, todaysHours, fullHours } from 'src/services/time_pa
 
 describe('services/time_parser', () => {
   describe('#fullHours', () => {
-    const DATE_STRING = 'Mo-Su 08:00-17:00'
+    const DATE_STRING = 'Mon-Sun 08:00-17:00'
 
     it('expands the days', () => {
       expect(fullHours(DATE_STRING)).toContain('Monday - Sunday')
@@ -19,7 +19,7 @@ describe('services/time_parser', () => {
   describe('#openToday', () => {
     describe('ranged dates', () => {
       describe('normal range', () => {
-        const DATE_STRING = 'Mo-Sa 08:00-17:00'
+        const DATE_STRING = 'Mon-Sat 08:00-17:00'
 
         it('is open at the beginning of the range', () => {
           const date = moment().day(1).toDate()
@@ -43,7 +43,7 @@ describe('services/time_parser', () => {
       })
 
       describe('ranges that end on Sunday', () => {
-        const DATE_STRING = 'We-Su 08:00-17:00'
+        const DATE_STRING = 'Wed-Sun 08:00-17:00'
 
         it('is open at the beginning of the range', () => {
           const date = moment().day(3).toDate()
@@ -62,14 +62,14 @@ describe('services/time_parser', () => {
 
         it('handles a complete range', () => {
           const date = moment().day(0).toDate()
-          const dateString = DATE_STRING.replace(/We-Su/, 'Mo-Su')
+          const dateString = DATE_STRING.replace(/Wed-Sun/, 'Mon-Sun')
           expect(openToday(dateString, date)).toBe(true)
         })
       })
     })
 
     describe('comma-delimited days', () => {
-      const DATE_STRING = 'We,Fr,Sa,Su 08:00-15:30'
+      const DATE_STRING = 'Wed,Fri,Sat,Sun 08:00-15:30'
 
       it('is open for one of the specified days', () => {
         const date = moment().day(6).toDate()
@@ -83,7 +83,7 @@ describe('services/time_parser', () => {
     })
 
     describe('combined', () => {
-      const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-15:30'
+      const DATE_STRING = 'Mon-Wed 08:00-15:30; Sat 08:00-15:30'
 
       it('is open for one of the days in the range', () => {
         const date = moment().day(1).toDate()
@@ -103,7 +103,7 @@ describe('services/time_parser', () => {
   })
 
   describe('#openNow', () => {
-    const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-12:30'
+    const DATE_STRING = 'Mon-Wed 08:00-15:30; Sat 08:00-12:30'
 
     it('is false if the location is not open today', () => {
       const date = moment().day(0).toDate()
@@ -142,7 +142,7 @@ describe('services/time_parser', () => {
   })
 
   describe('#todaysHours', () => {
-    const DATE_STRING = 'Mo-We 08:00-15:30; Sa 08:00-12:30'
+    const DATE_STRING = 'Mon-Wed 08:00-15:30; Sat 08:00-12:30'
 
     it('returns closed if the location is closed today', () => {
       const date = moment().day(0)

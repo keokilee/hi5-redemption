@@ -9,7 +9,7 @@ const LOCATION = {
     County: 'HAWAII',
     Location: 'Hilo - Makaala',
     Site_Address: 'Atlas Recycling Recycling Facility (30 Makaala Street, Hilo)',
-    Days_and_Hours_of_Operation: 'Mo-Fr 08:00-17:00; Sa,Su 08:00-15:00',
+    Days_and_Hours_of_Operation: 'Mon-Fri 08:00-17:00; Sat,Sun 08:00-15:00',
     Latest_Change__Orig___Date: null,
     Comments: 'Accepts large loads.',
     Address: '30 Makaala Street',

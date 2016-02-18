@@ -1,15 +1,15 @@
 import moment from 'moment'
 
-const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 const FULL_DAYS = {
-  'Su': 'Sunday',
-  'Mo': 'Monday',
-  'Tu': 'Tuesday',
-  'We': 'Wednesday',
-  'Th': 'Thursday',
-  'Fr': 'Friday',
-  'Sa': 'Saturday'
+  'Sun': 'Sunday',
+  'Mon': 'Monday',
+  'Tue': 'Tuesday',
+  'Wed': 'Wednesday',
+  'Thu': 'Thursday',
+  'Fri': 'Friday',
+  'Sat': 'Saturday'
 }
 
 const TIME_FORMAT = 'h:mm a'
