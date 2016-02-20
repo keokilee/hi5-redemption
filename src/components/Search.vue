@@ -1,6 +1,6 @@
 <template lang="jade">
 span.search
-  input#placeAutocomplete(type='text', @focus='clearInput', @blur='resetInput', value='Current Location')
+  input#placeAutocomplete(type='text', @focus='clearInput', @blur='resetInput')
   span.bar
 </template>
 

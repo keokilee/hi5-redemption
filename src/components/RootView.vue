@@ -2,7 +2,7 @@
 .root
   app-header(title='Recycling Centers')
   filters
-  location-list(v-if='locations && coordinates',
+  location-list(v-if='locations',
     :locations='locations',
     :coordinates='coordinates')
 </template>
@@ -20,13 +20,9 @@ export default {
     try {
       let [ latitude, longitude ] = await getLocation()
       store.actions.setLocation({ name: 'Current Location', latitude, longitude })
-    } catch (_) {
-      // Use default location
-      store.actions.setLocation({
-        name: 'Honolulu, HI',
-        latitude: 21.3069444,
-        longitude: -157.8583333
-      })
+    } catch (e) {
+      // Do not set a location.
+      console.error(e)
     }
   },
   computed: {

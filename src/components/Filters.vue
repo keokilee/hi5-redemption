@@ -10,8 +10,8 @@
     span.dropdown
       select(v-model='distanceValue', @change='distanceChange')
         option(value='{{ constants.ALL_LOCATIONS }}') in the state
-        option(value='5') within 5 miles
-        option(value='10') within 10 miles
+        option(value='5', v-if='hasCoordinates') within 5 miles
+        option(value='10', v-if='hasCoordinates') within 10 miles
 
   p near
     search
@@ -29,6 +29,9 @@ export default {
       openValue: ALL_LOCATIONS,
       constants: { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS }
     }
+  },
+  computed: {
+    hasCoordinates: () => !!store.state.coordinates
   },
   methods: {
     openChange () {

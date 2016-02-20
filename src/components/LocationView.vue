@@ -49,29 +49,6 @@ export default {
 </script>
 
 <style scoped>
-.slide-transition {
-  transform: translateX(0%);
-}
-
-.slide-enter {
-  animation: location-slide-in 0.5s forwards;
-  z-index: 100;
-}
-
-.slide-leave {
-  animation: location-slide-out 0.5s forwards;
-}
-
-@keyframes location-slide-in {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
-}
-
-@keyframes location-slide-out {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
-}
-
 .location-view {
   font-size: 16px;
   display: flex;
