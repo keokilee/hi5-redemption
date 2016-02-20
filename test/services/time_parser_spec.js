@@ -14,6 +14,21 @@ describe('services/time_parser', () => {
     it('formats the hours to AM/PM', () => {
       expect(fullHours(DATE_STRING)).toContain('8:00 AM - 5:00 PM')
     })
+
+    describe('merging two hours', () => {
+      const DATE_STRING = 'Mon,Tue,Wed,Sun 08:00-12:00; Mon,Tue,Wed,Sun 13:30-17:00'
+
+      it('only inserts the days once', () => {
+        const hours = fullHours(DATE_STRING)
+        const matches = hours.match(/Monday, Tuesday, Wednesday, Sunday/g)
+        expect(matches.length).toEqual(1)
+      })
+
+      it('joins the hours', () => {
+        const hours = fullHours(DATE_STRING)
+        expect(hours).toContain('8:00 AM - 12:00 PM and from 1:30 PM - 5:00 PM')
+      })
+    })
   })
 
   describe('#openToday', () => {

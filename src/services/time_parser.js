@@ -16,8 +16,9 @@ const TIME_FORMAT = 'h:mm a'
 const TIME_REGEX = /\d{2}:\d{2}/g
 
 export function fullHours (hours) {
+  let formatted = mergeComponents(hours)
   // Insert a from between the days and the times.
-  let formatted = hours.replace(/(\w{2}) (\d{2})/g, (_, day, hour) => {
+  formatted = formatted.replace(/(\w{2}) (\d{2})/g, (_, day, hour) => {
     return `${day} from ${hour}`
   })
 
@@ -37,6 +38,21 @@ export function fullHours (hours) {
 
   // Replace semicolons with new lines
   return formatted.replace(/;\s/g, '\n')
+}
+
+function mergeComponents (hours) {
+  const components = _parseComponents(hours).reduce((acc, hourComponent) => {
+    const [days, times] = hourComponent.split(' ')
+    console.log(acc)
+    acc[days] = acc[days] || []
+    acc[days] = [...acc[days], times]
+
+    return acc
+  }, {})
+
+  return Object.keys(components).map((days) => {
+    return `${days} ${components[days].join(' and ')}`
+  }).join('; ')
 }
 
 function formatTime (timeStr) {
