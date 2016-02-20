@@ -43,7 +43,6 @@ export function fullHours (hours) {
 function mergeComponents (hours) {
   const components = _parseComponents(hours).reduce((acc, hourComponent) => {
     const [days, times] = hourComponent.split(' ')
-    console.log(acc)
     acc[days] = acc[days] || []
     acc[days] = [...acc[days], times]
 
