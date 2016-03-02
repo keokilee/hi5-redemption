@@ -17,6 +17,7 @@ import LocationList from 'src/components/LocationList'
 
 export default {
   ready: async function () {
+    store.actions.setCenter(null)
     try {
       let [ latitude, longitude ] = await getLocation()
       store.actions.setLocation({ name: 'Current Location', latitude, longitude })

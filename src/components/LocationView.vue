@@ -43,7 +43,8 @@ export default {
     data ({ to, next }) {
       store.actions.setCenter(+to.params.id)
       next()
-    }
+    },
+    canReuse: false
   }
 }
 </script>
