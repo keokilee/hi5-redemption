@@ -8,9 +8,17 @@ import { ALL_LOCATIONS } from 'src/constants'
 Vue.use(Vuex)
 
 const isProduction = process.env.NODE_ENV === 'production'
+function createMiddleware () {
+  if (isProduction) {
+    return []
+  }
+
+  const createLogger = require('vuex/logger')
+  return [createLogger()]
+}
 
 const store = new Vuex.Store({
-  middlewares: isProduction ? [] : [Vuex.createLogger()],
+  middlewares: createMiddleware(),
   state: {
     filters: {
       open: ALL_LOCATIONS,

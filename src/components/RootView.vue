@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import store from 'src/store'
+import { setLocation, setCenter } from 'src/store/actions'
 import { getLocation } from 'src/services/geolocation'
 
 import Header from 'src/components/Header'
@@ -17,18 +17,28 @@ import LocationList from 'src/components/LocationList'
 
 export default {
   ready: async function () {
-    store.actions.setCenter(null)
+    this.setCenter(null)
     try {
       let [ latitude, longitude ] = await getLocation()
-      store.actions.setLocation({ name: 'Current Location', latitude, longitude })
+      this.setLocation({ name: 'Current Location', latitude, longitude })
     } catch (e) {
       // Do not set a location.
       console.error(e)
     }
   },
   computed: {
-    locations: () => store.state.recyclingCenters,
-    coordinates: () => store.state.coordinates
+    locations () {
+      return this.$store.state.recyclingCenters
+    }
+  },
+  vuex: {
+    getters: {
+      coordinates: (state) => coordinates
+    },
+    actions: {
+      setLocation,
+      setCenter
+    }
   },
   components: {
     Filters,

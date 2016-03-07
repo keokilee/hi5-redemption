@@ -15,12 +15,18 @@ div
 </template>
 
 <script>
+import store from 'src/store'
+import { setCenter } from 'src/store/actions'
 import Header from 'src/components/Header'
 import Map from 'src/components/Map'
 
-import store from 'src/store'
-
 export default {
+  store,
+  vuex: {
+    actions: {
+      setCenter
+    }
+  },
   components: {
     'app-header': Header,
     Map
@@ -28,7 +34,7 @@ export default {
   computed: {
     location () {
       if (store.state.allCenters) {
-        return store.state.allCenters.filter(l =>
+        return store.state.allCenters.filter((l) =>
           l.id === store.state.selectedCenter
         )[0]
       }
@@ -41,7 +47,7 @@ export default {
   },
   route: {
     data ({ to, next }) {
-      store.actions.setCenter(+to.params.id)
+      this.setCenter(+to.params.id)
       next()
     },
     canReuse: false

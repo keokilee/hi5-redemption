@@ -51,7 +51,7 @@ function updateRecyclingCenters (state) {
 function openFilter (value) {
   const today = new Date()
 
-  return l => {
+  return (l) => {
     if (value === OPEN_LOCATIONS) {
       return l.isOpen(today)
     } else if (value === CLOSED_LOCATIONS) {
@@ -63,7 +63,7 @@ function openFilter (value) {
 }
 
 function distanceFilter ({ latitude, longitude }, value) {
-  return l => {
+  return (l) => {
     if (typeof value !== 'number') {
       return true
     }
