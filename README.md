@@ -1,5 +1,4 @@
-Hi-5 Redemption App.
+HI-5 Redemption
+--------------------------
 
-[![Build Status](https://travis-ci.org/keokilee/hi5-redemption.png?branch=master)](https://travis-ci.org/keokilee/hi5-redemption)
-
-Created using Backbone.js, jQuery Mobile, Node.js, and a lot of Coffeescript.
+[![Build Status](https://travis-ci.org/keokilee/hi5-redemption.svg?branch=master)](https://travis-ci.org/keokilee/hi5-redemption)

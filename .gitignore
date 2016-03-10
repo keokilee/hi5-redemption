@@ -1,4 +1,6 @@
-settings/*.json
 node_modules
-builtAssets
+public/assets
+dist
+tmp
 *.log
+secrets.json
