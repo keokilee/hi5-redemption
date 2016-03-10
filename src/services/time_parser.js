@@ -57,13 +57,13 @@ function mergeComponents (hours) {
 function formatTime (timeStr) {
   let [hours, minutes] = timeStr.split(':')
   hours = +hours
-  let ampm = 'AM'
+  let ampm = 'am'
 
   if (hours > 12) {
     hours -= 12
-    ampm = 'PM'
+    ampm = 'pm'
   } else if (hours === 12) {
-    ampm = 'PM'
+    ampm = 'pm'
   }
 
   return `${hours}:${minutes} ${ampm}`
@@ -85,11 +85,15 @@ export function todaysHours (hours, date = new Date()) {
   }
 
   // Grab the matching component.
-  const { start, end } = _parseComponents(hours)
+  const components = _parseComponents(hours)
                         .filter(c => _inDays(c, date))
-                        .map(c => _startAndEndDates(c, date))[0]
+                        .map(c => _startAndEndDates(c, date))
 
-  return `Open from ${start.format(TIME_FORMAT)} to ${end.format(TIME_FORMAT)}`
+  const times = components.map(({ start, end }) => {
+    return `${start.format(TIME_FORMAT)} - ${end.format(TIME_FORMAT)}`
+  }).join(', ')
+
+  return `Open from ${times}`
 }
 
 function _parseComponents (hours) {

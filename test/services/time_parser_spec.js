@@ -12,7 +12,7 @@ describe('services/time_parser', () => {
     })
 
     it('formats the hours to AM/PM', () => {
-      expect(fullHours(DATE_STRING)).toContain('8:00 AM - 5:00 PM')
+      expect(fullHours(DATE_STRING)).toContain('8:00 am - 5:00 pm')
     })
 
     describe('merging two hours', () => {
@@ -26,7 +26,7 @@ describe('services/time_parser', () => {
 
       it('joins the hours', () => {
         const hours = fullHours(DATE_STRING)
-        expect(hours).toContain('8:00 AM - 12:00 PM and from 1:30 PM - 5:00 PM')
+        expect(hours).toContain('8:00 am - 12:00 pm and from 1:30 pm - 5:00 pm')
       })
     })
   })
@@ -177,6 +177,13 @@ describe('services/time_parser', () => {
     it('contains a formatted closed time', () => {
       const date = moment().day(1)
       expect(todaysHours(DATE_STRING, date)).toContain('3:30 pm')
+    })
+
+    it('joins multiple hours', () => {
+      const DATE_STRING = 'Mon,Tue,Wed,Sun 08:00-12:00; Mon,Tue,Wed,Sun 13:30-17:00'
+      const date = moment().day(1)
+      const hours = todaysHours(DATE_STRING, date)
+      expect(hours).toContain('8:00 am - 12:00 pm, 1:30 pm - 5:00 pm')
     })
   })
 })
