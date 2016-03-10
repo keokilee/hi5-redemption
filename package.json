@@ -4,11 +4,11 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
-    "start": "webpack-dev-server --inline --hot --config config/webpack.development.js",
-    "start:prod": "npm run build && hs dist",
-    "test": "karma start karma.conf.js",
-    "test:watch": "karma start karma.conf.js --no-single-run"
+    "build": "NODE_ENV=production rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
+    "start": "NODE_ENV=development webpack-dev-server --inline --hot --config config/webpack.development.js",
+    "start:prod": "NODE_ENV=production npm run build && hs dist",
+    "test": "NODE_ENV=test karma start karma.conf.js",
+    "test:watch": "NODE_ENV=test karma start karma.conf.js --no-single-run"
   },
   "repository": {
     "type": "git",
