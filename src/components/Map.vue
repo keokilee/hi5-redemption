@@ -11,7 +11,7 @@ export default {
       return
     }
 
-    MapsLoader.load().then(google => {
+    MapsLoader.load().then((google) => {
       const coords = {
         lat: this.latitude,
         lng: this.longitude

@@ -1241,7 +1241,7 @@
         "Site_Address" : "12th St. & Fraser Ave.",
         "Date_Certified" : 1402394400000,
         "Cert_Expire_Date" : 1560074400000,
-        "Days_and_Hours_of_Operation" : "Mon, Wed 13:00-16:30; Fri 13:00-17:00; Sat 08:30-15:00",
+        "Days_and_Hours_of_Operation" : "Mon,Wed 13:00-16:30; Fri 13:00-17:00; Sat 08:30-15:00",
         "Latest_Change__Orig___Date" : null,
         "Comments" : null,
         "SW_Permit_Number" : "RY-0068-13",

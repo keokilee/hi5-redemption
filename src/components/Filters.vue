@@ -20,6 +20,7 @@
 <script>
 import Search from 'src/components/Search'
 import store from 'src/store'
+import { setOpen, setDistance } from 'src/store/actions'
 import { ALL_LOCATIONS, OPEN_LOCATIONS, CLOSED_LOCATIONS } from 'src/constants'
 
 export default {
@@ -35,7 +36,7 @@ export default {
   },
   methods: {
     openChange () {
-      store.actions.setOpen(this.openValue)
+      this.setOpen(this.openValue)
     },
     distanceChange () {
       let value = this.distanceValue
@@ -43,10 +44,16 @@ export default {
         value = +value
       }
 
-      store.actions.setDistance(value)
+      this.setDistance(value)
     }
   },
-  components: { Search }
+  components: { Search },
+  vuex: {
+    actions: {
+      setOpen,
+      setDistance
+    }
+  }
 }
 </script>
 

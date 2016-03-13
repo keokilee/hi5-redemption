@@ -5,13 +5,22 @@
 
 <script>
 import store from 'src/store'
+import { initRecyclingCenters } from 'src/store/actions'
 import Location from 'src/models/Location'
 
+async function ready () {
+  const recyclingCenters = await Location.load()
+  this.initRecyclingCenters(recyclingCenters)
+}
+
 export default {
-  ready: async () => {
-    const recyclingCenters = await Location.load()
-    store.actions.initRecyclingCenters(recyclingCenters)
+  store,
+  vuex: {
+    actions: {
+      initRecyclingCenters
+    }
   },
+  ready,
   replace: false
 }
 </script>

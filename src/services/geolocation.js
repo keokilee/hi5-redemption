@@ -4,7 +4,7 @@ export function getLocation () {
       reject('Geolocation not supported')
     }
 
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       resolve([position.coords.latitude, position.coords.longitude])
     }, () => {
       reject('Error fetching location')

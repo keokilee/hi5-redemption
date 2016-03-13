@@ -5,7 +5,7 @@ span.search
 </template>
 
 <script>
-import store from 'src/store'
+import { setLocation } from 'src/store/actions'
 import MapsLoader from 'src/services/google_maps'
 
 // Hold previous value in the input
@@ -22,7 +22,7 @@ export default {
     }
   },
   ready () {
-    MapsLoader.load().then(google => {
+    MapsLoader.load().then((google) => {
       const bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(20.3111981, -158.8405013),
         new google.maps.LatLng(22.2711981, -156.8005013)
@@ -42,9 +42,14 @@ export default {
         const longitude = place.geometry.location.lng()
 
         el.blur()
-        store.actions.setLocation({ latitude, longitude, name })
+        this.setLocation({ latitude, longitude, name })
       })
     })
+  },
+  vuex: {
+    actions: {
+      setLocation
+    }
   }
 }
 </script>
