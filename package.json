@@ -4,11 +4,14 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
+    "clean": "rimraf dist",
+    "build": "NODE_ENV=production npm run clean && npm run build:compile && npm run build:cname",
+    "build:compile": "NODE_ENV=production webpack --progress --hide-modules --config config/webpack.production.js",
+    "build:cname": "echo www.redeemhi5.com > dist/CNAME",
     "start": "NODE_ENV=development webpack-dev-server --inline --hot --config config/webpack.development.js",
     "start:prod": "NODE_ENV=production npm run build && hs dist",
     "test": "NODE_ENV=test karma start karma.conf.js",
-    "test:watch": "NODE_ENV=test karma start karma.conf.js --no-single-run"
+    "test:watch": "karma start karma.conf.js --no-single-run"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,7 @@
   "dependencies": {
     "google-maps": "^3.2.1",
     "http-server": "^0.8.5",
-    "moment": "^2.11.2",
+    "moment": "^2.12.0",
     "vue": "^1.0.13",
     "vue-router": "^0.7.8",
     "vuex": "^0.2.0"
