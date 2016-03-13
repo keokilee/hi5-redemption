@@ -33,7 +33,7 @@ export default {
   },
   vuex: {
     getters: {
-      coordinates: (state) => coordinates
+      coordinates: ({ coordinates }) => coordinates
     },
     actions: {
       setLocation,
