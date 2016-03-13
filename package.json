@@ -4,7 +4,10 @@
   "description": "Display local HI5 redemption centers on the island.",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --progress --hide-modules --config config/webpack.production.js",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:compile && npm run build:cname",
+    "build:compile": "webpack --progress --hide-modules --config config/webpack.production.js",
+    "build:cname": "echo www.redeemhi5.com > dist/CNAME",
     "start": "webpack-dev-server --inline --hot --config config/webpack.development.js",
     "start:prod": "npm run build && hs dist",
     "test": "karma start karma.conf.js",
