@@ -5,8 +5,8 @@ let _google
 export default {
   load () {
     if (!_google) {
-      _google = new Promise(resolve => {
-        require.ensure([], require => {
+      _google = new Promise((resolve) => {
+        require.ensure([], (require) => {
           const MapsLoader = require('google-maps')
           MapsLoader.KEY = __MAPS_KEY__
           MapsLoader.LIBRARIES = ['places']

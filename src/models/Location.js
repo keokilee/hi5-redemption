@@ -52,13 +52,13 @@ export default class Location {
   }
 }
 
-Location.load = async () => {
-  return await new Promise(resolve => {
-    require.ensure([], require => {
+Location.load = async function () {
+  return await new Promise((resolve) => {
+    require.ensure([], (require) => {
       const data = require('../../data/data.json')
       const locs = data.features
-        .filter(l => l.attributes.Status !== 'CLOSED')
-        .map(l => new Location(l))
+        .filter((l) => l.attributes.Status !== 'CLOSED')
+        .map((l) => new Location(l))
 
       resolve(locs)
     })

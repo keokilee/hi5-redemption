@@ -10,7 +10,7 @@ Vue.config.debug = __DEBUG__
 
 if (typeof fetch === 'undefined') {
   // Not needed right now, but may be useful later.
-  require.ensure([], require => {
+  require.ensure([], (require) => {
     require('imports?self=>window!whatwg-fetch')
     router.start(App, 'body')
   })
