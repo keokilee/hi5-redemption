@@ -88,7 +88,7 @@ describe('models/Location', () => {
       // Hours are 'Mo-Fr 08:00-17:00; Sa,Su 08:00-15:00',
       it('has fully formatted hours', () => {
         expect(location.formattedHours()).toEqual(
-          'Monday - Friday from 8:00 AM - 5:00 PM\nSaturday, Sunday from 8:00 AM - 3:00 PM'
+          'Monday - Friday from 8:00 am - 5:00 pm\nSaturday, Sunday from 8:00 am - 3:00 pm'
         )
       })
     })

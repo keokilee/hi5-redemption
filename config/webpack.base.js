@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   context: process.cwd(),
   devtool: 'eval-source-map',
@@ -37,6 +39,9 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js'
   },
+  plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
+  ],
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {

@@ -11,6 +11,7 @@ config.module.preLoaders = [{
 }]
 
 config.plugins = [
+  ...config.plugins,
   new webpack.DefinePlugin({
     __DEBUG__: true,
     __MAPS_KEY__: JSON.stringify('testkey')
