@@ -70,11 +70,11 @@ function formatTime (timeStr) {
 }
 
 export function openToday (hours, date = new Date()) {
-  return _parseComponents(hours).some(component => _inDays(component, date))
+  return _parseComponents(hours).some((component) => _inDays(component, date))
 }
 
 export function openNow (hours, date = new Date()) {
-  return _parseComponents(hours).some(component => {
+  return _parseComponents(hours).some((component) => {
     return _inDays(component, date) && _inHours(component, date)
   })
 }
@@ -86,8 +86,8 @@ export function todaysHours (hours, date = new Date()) {
 
   // Grab the matching component.
   const components = _parseComponents(hours)
-                        .filter(c => _inDays(c, date))
-                        .map(c => _startAndEndDates(c, date))
+                        .filter((c) => _inDays(c, date))
+                        .map((c) => _startAndEndDates(c, date))
 
   const times = components.map(({ start, end }) => {
     return `${start.format(TIME_FORMAT)} - ${end.format(TIME_FORMAT)}`
@@ -97,7 +97,7 @@ export function todaysHours (hours, date = new Date()) {
 }
 
 function _parseComponents (hours) {
-  return hours.split(';').map(h => h.replace(/^\s+/, ''))
+  return hours.split(';').map((h) => h.replace(/^\s+/, ''))
 }
 
 function _inDays (hoursComponent, date) {
@@ -121,8 +121,8 @@ function _inHours (hoursComponent, date) {
 function _startAndEndDates (hoursComponent, date) {
   const hours = hoursComponent.split(' ')[1]
   const [start, end] = hours.split('-')
-  const [startHours, startMinutes] = start.split(':').map(t => +t)
-  const [endHours, endMinutes] = end.split(':').map(t => +t)
+  const [startHours, startMinutes] = start.split(':').map((t) => +t)
+  const [endHours, endMinutes] = end.split(':').map((t) => +t)
 
   return {
     start: moment(date).hour(startHours).minutes(startMinutes),

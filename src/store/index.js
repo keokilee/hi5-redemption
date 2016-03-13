@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import createLogger from 'vuex/logger'
 import Vue from 'vue'
 
 import mutations from 'src/store/mutations'
@@ -10,7 +11,7 @@ Vue.use(Vuex)
 const isProduction = process.env.NODE_ENV === 'production'
 
 const store = new Vuex.Store({
-  middlewares: isProduction ? [] : [Vuex.createLogger()],
+  middlewares: isProduction ? [] : [createLogger()],
   state: {
     filters: {
       open: ALL_LOCATIONS,

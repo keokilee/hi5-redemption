@@ -28,7 +28,7 @@ export default {
   computed: {
     location () {
       if (store.state.allCenters) {
-        return store.state.allCenters.filter(l =>
+        return store.state.allCenters.filter((l) =>
           l.id === store.state.selectedCenter
         )[0]
       }

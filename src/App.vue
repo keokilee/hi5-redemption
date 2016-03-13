@@ -8,7 +8,7 @@ import store from 'src/store'
 import Location from 'src/models/Location'
 
 export default {
-  ready: async () => {
+  ready: async function () {
     const recyclingCenters = await Location.load()
     store.actions.initRecyclingCenters(recyclingCenters)
   },

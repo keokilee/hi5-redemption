@@ -22,7 +22,7 @@ export default {
     }
   },
   ready () {
-    MapsLoader.load().then(google => {
+    MapsLoader.load().then((google) => {
       const bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(20.3111981, -158.8405013),
         new google.maps.LatLng(22.2711981, -156.8005013)
