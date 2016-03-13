@@ -1241,7 +1241,7 @@
         "Site_Address" : "12th St. & Fraser Ave.",
         "Date_Certified" : 1402394400000,
         "Cert_Expire_Date" : 1560074400000,
-        "Days_and_Hours_of_Operation" : "Mon,Wed,Fri 08:30-16:00",
+        "Days_and_Hours_of_Operation" : "Mon, Wed 13:00-16:30; Fri 13:00-17:00; Sat 08:30-15:00",
         "Latest_Change__Orig___Date" : null,
         "Comments" : null,
         "SW_Permit_Number" : "RY-0068-13",
@@ -1258,9 +1258,10 @@
         "ns1_latitude" : 20.8204083074114,
         "CreationDate" : 1437101499097,
         "Creator" : "bkimdb",
-        "EditDate" : 1453508323432,
-        "Editor" : "doh_mcasey",
-        "Status" : "CLOSED"
+        "EditDate" : 1456881119448,
+        "Editor" : "",
+        "Status" : "OPEN",
+        "Days_Hours_machine_time" : null
       },
       "geometry" :
       {
