@@ -17,6 +17,7 @@ config.devServer = {
 config.devtool = 'eval-source-map'
 
 config.plugins = [
+  ...config.plugins,
   new webpack.DefinePlugin({
     __DEBUG__: true,
     __MAPS_KEY__: JSON.stringify(secrets.development.GOOGLE_MAPS_API_KEY)
