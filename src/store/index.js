@@ -7,14 +7,14 @@ import { ALL_LOCATIONS } from 'src/constants'
 
 Vue.use(Vuex)
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isDevelopment = process.env.NODE_ENV === 'development'
 function createMiddleware () {
-  if (isProduction) {
-    return []
+  if (isDevelopment) {
+    const createLogger = require('vuex/logger')
+    return [createLogger()]
   }
 
-  const createLogger = require('vuex/logger')
-  return [createLogger()]
+  return []
 }
 
 const store = new Vuex.Store({
@@ -32,7 +32,7 @@ const store = new Vuex.Store({
   },
   actions,
   mutations,
-  strict: !isProduction
+  strict: isDevelopment
 })
 
 export default store
