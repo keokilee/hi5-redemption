@@ -1,6 +1,19 @@
 import { todaysHours, fullHours, openNow } from '../services/time_parser'
 
 export default class Location {
+  static async load () {
+    return await new Promise((resolve) => {
+      require.ensure([], (require) => {
+        const data = require('../../data/data.json')
+        const locs = data.features
+          .filter((l) => l.attributes.Status.toUpperCase() !== 'CLOSED')
+          .map((l) => new Location(l))
+
+        resolve(locs)
+      })
+    })
+  }
+
   constructor ({ attributes, geometry }) {
     Object.assign(this, {
       id: attributes.OBJECTID,
@@ -12,7 +25,7 @@ export default class Location {
       county: attributes.County,
       city: attributes.City_1,
       zip: attributes.Zip,
-      hours: attributes.Days_and_Hours_of_Operation,
+      hours: attributes.Days_Hours_machine_time,
       geometry
     })
   }
@@ -50,19 +63,6 @@ export default class Location {
 
     return R * c
   }
-}
-
-Location.load = async function () {
-  return await new Promise((resolve) => {
-    require.ensure([], (require) => {
-      const data = require('../../data/data.json')
-      const locs = data.features
-        .filter((l) => l.attributes.Status !== 'CLOSED')
-        .map((l) => new Location(l))
-
-      resolve(locs)
-    })
-  })
 }
 
 /**
