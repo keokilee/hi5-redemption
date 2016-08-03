@@ -68,7 +68,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
-    "phantomjs-prebuilt": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.10",
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.5.1",
     "postcss-font-magician": "^1.4.0",
