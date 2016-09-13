@@ -26,7 +26,7 @@
   "dependencies": {
     "google-maps": "^3.2.1",
     "http-server": "^0.9.0",
-    "moment": "^2.12.0",
+    "moment": "^2.15.0",
     "vue": "^1.0.18",
     "vue-router": "^0.7.13",
     "vuex": "^0.6.2"
