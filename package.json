@@ -72,7 +72,7 @@
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.5.1",
     "postcss-font-magician": "^1.4.0",
-    "postcss-reporter": "^1.3.0",
+    "postcss-reporter": "^2.0.0",
     "postcss-url": "^5.0.2",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.1",
